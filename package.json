@@ -1,0 +1,17 @@
+{
+  "name": "journey",
+  "version": "1.0.0",
+  "description": "trip travel planner",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "travel",
+    "trip",
+    "planner"
+  ],
+  "author": "nicole obomsawi",
+  "license": "ISC"
+}
