@@ -8,6 +8,8 @@ import Question6 from '../components/Question6/index';
 import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
 import AddTripQuestions from '../assets/questions/questions';
+import { Dropdown } from 'react-bootstrap';
+
 
 import '../index.css';
 
@@ -15,26 +17,111 @@ class AddTrip extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            questions: AddTripQuestions
+            currentQuestion: 1, // default first step
+            startpoint: '',
+            endpoint: '',
+            budget: null,
+            people: 0,
+            vehicle: [],
+            dates: Date(),
+            stops: [],
+            night: '',
         }
+
+        this._next = this._next.bind(this);
+
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    _next() {
+        let currentQuestion = this.state.currentQuestion;
+        currentQuestion = currentQuestion >= 8 ? alert('done!') : currentQuestion + 1;
+        this.setState({
+            currentQuestion: currentQuestion
+        })
+    }
+
+    handleChange(event) {
+        const { username, value } = event.target
+        this.setState({
+            [username]: value
+        });
+    }
+
+    get nextButton() {
+        let currentQuestion = this.state.currentQuestion;
+        if (currentQuestion < 9)  {
+            return(
+                <button className="btn btn-primary float-right" type="button" onClick={this._next}>Next</button>
+            )
+        }
+        return null;
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        const { startpoint, endpoint, budget, people, vehicle, dates, stops, night } = this.state;
+        alert(`Your details: \n
+            Starting: ${startpoint}
+            Ending: ${endpoint}
+        `)
     }
 
     render() {
         return(
             <div className="row">
                 <div className="col-sm-12 questionheader">
-                    <Question1 />
-                    <Question2 />
-                    <Question3 />
-                    <Question4 />
-                    <Question5 />
-                    <Question6 />
-                    <Question7 />
-                    <Question8 />
+                    <form onSubmit={this.handleSubmit}>
+                    <Question1 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        startpoint={this.state.startpoint}
+                    />
+                    <Question2 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        endpoint={this.state.endpoint}
+                    />
+                    <Question3 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        budget={this.state.budget}
+                    />
+                    <Question4 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        people={this.state.people}
+                    />
+                    <Question5 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        vehicle={this.state.vehicle}
+                    />
+                    <Question6 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        dates={this.state.dates}
+                    />
+                    <Question7 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        stops={this.state.stops}
+                    />
+                    <Question8 
+                        currentQuestion={this.state.currentQuestion}
+                        handleChange={this.handleChange}
+                        night={this.state.night}
+                    />
+                    {this.nextButton}
+                    </form>
                 </div>
             </div>
         );
     }
 }
+
+
+
+
 
 export default AddTrip;

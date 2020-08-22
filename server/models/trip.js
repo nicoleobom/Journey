@@ -10,7 +10,8 @@ let Trip = new Schema ({
     startdate: { type: Date },
     enddate: { type: Date },
     overnight: { type: String },
-    stops: { type: Array }
+    stops: { type: Array },
+    night: { type: String }
 })
 
 module.exports = mongoose.model('Trip', Trip);
