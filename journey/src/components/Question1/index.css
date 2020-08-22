@@ -1,0 +1,17 @@
+.bgcolor {
+    background-color: #29301e;
+    border: none;
+    margin: 15px;
+    color: white;
+    transition: ease-in-out .25s;
+}
+
+.bgcolor:hover {
+    background-color: #98a685;
+
+}
+
+.bgcolor:focus {
+    background-color: #98a685 !important;
+
+}

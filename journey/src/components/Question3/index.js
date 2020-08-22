@@ -8,7 +8,7 @@ function Question3 (props) {
     return(
         <div>
             <h3>What's your budget?</h3>
-            {/* <InputGroup className="mb-3">
+            <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                     <InputGroup.Text>$</InputGroup.Text>
                 </InputGroup.Prepend>
@@ -16,10 +16,10 @@ function Question3 (props) {
                 <InputGroup.Append>
                     <InputGroup.Text>.00</InputGroup.Text>
                 </InputGroup.Append>
-            </InputGroup> */}
+            </InputGroup>
 
             <h3>or</h3>
-            {/* <button>I don't have a budget</button> */}
+            <button>I don't have a budget</button>
         </div>
     );
 }

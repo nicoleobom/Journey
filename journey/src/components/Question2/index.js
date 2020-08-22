@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
+import './index.css';
 
 function Question2(props) {
     if (props.currentQuestion != 2) {
@@ -9,7 +10,7 @@ function Question2(props) {
         <div>
             <h3>Where do you want to go?</h3>
             <Dropdown>
-                <Dropdown.Toggle className="dropdown">
+                <Dropdown.Toggle className="bgcolor">
                     Choose a country
                 </Dropdown.Toggle>
 
@@ -18,7 +19,7 @@ function Question2(props) {
                 </Dropdown.Menu>
             </Dropdown>
             <Dropdown>
-                <Dropdown.Toggle className="dropdown">
+                <Dropdown.Toggle className="bgcolor">
                     Choose a state
                 </Dropdown.Toggle>
 
@@ -27,7 +28,7 @@ function Question2(props) {
                 </Dropdown.Menu>
             </Dropdown>
             <Dropdown>
-                <Dropdown.Toggle className="dropdown">
+                <Dropdown.Toggle className="bgcolor">
                     Choose a city
                 </Dropdown.Toggle>
 

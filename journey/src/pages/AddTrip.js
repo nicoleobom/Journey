@@ -41,6 +41,14 @@ class AddTrip extends React.Component {
         })
     }
 
+    _prev() {
+        let currentQuestion = this.state.currentQuestion;
+        currentQuestion = currentQuestion <= 1 ? 1: currentQuestion - 1;
+        this.setState({
+            currentQuestion: currentQuestion
+        })
+    }
+
     handleChange(event) {
         const { username, value } = event.target
         this.setState({
@@ -48,11 +56,21 @@ class AddTrip extends React.Component {
         });
     }
 
+    get previousButton() {
+        let currentQuestion = this.state.currentQuestion;
+        if (currentQuestion !== 1) {
+            return(
+                <button className="btn nextbtn float-left" type="button" onClick={this._prev}>Back</button>
+            )
+        }
+        return null;
+    }
+
     get nextButton() {
         let currentQuestion = this.state.currentQuestion;
         if (currentQuestion < 9)  {
             return(
-                <button className="btn btn-primary float-right" type="button" onClick={this._next}>Next</button>
+                <button className="btn float-right nextbtn" type="button" onClick={this._next}>Next</button>
             )
         }
         return null;
@@ -112,6 +130,7 @@ class AddTrip extends React.Component {
                         handleChange={this.handleChange}
                         night={this.state.night}
                     />
+                    {this.previousButton}
                     {this.nextButton}
                     </form>
                 </div>

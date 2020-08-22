@@ -26,6 +26,12 @@ h1 {
   font-size: 120px !important;
 }
 
+h3 {
+  font-family: 'LadyNature', sans-serif;
+  color: white;
+  font-size: 50px !important;
+}
+
 .header {
   text-align: center;
   margin-top: 10%;
@@ -79,7 +85,16 @@ a {
   font-family: 'Arial', 'sans-serif';
 }
 
-.dropdown {
-  margin: 15px;
-  color: white;
+.nextbtn {
+  background-color: #29301e !important;
+  color: white !important;
+  font-family: 'LadyNature', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px !important;
+  transition: ease-in-out .25s;
+}
+
+.nextbtn:hover {
+  background-color: #98a685 !important;
 }
