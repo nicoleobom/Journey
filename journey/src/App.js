@@ -7,8 +7,6 @@ import AddTrip from './pages/AddTrip';
 import Signup from './pages/Signup';
 import Settings from './pages/Settings';
 
-var db = require('../../server/models');
-
 class App extends React.Component {
   render() {
     return (
