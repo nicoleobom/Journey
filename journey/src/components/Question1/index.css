@@ -4,6 +4,7 @@
     margin: 15px;
     color: white;
     transition: ease-in-out .25s;
+    border-radius: 15px;
 }
 
 .bgcolor:hover {

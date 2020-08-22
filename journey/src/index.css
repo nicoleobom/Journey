@@ -93,6 +93,7 @@ a {
   letter-spacing: 2px;
   font-size: 20px !important;
   transition: ease-in-out .25s;
+  border-radius: 15px !important;
 }
 
 .nextbtn:hover {

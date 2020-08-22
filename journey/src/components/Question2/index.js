@@ -1,6 +1,5 @@
 import React from 'react';
 import { Dropdown } from 'react-bootstrap';
-import './index.css';
 
 function Question2(props) {
     if (props.currentQuestion != 2) {

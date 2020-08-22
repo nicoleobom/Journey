@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputGroup, FormControl } from 'react-bootstrap';
+import './index.css';
 
 function Question3 (props) {
     if (props.currentQuestion != 3) {
@@ -8,18 +9,16 @@ function Question3 (props) {
     return(
         <div>
             <h3>What's your budget?</h3>
-            <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                    <InputGroup.Text>$</InputGroup.Text>
-                </InputGroup.Prepend>
-                <FormControl aria-label="Amount (to the nearest dollar)" />
-                <InputGroup.Append>
-                    <InputGroup.Text>.00</InputGroup.Text>
-                </InputGroup.Append>
-            </InputGroup>
-
-            <h3>or</h3>
-            <button>I don't have a budget</button>
+                <div className="budgetform">
+                    <InputGroup className="mb-3 budgetinput">
+                        <InputGroup.Prepend>
+                            <InputGroup.Text>$</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl id="budgetinput" aria-label="Amount (to the nearest dollar)" />
+                    </InputGroup>
+                    <h3>or</h3>
+                    <button id="nobudget">I don't have a budget</button>
+                </div>
         </div>
     );
 }
