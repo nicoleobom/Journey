@@ -1,0 +1,11 @@
+.circle {
+    padding: 50px;
+    border: none;
+    border-radius: 50%;
+    transition: ease-in-out .25s;
+    margin: 10px;
+}
+
+.circle:hover {
+    background-color: #98a685;
+}
