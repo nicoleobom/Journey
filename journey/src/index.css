@@ -50,7 +50,7 @@ input {
   color: #29301e;
 }
 
-#loginbtn {
+.loginbtn {
   margin-top: 20px;
   border: none;
   border-radius: 12px;
@@ -63,7 +63,7 @@ input {
   font-weight: bold;
 }
 
-#loginbtn:hover {
+.loginbtn:hover {
   background-color: #29301e;
   color: white;
 }
@@ -116,4 +116,9 @@ a {
 
 i {
   margin-right: 10px;
+  transition: ease-in-out .25s;
+}
+
+i:hover {
+  color: #29301e
 }

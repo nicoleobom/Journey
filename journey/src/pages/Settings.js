@@ -19,7 +19,7 @@ function Settings(props) {
                 <input placeholder="new password" className="settingsinput" /><br />
                 <input placeholder="new password" className="settingsinput" /><br />
 
-                <button id="loginbtn">save</button>
+                <button className="loginbtn">save</button>
             </div>
         </div>
     );
