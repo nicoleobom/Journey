@@ -3,7 +3,7 @@ import React from 'react';
 function Signup() {
     return(
         <div className="row">
-            <div className="col-sm-12">
+            <div className="col-sm-12 header">
                 <h3>Sign up to start your journey!</h3>
                 <input placeholder="first name" className="settingsinput" /><br />
                 <input placeholder="last name" className="settingsinput" /><br />

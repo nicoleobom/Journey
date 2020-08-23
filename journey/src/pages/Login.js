@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Home() {
+function Login() {
     return(
         <div className="row">
             <div className="col-sm-12 header">
@@ -8,10 +8,10 @@ function Home() {
                 <input id="username" placeholder="username" /><br />
                 <input placeholder="password" /><br />
                 <button className="loginbtn">login</button>
-                <p id="signupText">New user? <a href="#">Click here</a> to sign up!</p>
+                <p id="signupText">New user? <a href="/signup">Click here</a> to sign up!</p>
             </div>
         </div>
     );
 }
 
-export default Home;
+export default Login;
