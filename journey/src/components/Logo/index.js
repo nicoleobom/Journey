@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/images/logo.png';
+import './index.css';
 
 function Logo() {
     return (

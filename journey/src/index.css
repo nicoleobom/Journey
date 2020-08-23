@@ -109,16 +109,3 @@ a {
 .settingsinput {
   margin-bottom: 15px;
 }
-
-.logo {
-  margin: 10px;
-}
-
-i {
-  margin-right: 10px;
-  transition: ease-in-out .25s;
-}
-
-i:hover {
-  color: #29301e
-}
