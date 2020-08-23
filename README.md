@@ -1,10 +1,10 @@
 ## Journey: Your Trip Planner
 
 ### Table of Contents:
-* [About](#about)
-* [Usage](#how)
-* [Technology](#technologies)
-* [Installing](#install)
+* [About](#about-journey)
+* [Usage](#how-it-works)
+* [Technology](#technologies-used)
+* [Installing](#install-instructions)
 * [License](#license)
 
 ### About Journey:
