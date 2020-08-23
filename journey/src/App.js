@@ -26,6 +26,7 @@ class App extends React.Component {
         <div className="container">
 
           <Route path="/" exact component={Home} />
+          <Route path="/home" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/logout" exact component={Login} />
           <Route path="/new-trip" exact component={AddTrip} />

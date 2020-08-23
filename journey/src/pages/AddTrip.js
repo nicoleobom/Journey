@@ -29,6 +29,7 @@ class AddTrip extends React.Component {
         }
 
         this._next = this._next.bind(this);
+        this._prev = this._prev.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -43,7 +44,7 @@ class AddTrip extends React.Component {
 
     _prev() {
         let currentQuestion = this.state.currentQuestion;
-        currentQuestion = currentQuestion <= 1 ? 1: currentQuestion - 1;
+        currentQuestion = currentQuestion < 1 ? 1: currentQuestion - 1;
         this.setState({
             currentQuestion: currentQuestion
         })
