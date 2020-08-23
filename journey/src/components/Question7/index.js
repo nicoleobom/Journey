@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Question7 (props) {
-    if (props.currentQuestion != 7) {
+    if (props.currentQuestion !== 7) {
         return null;
     }
         return(
