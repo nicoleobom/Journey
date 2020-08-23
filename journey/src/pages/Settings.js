@@ -1,8 +1,10 @@
 import React from 'react';
 import '../index.css';
 import Circles from '../components/Circles/index';
+import { useHistory } from 'react-router-dom';
 
 function Settings(props) {
+    const history = useHistory();
     return(
         <div className="row">
             <div className="col-sm-12 header">
@@ -19,7 +21,9 @@ function Settings(props) {
                 <input placeholder="new password" className="settingsinput" /><br />
                 <input placeholder="new password" className="settingsinput" /><br />
 
-                <button className="loginbtn">save</button>
+                <button className="loginbtn" onClick={() => {
+                    history.push('/home')
+                }}>save</button>
             </div>
         </div>
     );

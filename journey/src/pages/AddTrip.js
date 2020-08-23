@@ -7,9 +7,6 @@ import Question5 from '../components/Question5/index';
 import Question6 from '../components/Question6/index';
 import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
-import AddTripQuestions from '../assets/questions/questions';
-import { Dropdown } from 'react-bootstrap';
-
 
 import '../index.css';
 
@@ -36,7 +33,7 @@ class AddTrip extends React.Component {
 
     _next() {
         let currentQuestion = this.state.currentQuestion;
-        currentQuestion = currentQuestion >= 8 ? alert('done!') : currentQuestion + 1;
+        currentQuestion = currentQuestion >= 8 ?  alert('done!'): currentQuestion + 1;
         this.setState({
             currentQuestion: currentQuestion
         })
