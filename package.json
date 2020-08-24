@@ -14,7 +14,6 @@
     "client": "cd journey && npm run start",
     "install": "cd journey && npm install",
     "build": "cd journey && npm run build"
-
   },
   "keywords": [],
   "author": "Logan Hemphill, Nicole O'Bomsawin",
@@ -23,6 +22,7 @@
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.10.0"
+    "mongoose": "^5.10.0",
+    "react-places-autocomplete": "^7.3.0"
   }
 }
