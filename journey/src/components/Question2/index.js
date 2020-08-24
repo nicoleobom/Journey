@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown } from 'react-bootstrap';
 
 function Question2(props) {
-    if (props.currentQuestion != 2) {
+    if (props.currentQuestion !== 2) {
         return null;
     }
     return (
