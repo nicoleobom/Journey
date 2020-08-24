@@ -1,9 +1,8 @@
 import React from 'react';
-import { Dropdown } from 'react-bootstrap';
 
 
 function Question4 (props) {
-    if (props.currentQuestion != 4) {
+    if (props.currentQuestion !== 4) {
         return null;
     }
     return(

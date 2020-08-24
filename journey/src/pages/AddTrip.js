@@ -80,6 +80,12 @@ class AddTrip extends React.Component {
         alert(`Your details: \n
             Starting: ${startpoint}
             Ending: ${endpoint}
+            Budget: ${budget}
+            People: ${people}
+            Vehicle: ${vehicle}
+            Dates: ${dates}
+            Stops: ${stops}
+            Overnight: ${night}
         `)
     }
 

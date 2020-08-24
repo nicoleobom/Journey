@@ -3,7 +3,7 @@ import { InputGroup, FormControl } from 'react-bootstrap';
 import './index.css';
 
 function Question3 (props) {
-    if (props.currentQuestion != 3) {
+    if (props.currentQuestion !== 3) {
         return null;
     }
     return(

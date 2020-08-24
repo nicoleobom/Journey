@@ -1,6 +1,5 @@
 import React from 'react';
 import '../index.css';
-import Circles from '../components/Circles/index';
 import { useHistory } from 'react-router-dom';
 
 function Settings(props) {
