@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run start",
     "install": "cd journey && npm install",
-    "build": "npm run build",
+    "build": "cd journey && npm run build",
     "heroku-postbuild": "npm run build"
 
   },
