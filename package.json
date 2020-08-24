@@ -14,7 +14,6 @@
     "client": "cd journey && npm run start",
     "install": "cd journey && npm install",
     "build": "cd journey && npm run build"
-    // "heroku-postbuild": "npm run build"
 
   },
   "keywords": [],
