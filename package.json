@@ -6,11 +6,10 @@
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd client && npm run start",
-    "seed": "node scripts/userSeedDB.js",
-    "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "start:dev": "concurrently \"nodemon --ignore 'journey/*'\" \"npm run journey\"",
+    "client": "cd journey && npm run start",
+    "install": "cd journey && npm install",
+    "build": "cd journey && npm run build",
     "heroku-postbuild": "npm run build"
 
   },
