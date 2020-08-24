@@ -12,7 +12,7 @@
 
   },
   "keywords": [],
-  "author": "",
+  "author": "Logan Hemphill, Nicole O'Bomsawin",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
