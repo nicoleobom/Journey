@@ -8,7 +8,7 @@ function Question4 (props) {
     return(
         <div>
             <h3>How many people are joining you?</h3>
-            <input value={Number}></input>
+            <input></input>
         </div>
     );
 }
