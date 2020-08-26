@@ -4,7 +4,6 @@ import './index.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-
 // import pages
 import Login from './pages/Login';
 import AddTrip from './pages/AddTrip';
@@ -17,7 +16,10 @@ import Nav from './components/Navbar/index';
 import Logo from './components/Logo/index';
 
 // setting up app
+// import API from './utils/API';
+
 class App extends React.Component {
+
   render() {
     return (
       <Router>
