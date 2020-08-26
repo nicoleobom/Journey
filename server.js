@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const userRoutes = express.Router();
+const passport = require('./config/passport');
+const session = require('express-session');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000;
 
 let User = require('./models/user');
 
@@ -18,6 +20,17 @@ const connection = mongoose.connection;
 connection.once('open', function() {
     console.log('MongoDB database connection establish successfully.');
 })
+
+// session
+app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use((req, res, next) => {
+	console.log('req.session', req.session);
+	return next();
+});
 
 // user routes
 userRoutes.route('/').get(function(req, res) {
