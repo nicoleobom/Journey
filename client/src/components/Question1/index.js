@@ -5,11 +5,8 @@ import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-au
 class Question1 extends React.Component {
     constructor(props) {
         super(props);
-        if (props.currentQuestion !== 1) {
-            return null;
-        }
         this.state = {
-            address: ''
+            address: '',
         }
     }
 
@@ -45,7 +42,7 @@ class Question1 extends React.Component {
                                 {loading && <div>Loading...</div>}
                                 {suggestions.map(suggestion => {
                                     const className= suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
-                                    const style = suggestion.active ? { backgroundColor: '#fafafa', cursor: 'pointer' } : { backgroundColor: '#fffff', cursor: 'pointer' };
+                                    const style = suggestion.active ? { backgroundColor: 'rgba(255,255,255, 0.6)', cursor: 'pointer' } : null;
                                     return(
                                         <div
                                         {...getSuggestionItemProps(suggestion, {

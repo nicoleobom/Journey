@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 //     console.log('MongoDB database connection establish successfully.');
 // })
 
-mongoose.connect("mongodb://localhost/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
+mongoose.connect("mongodb://localhost:27017/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
 
 // session
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
