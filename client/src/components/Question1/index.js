@@ -39,7 +39,7 @@ class Question1 extends React.Component {
                                 })}
                                 />
                             <div className="autocomplete-dropdown-container">
-                                {loading && <div>Loading...</div>}
+                                {loading && <div id="loading">Loading...</div>}
                                 {suggestions.map(suggestion => {
                                     const className= suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
                                     const style = suggestion.active ? { backgroundColor: 'rgba(255,255,255, 0.6)', cursor: 'pointer' } : null;

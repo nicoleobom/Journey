@@ -16,3 +16,7 @@
     background-color: #98a685 !important;
 
 }
+
+#loading, .suggestion-item, .suggestion-item--active {
+    margin-top: 20px;
+}

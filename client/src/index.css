@@ -101,10 +101,32 @@ a {
   font-size: 20px !important;
   transition: ease-in-out .25s;
   border-radius: 15px !important;
+  position: fixed;
+  right: 10%;
+  bottom: 40%;
 }
 
 .nextbtn:hover {
   background-color: #98a685 !important;
+}
+
+.prevbtn {
+  background-color: #29301e !important;
+  color: white !important;
+  font-family: 'LadyNature', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px !important;
+  transition: ease-in-out .25s;
+  border-radius: 15px !important;
+  position: fixed;
+  left: 10%;
+  bottom: 40%;
+}
+
+.prevbtn:hover {
+  background-color: #98a685 !important;
+
 }
 
 .navstyle {

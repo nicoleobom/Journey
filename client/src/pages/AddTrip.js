@@ -58,7 +58,7 @@ class AddTrip extends React.Component {
         let currentQuestion = this.state.currentQuestion;
         if (currentQuestion !== 1) {
             return(
-                <button className="btn nextbtn float-left" type="button" onClick={this._prev}>Back</button>
+                <button className="btn prevbtn float-left" type="button" onClick={this._prev}>Back</button>
             )
         }
         return null;
