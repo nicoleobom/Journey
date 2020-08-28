@@ -15,12 +15,14 @@ let User = require('./models/user');
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/journey', { useNewUrlParser: true });
-const connection = mongoose.connection;
+// mongoose.connect('mongodb://localhost/journey', { useNewUrlParser: true });
+// const connection = mongoose.connection;
 
-connection.once('open', function() {
-    console.log('MongoDB database connection establish successfully.');
-})
+// connection.once('open', function() {
+//     console.log('MongoDB database connection establish successfully.');
+// })
+
+mongoose.connect("mongodb://localhost/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
 
 // session
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
