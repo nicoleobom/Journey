@@ -37,6 +37,7 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
+        document.getElementById("q1").style.display = "none";
     }
 
     _prev() {

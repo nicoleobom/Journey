@@ -20,3 +20,7 @@
 #loading, .suggestion-item, .suggestion-item--active {
     margin-top: 20px;
 }
+
+.location-search-input {
+    margin-top: 50px;
+}
