@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function Circles({ icon }) {
     return (
-        <div>
-            <button className="circle"><FontAwesomeIcon icon={icon} size="2x" /></button>
-        </div>
+        <button className="circle"><FontAwesomeIcon icon={icon} size="2x" /></button>
     );
 }
 

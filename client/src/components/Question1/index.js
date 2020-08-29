@@ -21,6 +21,7 @@ class Question1 extends React.Component {
             .catch(error => console.log('Error', error));
     };
 
+
     render() {
         return (
             <div id="q1">
