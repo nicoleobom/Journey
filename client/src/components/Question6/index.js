@@ -4,6 +4,7 @@ import DatePicker from 'react-date-picker';
 
 function Question6 (props) {
     const [value, onChange] = useState(new Date());
+    const [val2, onChange2] = useState(new Date())
 
     if (props.currentQuestion !== 6) {
         return null;
@@ -18,8 +19,8 @@ function Question6 (props) {
                     value={value}
                 />
                 <DatePicker
-                    onChange={onChange}
-                    value={value}
+                    onChange={onChange2}
+                    value={val2}
                 />
             </div>
         </div>
