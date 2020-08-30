@@ -137,7 +137,6 @@ class AddTrip extends React.Component {
         return(
             <div className="row">
                 <div className="col-sm-12 questionheader">
-                    <form onSubmit={this.handleSubmit}>
                     <Question1 
                         currentQuestion={this.state.currentQuestion}
                         handleChange={this.handleChange}
@@ -180,7 +179,6 @@ class AddTrip extends React.Component {
                     />
                     {this.previousButton}
                     {this.nextButton}
-                    </form>
                 </div>
             </div>
         );
