@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+let selectedAddress;
 
 class Question1 extends React.Component {
     constructor(props) {
@@ -8,6 +9,7 @@ class Question1 extends React.Component {
         this.state = {
             address: '',
         }
+        
     }
 
     handleChange = address => {
@@ -15,31 +17,34 @@ class Question1 extends React.Component {
     }
 
     handleSelect = address => {
+        
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => console.log('Success', latLng))
             .catch(error => console.log('Error', error));
     };
 
+    
 
-    render() {
+    render() {        
         return (
             <div id="q1" className="bg-q">
                 <h3>Where's your starting point?</h3>
+                
                 <PlacesAutocomplete
                     value={this.state.address}
                     onChange={this.handleChange}
                     onSelect={this.handleSelect}
                 >
-                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                    {({ address, getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                         <div>
                             <input
                                 {...getInputProps({
                                     placeholder: 'Search places...',
                                     className: 'location-search-input',
                                 })}
-                                >
-                            </input>
+                                value={address}
+                                 />
                             <div className="autocomplete-dropdown-container">
                                 {loading && <div id="loading">Loading...</div>}
                                 {suggestions.map(suggestion => {
