@@ -16,13 +16,15 @@ const { User } = require("../../models");
 //     });
 // });
 
-router.get('/', userController.findAll);
-
 router.post("/login", passport.authenticate("local"), userController.login);
 
 router.get("/authenticate", authenticate);
 
-router.use(authenticate);
+// router.use(authenticate);
+
+// router.get('/*', authenticate);
+
+router.get('/', userController.findAll);
 
 router.get("/logout", (req, res) => {
 	req.logout();
