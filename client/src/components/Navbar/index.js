@@ -1,8 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import './index.css';
 
-function Nav() {
+function Nav(props) {
+    const { location } = props;
+    if (location.pathname.match(/login/) || location.pathname.match(/signup/)){
+        return null;
+    }
+    
     return(
         <nav className="navbar navstyle float-right">
             <Link to="/" className="navbar-brand"><i className="fas fa-home"></i></Link>
@@ -13,4 +18,4 @@ function Nav() {
     )
 }
 
-export default Nav;
+export default withRouter(Nav);

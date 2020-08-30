@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import API from '../utils/API';
 
 function Signup() {
     const history = useHistory();
@@ -12,6 +13,7 @@ function Signup() {
                 <input placeholder="username" className="settingsinput" /><br />
                 <input placeholder="password" className="settingsinput" /><br />
                 <button className="loginbtn" onClick={() => {
+                    API.createUser();
                     history.push('/home');
                 }}>Get started</button>
             </div>

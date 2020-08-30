@@ -12,7 +12,7 @@ function Login() {
                 <button className="loginbtn" onClick={() => {
                     history.push('/home')
                 }}>login</button>
-                <p id="signupText">New user? <Link to="/signup">Click here</Link> to sign up!</p>
+                <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link></p>
             </div>
         </div>
     );
