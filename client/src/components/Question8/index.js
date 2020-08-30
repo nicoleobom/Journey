@@ -7,7 +7,7 @@ function Question8 (props) {
         return null;
     }
     return(
-        <div>
+        <div className="bg-q">
             <h3>How do you prefer to stay the night?</h3>
             <div className="circles">
                 <Circles icon={faHotel}/>

@@ -25,7 +25,7 @@ class Question2 extends React.Component {
 
     render() {
         return (
-            <div id="q2">
+            <div id="q2" className="bg-q">
                 <h3>Where do you want to go?</h3>
                 <PlacesAutocomplete
                     value={this.state.address}

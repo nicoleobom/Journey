@@ -7,7 +7,7 @@ function Question3 (props) {
         return null;
     }
     return(
-        <div>
+        <div className="bg-q">
             <h3>What's your budget?</h3>
                 <div className="budgetform">
                     <InputGroup className="mb-3 budgetinput">

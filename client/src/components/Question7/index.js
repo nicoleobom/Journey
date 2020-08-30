@@ -6,7 +6,7 @@ function Question7 (props) {
         return null;
     }
         return(
-            <div>
+            <div className="bg-q">
                 <h3>What kinds of places do you want to stop at?</h3>
                 <Checkbox />
             </div>
