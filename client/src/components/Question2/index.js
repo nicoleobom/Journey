@@ -1,95 +1,74 @@
 import React from 'react';
-import { Dropdown } from 'react-bootstrap';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import useOnClickOutside from 'react-cool-onclickoutside';
 
+const Question2 = props => {
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        requestOptions: {
 
-class Question2 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            address: '',
-        }
-    }
+        },
+        debounce: 300,
+    });
 
-    handleChange = address => {
-        this.setState({ address });
-    }
+    const ref = useOnClickOutside(() => {
+        clearSuggestions();
+    });
 
-    handleSelect = address => {
-        geocodeByAddress(address)
-            .then(results => getLatLng(results[0]))
-            .then(latLng => console.log('Success', latLng))
-            .catch(error => console.log('Error', error));
+    const handleInput = event => {
+        setValue(event.target.value);
     };
 
+    const handleSelect = ({ description }) => () => {
+        setValue(description, false);
+        clearSuggestions();
 
-    render() {
-        return (
-            <div id="q2" className="bg-q">
-                <h3>Where do you want to go?</h3>
-                <PlacesAutocomplete
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    onSelect={this.handleSelect}
-                >
-                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div>
-                            <input
-                                {...getInputProps({
-                                    placeholder: 'Search places...',
-                                    className: 'location-search-input',
-                                })}
-                                />
-                            <div className="autocomplete-dropdown-container">
-                                {loading && <div id="loading">Loading...</div>}
-                                {suggestions.map(suggestion => {
-                                    const className= suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
-                                    const style = suggestion.active ? { backgroundColor: 'rgba(255,255,255, 0.6)', cursor: 'pointer' } : null;
-                                    return(
-                                        <div
-                                        {...getSuggestionItemProps(suggestion, {
-                                            className,
-                                            style,
-                                        })}>
-                                        
-                                        <span>{suggestion.description}</span>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    )}
-                </PlacesAutocomplete>
-                {/* <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your country
-                    </Dropdown.Toggle>
+        getGeocode({ address: description })
+            .then((results) => getLatLng(results[0]))
+            .then(({ lat, lng }) => {
+                console.log('📍 Coordinates: ', { lat, lng });
+            })
+            .catch((error) => {
+                console.log('Error!', error);
+            });
+    };
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your state
-                    </Dropdown.Toggle>
+    const renderSuggestions = () =>
+        data.map((suggestion) => {
+            const {
+                id,
+                structured_formatting: { main_text, secondary_text },
+            } = suggestion;
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your city
-                    </Dropdown.Toggle>
+            return (
+                <li key={id} onClick={handleSelect(suggestion)}>
+                    <strong>{main_text}</strong> <small>{secondary_text}</small>
+                </li>
+            )
+        });
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
-                </div>
-            );
+        if (props.currentQuestion !== 2) {
+            return null;
         }
+
+        return (
+            <div ref={ref} id="q2" className="bg-q">
+                <h3>Where do you want to go?</h3>
+                <input
+                    className="location-search-input"
+                    value={value}
+                    onChange={handleInput}
+                    disabled={!ready}
+                    placeholder="The world is your oyster..."
+                />
+                {status === "OK" && <ul>{renderSuggestions()}</ul>}
+            </div>
+        )
 
 }
 

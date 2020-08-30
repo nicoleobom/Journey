@@ -8,7 +8,7 @@ function Login() {
             <div className="col-sm-12 header">
                 <h1>Journey</h1>
                 <input id="username" placeholder="username" /><br />
-                <input placeholder="password" /><br />
+                <input placeholder="password" type="password"/><br />
                 <button className="loginbtn" onClick={() => {
                     history.push('/home')
                 }}>login</button>

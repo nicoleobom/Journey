@@ -44,7 +44,6 @@ class App extends React.Component {
   render() {
     return (
         <div className="container">
-          {/* <Logo /> */}
           <Nav />
             <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Home} />
