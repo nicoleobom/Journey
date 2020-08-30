@@ -4,7 +4,7 @@ import './index.css';
 
 function Nav(props) {
     const { location } = props;
-    if (location.pathname.match(/login/)){
+    if (location.pathname.match(/login/) || location.pathname.match(/signup/)){
         return null;
     }
     
