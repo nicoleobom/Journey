@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
+import './index.css';
 
 export default class Checkbox extends React.Component {
     constructor(props) {
@@ -47,7 +48,7 @@ export default class Checkbox extends React.Component {
             <Form>
                 <Form.Group>
                 {this.state.labels.map(label => (
-                    <Form.Check type="checkbox" label={label.name} key={label.id} />
+                    <Form.Check type="checkbox" className="checkbox" label={label.name} key={label.id} />
                 ))}
                 </Form.Group>
             </Form>

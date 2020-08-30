@@ -16,8 +16,6 @@ function Question3 (props) {
                         </InputGroup.Prepend>
                         <FormControl min="100" step="100" placeholder="100" type="number" id="budgetinput" aria-label="Amount (to the nearest dollar)" />
                     </InputGroup>
-                    <h3>or</h3>
-                    <button id="nobudget">I don't have a budget</button>
                 </div>
         </div>
     );

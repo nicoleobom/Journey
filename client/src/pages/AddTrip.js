@@ -87,7 +87,6 @@ class AddTrip extends React.Component {
                 <button className="btn float-right nextbtn" ><Link to="/results">Results</Link></button>
             )
         }
-        return null;
     }
 
     handleSubmit = (event) => {
