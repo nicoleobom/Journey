@@ -22,8 +22,6 @@ app.use(bodyParser.json());
 //     console.log('MongoDB database connection establish successfully.');
 // })
 
-mongoose.connect("mongodb://localhost:27017/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
-
 // session
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
 
@@ -36,6 +34,8 @@ app.use((req, res, next) => {
 });
 
 app.use(routes);
+
+mongoose.connect("mongodb://localhost:27017/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
 
 app.listen(PORT, function() {
     console.log('Server is running on port: ' + PORT);

@@ -7,8 +7,8 @@ function Question4 (props) {
     }
     return(
         <div className="bg-q">
-            <h3>How many people are joining you?</h3>
-            <input className="answers" type="number" min="0" max="10" placeholder="0"></input>
+            <h3>How many people are going?</h3>
+            <input className="answers" type="number" min="1" max="10" placeholder="1"></input>
         </div>
     );
 }
