@@ -10,6 +10,7 @@ import AddTrip from './pages/AddTrip';
 import Signup from './pages/Signup';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
+import Results from './pages/Results';
 
 // import components
 import Nav from './components/Navbar/index';
@@ -53,6 +54,7 @@ class App extends React.Component {
             <Route path="/new-trip" exact component={AddTrip} />
             <Route path="/signup" exact component={Signup} />
             <Route path="/settings" exact component={Settings} />
+            <Route path="/results" exact component={Results} />
         </div>
     );
   }

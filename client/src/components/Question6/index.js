@@ -15,10 +15,12 @@ function Question6 (props) {
             <h3>When would you like to go?</h3>
             <div className="date">
                 <DatePicker
+                    className="cal"
                     onChange={onChange}
                     value={value}
-                />
+                /><br />
                 <DatePicker
+                    className="cal"
                     onChange={onChange2}
                     value={val2}
                 />
