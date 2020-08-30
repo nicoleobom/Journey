@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-let Trip = new Schema ({
+let tripSchema = new Schema ({
     startpoint: { type: String, required: true },
     endpoint: { type: String, required: true },
     budget: { type: Number },
@@ -14,4 +14,6 @@ let Trip = new Schema ({
     night: { type: String }
 })
 
-module.exports = mongoose.model('Trip', Trip);
+const Trip = mongoose.model('Trip', tripSchema);
+
+module.exports = Trip;

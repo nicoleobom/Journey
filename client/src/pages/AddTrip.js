@@ -7,8 +7,11 @@ import Question5 from '../components/Question5/index';
 import Question6 from '../components/Question6/index';
 import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
+import Results from '../pages/Results';
+import { Redirect, Link } from 'react-router-dom';
 
 import '../index.css';
+
 
 class AddTrip extends React.Component {
     constructor(props) {
@@ -23,20 +26,46 @@ class AddTrip extends React.Component {
             dates: Date(),
             stops: [],
             night: '',
+            redirect: null
         }
+      
 
         this._next = this._next.bind(this);
         this._prev = this._prev.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
+        
     }
 
     _next() {
         let currentQuestion = this.state.currentQuestion;
-        currentQuestion = currentQuestion >= 8 ?  alert('done!'): currentQuestion + 1;
+        currentQuestion = currentQuestion >= 8 ?  console.log('almost done') : currentQuestion + 1;
         this.setState({
             currentQuestion: currentQuestion
         })
+
+        if (currentQuestion === 1) {
+            debugger;
+            document.getElementById("q1").style.display = "block";
+        } else {
+            document.getElementById("q1").style.display = "none";
+        }
+
+        if (currentQuestion === 2) {
+            document.getElementById("q2").style.display = "block";
+        } else {
+            document.getElementById("q2").style.display = "none";
+        }
+
+        if (currentQuestion > 2) {
+            document.getElementById("q2").style.display= "none";
+        }
+    }
+
+    _results() {
+        return(
+            <Redirect to={Results} />
+        );
     }
 
     _prev() {
@@ -45,6 +74,17 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
+        if (currentQuestion !== 1) {
+            document.getElementById("q1").style.display = "none";
+        } else {
+            document.getElementById("q1").style.display = "block";
+        }
+
+        if (currentQuestion !== 2) {
+            document.getElementById("q2").style.display = "none";
+        } else {
+            document.getElementById("q2").style.display = "block";
+        }
     }
 
     handleChange(event) {
@@ -58,7 +98,7 @@ class AddTrip extends React.Component {
         let currentQuestion = this.state.currentQuestion;
         if (currentQuestion !== 1) {
             return(
-                <button className="btn nextbtn float-left" type="button" onClick={this._prev}>Back</button>
+                <button className="btn prevbtn float-left" type="button" onClick={this._prev}>Back</button>
             )
         }
         return null;
@@ -66,9 +106,13 @@ class AddTrip extends React.Component {
 
     get nextButton() {
         let currentQuestion = this.state.currentQuestion;
-        if (currentQuestion < 9)  {
+        if (currentQuestion < 8)  {
             return(
                 <button className="btn float-right nextbtn" type="button" onClick={this._next}>Next</button>
+            )
+        } else {
+            return(
+                <button className="btn float-right nextbtn" ><Link to="/results">Results</Link></button>
             )
         }
         return null;

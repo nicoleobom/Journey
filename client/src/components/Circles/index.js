@@ -1,14 +1,11 @@
 import React from 'react';
 import './index.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Circles extends React.Component {
-    render() {
-        return (
-            <div>
-                <button className="circle"></button>
-            </div>
-        );
-    }
+function Circles({ icon }) {
+    return (
+        <button className="circle"><FontAwesomeIcon icon={icon} size="2x" /></button>
+    );
 }
 
 export default Circles;

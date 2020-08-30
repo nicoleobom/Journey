@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './index.css';
 
 function Question4 (props) {
     if (props.currentQuestion !== 4) {
@@ -8,7 +8,7 @@ function Question4 (props) {
     return(
         <div>
             <h3>How many people are joining you?</h3>
-            <input value={Number}></input>
+            <input className="answers" type="number" min="0" max="10" placeholder="0"></input>
         </div>
     );
 }
