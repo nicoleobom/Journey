@@ -24,7 +24,7 @@ class Question1 extends React.Component {
 
     render() {
         return (
-            <div id="q1">
+            <div id="q1" className="bg-q">
                 <h3>Where's your starting point?</h3>
                 <PlacesAutocomplete
                     value={this.state.address}
@@ -38,7 +38,8 @@ class Question1 extends React.Component {
                                     placeholder: 'Search places...',
                                     className: 'location-search-input',
                                 })}
-                                />
+                                >
+                            </input>
                             <div className="autocomplete-dropdown-container">
                                 {loading && <div id="loading">Loading...</div>}
                                 {suggestions.map(suggestion => {

@@ -6,14 +6,38 @@ export default class Checkbox extends React.Component {
         super(props);
         this.state = {
             labels: [
-                "National Parks",
-                "Top-rated Restaurants",
-                "Dog-friendly Areas",
-                "Museums and Art Exhibits",
-                "Best Coffee",
-                "Beaches and Parks",
-                "Food Trucks",
-                "Walking Trails and Bike Paths",
+                {
+                    name: "National Parks",
+                    id: 1
+                },
+                {
+                    name: "Top-rated Restaurants",
+                    id: 2
+                },
+                {
+                    name: "Dog-friendly Areas",
+                    id: 3
+                },
+                {
+                    name: "Museums and Art Exhibits",
+                    id: 4
+                },
+                {
+                    name: "Best Coffee",
+                    id: 5
+                },
+                {
+                    name: "Beaches and Parks",
+                    id: 6
+                },
+                {
+                    name: "Food Trucks",
+                    id: 7
+                },
+                {
+                    name: "Walking Trails and Bike Paths",
+                    id: 8
+                }  
             ]
         }
     }
@@ -23,7 +47,7 @@ export default class Checkbox extends React.Component {
             <Form>
                 <Form.Group>
                 {this.state.labels.map(label => (
-                    <Form.Check type="checkbox" label={label} key={this.state.labels.indexOf()} />
+                    <Form.Check type="checkbox" label={label.name} key={label.id} />
                 ))}
                 </Form.Group>
             </Form>

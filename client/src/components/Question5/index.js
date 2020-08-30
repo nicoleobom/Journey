@@ -8,7 +8,7 @@ function Question5 (props) {
         return null;
     }
     return(
-        <div>
+        <div className="bg-q">
             <h3>How do you want to get there?</h3>
             <div className="circles">
                 <Circles icon={faCar}/>

@@ -11,7 +11,7 @@ function Question6 (props) {
     }
 
     return(
-        <div>
+        <div className="bg-q">
             <h3>When would you like to go?</h3>
             <div className="date">
                 <DatePicker
