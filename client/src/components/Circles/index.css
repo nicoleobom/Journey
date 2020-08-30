@@ -4,8 +4,14 @@
     border-radius: 50%;
     transition: ease-in-out .25s;
     margin: 10px;
+    outline: none!important;
+    color: #29301e;
 }
 
 .circle:hover {
+    background-color: #98a685;
+}
+
+.circle:focus {
     background-color: #98a685;
 }
