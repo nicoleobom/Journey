@@ -3,10 +3,6 @@
   src: url('./assets/fonts/LadyNature.otf');
 }
 
-#q2 {
-  display: none;
-}
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

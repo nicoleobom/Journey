@@ -34,6 +34,8 @@ class AddTrip extends React.Component {
         this._prev = this._prev.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
+
+
         
     }
 
@@ -43,23 +45,6 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
-
-        if (currentQuestion === 1) {
-            debugger;
-            document.getElementById("q1").style.display = "block";
-        } else {
-            document.getElementById("q1").style.display = "none";
-        }
-
-        if (currentQuestion === 2) {
-            document.getElementById("q2").style.display = "block";
-        } else {
-            document.getElementById("q2").style.display = "none";
-        }
-
-        if (currentQuestion > 2) {
-            document.getElementById("q2").style.display= "none";
-        }
     }
 
     _results() {
@@ -74,17 +59,6 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
-        if (currentQuestion !== 1) {
-            document.getElementById("q1").style.display = "none";
-        } else {
-            document.getElementById("q1").style.display = "block";
-        }
-
-        if (currentQuestion !== 2) {
-            document.getElementById("q2").style.display = "none";
-        } else {
-            document.getElementById("q2").style.display = "block";
-        }
     }
 
     handleChange(event) {
@@ -106,6 +80,7 @@ class AddTrip extends React.Component {
 
     get nextButton() {
         let currentQuestion = this.state.currentQuestion;
+        
         if (currentQuestion < 8)  {
             return(
                 <button className="btn float-right nextbtn" type="button" onClick={this._next}>Next</button>
@@ -115,7 +90,6 @@ class AddTrip extends React.Component {
                 <button className="btn float-right nextbtn" ><Link to="/results">Results</Link></button>
             )
         }
-        // return null;
     }
 
     handleSubmit = (event) => {
@@ -137,7 +111,6 @@ class AddTrip extends React.Component {
         return(
             <div className="row">
                 <div className="col-sm-12 questionheader">
-                    <form onSubmit={this.handleSubmit}>
                     <Question1 
                         currentQuestion={this.state.currentQuestion}
                         handleChange={this.handleChange}
@@ -180,7 +153,6 @@ class AddTrip extends React.Component {
                     />
                     {this.previousButton}
                     {this.nextButton}
-                    </form>
                 </div>
             </div>
         );

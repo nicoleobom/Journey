@@ -24,3 +24,7 @@
 .location-search-input {
     margin-top: 50px;
 }
+
+ul {
+    list-style-type: none;
+}

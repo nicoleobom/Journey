@@ -11,10 +11,10 @@ import Signup from './pages/Signup';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
 import Results from './pages/Results';
+import PastTrips from './pages/PastTrips'
 
 // import components
 import Nav from './components/Navbar/index';
-import Logo from './components/Logo/index';
 
 // setting up app
 import api from './utils/API';
@@ -26,7 +26,7 @@ class App extends React.Component {
 			signedIn: false
 		}
   }
-  
+
   componentDidMount = () => {
     this.getUsers();
 	}
@@ -45,7 +45,6 @@ class App extends React.Component {
   render() {
     return (
         <div className="container">
-          <Logo />
           <Nav />
             <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Home} />
@@ -55,6 +54,7 @@ class App extends React.Component {
             <Route path="/signup" exact component={Signup} />
             <Route path="/settings" exact component={Settings} />
             <Route path="/results" exact component={Results} />
+            <Route path="/past-trips" exact component={PastTrips} />
         </div>
     );
   }

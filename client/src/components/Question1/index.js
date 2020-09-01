@@ -1,96 +1,80 @@
-import React from 'react';
+import React, { setState } from 'react';
 import './index.css';
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
+import useOnClickOutside from 'react-cool-onclickoutside';
+import { withState } from 'recompose';
 
-class Question1 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            address: '',
-        }
-    }
+const saveCurrentAddress = withState("currentAddress", "updateState", '');
 
-    handleChange = address => {
-        this.setState({ address });
-    }
+const Question1 = saveCurrentAddress(({ currentAddress, updateState }) => {
 
-    handleSelect = address => {
-        geocodeByAddress(address)
-            .then(results => getLatLng(results[0]))
-            .then(latLng => console.log('Success', latLng))
-            .catch(error => console.log('Error', error));
+    const {
+        ready,
+        value,
+        suggestions: { status, data },
+        setValue,
+        clearSuggestions,
+    } = usePlacesAutocomplete({
+        requestOptions: {
+
+        },
+        debounce: 300,
+    });
+
+    const ref = useOnClickOutside(() => {
+        clearSuggestions();
+    });
+
+    const handleInput = event => {
+        setValue(event.target.value);
     };
 
+    const handleSelect = ({ description }) => () => {
+        debugger;
+        setValue(description, false);
+        clearSuggestions();
+        updateState(description);
 
-    render() {
+        getGeocode({ address: description })
+            .then((results) => getLatLng(results[0]))
+            .then(({ lat, lng }) => {
+                console.log('📍 Coordinates: ', { lat, lng });
+            })
+            .catch((error) => {
+                console.log('Error!', error);
+            });
+    };
+
+    const renderSuggestions = () =>
+        data.map((suggestion) => {
+            const {
+                id,
+                structured_formatting: { main_text, secondary_text },
+            } = suggestion;
+
+            return (
+                <li key={id} onClick={handleSelect(suggestion)}>
+                    <strong>{main_text}</strong> <small>{secondary_text}</small>
+                </li>
+            )
+        });
+
+
+
         return (
-            <div id="q1" className="bg-q">
+            <div ref={ref} id="q1" className="bg-q">
                 <h3>Where's your starting point?</h3>
-                <PlacesAutocomplete
-                    value={this.state.address}
-                    onChange={this.handleChange}
-                    onSelect={this.handleSelect}
-                >
-                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                        <div>
-                            <input
-                                {...getInputProps({
-                                    placeholder: 'Search places...',
-                                    className: 'location-search-input',
-                                })}
-                                >
-                            </input>
-                            <div className="autocomplete-dropdown-container">
-                                {loading && <div id="loading">Loading...</div>}
-                                {suggestions.map(suggestion => {
-                                    const className= suggestion.active ? 'suggestion-item--active' : 'suggestion-item';
-                                    const style = suggestion.active ? { backgroundColor: 'rgba(255,255,255, 0.6)', cursor: 'pointer' } : null;
-                                    return(
-                                        <div
-                                        {...getSuggestionItemProps(suggestion, {
-                                            className,
-                                            style,
-                                        })}>
-                                        
-                                        <span>{suggestion.description}</span>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    )}
-                </PlacesAutocomplete>
-                {/* <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your country
-                    </Dropdown.Toggle>
+                <input
+                    className="location-search-input"
+                    value={value}
+                    onChange={handleInput}
+                    disabled={!ready}
+                    placeholder="Starting at..."
+                />
+                {status === "OK" && <ul>{renderSuggestions()}</ul>}
+            </div>
+        )
+});
 
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your state
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown>
-                    <Dropdown.Toggle className="bgcolor">
-                        Choose your city
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">1</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown> */}
-                </div>
-            );
-        }
-
-}
 
 export default Question1;
