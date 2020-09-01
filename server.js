@@ -6,14 +6,14 @@ const mongoose = require('mongoose');
 const passport = require('./config/passport');
 const session = require('express-session');
 const routes = require("./routes");
-// const userRoutes = express.Router();
+const db = require('./config/key').mongoURI;
 
 const PORT = process.env.PORT || 4000;
 
-let User = require('./models/user');
-
 app.use(cors());
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // mongoose.connect('mongodb://localhost/journey', { useNewUrlParser: true });
 // const connection = mongoose.connection;
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.use(routes);
 
-mongoose.connect("mongodb://localhost:27017/journey", { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Local MongoDB Database`));
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Atlas Database`));
 
 app.listen(PORT, function() {
     console.log('Server is running on port: ' + PORT);

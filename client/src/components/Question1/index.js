@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { setState } from 'react';
 import './index.css';
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 import useOnClickOutside from 'react-cool-onclickoutside';
+import { withState } from 'recompose';
 
-const Question1 = props => {
+const saveCurrentAddress = withState("currentAddress", "updateState", '');
+
+const Question1 = saveCurrentAddress(({ currentAddress, updateState }) => {
+
     const {
         ready,
         value,
@@ -26,8 +30,10 @@ const Question1 = props => {
     };
 
     const handleSelect = ({ description }) => () => {
+        debugger;
         setValue(description, false);
         clearSuggestions();
+        updateState(description);
 
         getGeocode({ address: description })
             .then((results) => getLatLng(results[0]))
@@ -53,9 +59,7 @@ const Question1 = props => {
             )
         });
 
-        if (props.currentQuestion !== 1) {
-            return null;
-        }
+
 
         return (
             <div ref={ref} id="q1" className="bg-q">
@@ -70,7 +74,7 @@ const Question1 = props => {
                 {status === "OK" && <ul>{renderSuggestions()}</ul>}
             </div>
         )
+});
 
-}
 
 export default Question1;

@@ -34,6 +34,8 @@ class AddTrip extends React.Component {
         this._prev = this._prev.bind(this);
 
         this.handleChange = this.handleChange.bind(this);
+
+
         
     }
 
@@ -78,6 +80,7 @@ class AddTrip extends React.Component {
 
     get nextButton() {
         let currentQuestion = this.state.currentQuestion;
+        
         if (currentQuestion < 8)  {
             return(
                 <button className="btn float-right nextbtn" type="button" onClick={this._next}>Next</button>
