@@ -1,10 +1,10 @@
 const db = require("../models");
 
 module.exports = {
-	// find all users by score, sort by ascending
+	// find all
 	findAll: (req, res) => {
 		db.User
-			.find(req.query) // find all
+			.find(req.query) 
 			.then(dbUser => res.json(dbUser))
 			.catch(err => res.status(422).json(err));
 	},
@@ -19,11 +19,9 @@ module.exports = {
 
 	// creating new users/posting to json
 	create: (req, res) => {
-		console.log('hit');
 		db.User
 			.create(req.body)
 			.then(data => res.redirect(307, "/api/user/login"))
-			// .then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
 	},
 
