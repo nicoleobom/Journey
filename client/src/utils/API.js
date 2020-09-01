@@ -23,7 +23,6 @@ export default {
 	},
 	// Adds a user to database
 	createUser: (userData) => {
-		console.log(userData);
 		return axios.post("/api/user/create", userData);
 	},
 	// Authenticates user login
