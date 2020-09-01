@@ -22,6 +22,10 @@ router.get("/logout", (req, res) => {
 	res.redirect("/");
 });
 
+router.get('/data', (req, res) => {
+    res.json(req.session.passport.user);
+})
+
 router.get('/:id', userController.findById);
 
 // user routes
