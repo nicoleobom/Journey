@@ -89,7 +89,6 @@ router.route('/update/:id').post(function(req, res) {
 //             user.username = req.body.username;
 //             user.password = req.body.username;
 //             user.trips = req.body.trips;
-
 //             user.save().then(todo => {
 //                 res.json('User updated!');
 //             })
