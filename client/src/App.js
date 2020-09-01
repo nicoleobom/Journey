@@ -27,20 +27,20 @@ class App extends React.Component {
 		}
   }
   
-  componentDidMount = () => {
-    this.getUsers();
-	}
+  // componentDidMount = () => {
+  //   this.getUsers();
+	// }
 
-	getUsers = async () => {
-		try {
-      const response = await api.authenticate();
-			if (response.status === 401) this.props.history.push("/login");
-			else this.setState({ signedIn: true });
-		} catch (err) {
-			console.log(err);
-			this.props.history.push("/login");
-		}
-  }
+	// getUsers = async () => {
+	// 	try {
+  //     const response = await api.authenticate();
+	// 		if (response.status === 401) this.props.history.push("/login");
+	// 		else this.setState({ signedIn: true });
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 		this.props.history.push("/login");
+	// 	}
+  // }
   
   render() {
     return (

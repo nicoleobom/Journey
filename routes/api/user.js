@@ -20,11 +20,13 @@ router.post("/login", passport.authenticate("local"), userController.login);
 
 router.get("/authenticate", authenticate);
 
-// router.use(authenticate);
+router.use(authenticate);
 
-// router.get('/*', authenticate);
+router.get('/*', authenticate);
 
 router.get('/', userController.findAll);
+
+router.post("/create", userController.create);
 
 router.get("/logout", (req, res) => {
 	req.logout();
@@ -55,7 +57,7 @@ router.get('/:id', userController.findById);
 //         });
 // });
 
-router.post('/add', userController.create);
+// router.post('/add', userController.create);
 
 router.route('/update/:id').post(function(req, res) {
     User.findById(req.params.id, function(err, user) {
