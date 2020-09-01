@@ -19,8 +19,10 @@ app.use(express.json());
 // const connection = mongoose.connection;
 
 // connection.once('open', function() {
-//     console.log('MongoDB database connection establish successfully.');
+//     console.log('MongoDB database connection establish successfully.');
 // })
+
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Atlas Database`));
 
 // session
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
@@ -29,14 +31,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-	console.log('req.session', req.session);
-	return next();
+console.log('req.session', req.session);
+return next();
 });
 
 app.use(routes);
 
-mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Atlas Database`));
-
 app.listen(PORT, function() {
-    console.log('Server is running on port: ' + PORT);
+    console.log('Server is running on port: ' + PORT);
 });

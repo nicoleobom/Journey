@@ -5,6 +5,25 @@ const authenticate = require("../../config/authenticate");
 const passport = require("passport");
 const { User } = require("../../models");
 
+router.post("/create", userController.create);
+
+router.post("/login", passport.authenticate("local"), userController.login);
+
+router.get("/authenticate", authenticate);
+
+router.use(authenticate);
+
+// router.get('/*', authenticate);
+
+router.get('/', userController.findAll);
+
+router.get("/logout", (req, res) => {
+	req.logout();
+	res.redirect("/");
+});
+
+router.get('/:id', userController.findById);
+
 // user routes
 // userRoutes.route('/').get(function(req, res) {
 //     User.find(function(err, users) {
@@ -15,21 +34,6 @@ const { User } = require("../../models");
 //         }
 //     });
 // });
-
-router.post("/login", passport.authenticate("local"), userController.login);
-
-router.get("/authenticate", authenticate);
-
-// router.use(authenticate);
-
-// router.get('/*', authenticate);
-
-router.get('/', userController.findAll);
-
-router.get("/logout", (req, res) => {
-	req.logout();
-	res.redirect("/");
-});
 
 // userRoutes.route('/:id').get(function(req, res) {
 //     let id = req.params.id;
@@ -42,8 +46,6 @@ router.get("/logout", (req, res) => {
 //     });
 // });
 
-router.get('/:id', userController.findById);
-
 // userRoutes.route('/add').post(function(req, res) {
 //     let user = new User(req.body);
 //     user.save()
@@ -55,7 +57,7 @@ router.get('/:id', userController.findById);
 //         });
 // });
 
-router.post('/add', userController.create);
+// router.post('/add', userController.create);
 
 router.route('/update/:id').post(function(req, res) {
     User.findById(req.params.id, function(err, user) {
@@ -87,7 +89,6 @@ router.route('/update/:id').post(function(req, res) {
 //             user.username = req.body.username;
 //             user.password = req.body.username;
 //             user.trips = req.body.trips;
-
 //             user.save().then(todo => {
 //                 res.json('User updated!');
 //             })

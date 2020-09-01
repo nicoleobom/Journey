@@ -1,10 +1,10 @@
 const db = require("../models");
 
 module.exports = {
-	// find all users by score, sort by ascending
+	// find all
 	findAll: (req, res) => {
 		db.User
-			.find(req.query) // find all
+			.find(req.query) 
 			.then(dbUser => res.json(dbUser))
 			.catch(err => res.status(422).json(err));
 	},
