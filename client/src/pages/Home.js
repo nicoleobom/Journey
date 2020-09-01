@@ -8,9 +8,7 @@ export default class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            id: 0, 
             firstname: "",
-            users: []
         }
     }
 
@@ -19,7 +17,6 @@ export default class Home extends React.Component {
     }
 
     userFirstName = async () => {
-        debugger;
         const { id, firstname } = this.props.match.params;
         const user = (await API.getUserData()).data;
         console.log(user.firstname);
