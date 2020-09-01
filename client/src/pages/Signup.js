@@ -23,8 +23,6 @@ class Signup extends Component {
         console.log(this.state);
         event.preventDefault();
         const response = await API.createUser(this.state);
-        // this.props.history.push('/home');
-        console.log(this.state);
 		console.log(response);
 		if (response.status === 200) {
             this.props.history.push('/home');
@@ -59,11 +57,7 @@ class Signup extends Component {
                         name="password" 
                         onChange={this.handleInputChange}
                         /><br />
-                    <button className="loginbtn" onClick={this.handleSubmit}
-                    // {() => {
-                        // this.props.history.push('/home');
-                    // }}
-                    >Get started</button>
+                    <button className="loginbtn" onClick={this.handleSubmit}>Get started</button>
                 </div>
             </div>
         );
