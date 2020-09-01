@@ -5,16 +5,6 @@ const authenticate = require("../../config/authenticate");
 const passport = require("passport");
 const { User } = require("../../models");
 
-// user routes
-// userRoutes.route('/').get(function(req, res) {
-//     User.find(function(err, users) {
-//         if(err) {
-//             console.log(err);
-//         } else {
-//             res.json(users);
-//         }
-//     });
-// });
 router.post("/create", userController.create);
 
 router.post("/login", passport.authenticate("local"), userController.login);
@@ -32,6 +22,19 @@ router.get("/logout", (req, res) => {
 	res.redirect("/");
 });
 
+router.get('/:id', userController.findById);
+
+// user routes
+// userRoutes.route('/').get(function(req, res) {
+//     User.find(function(err, users) {
+//         if(err) {
+//             console.log(err);
+//         } else {
+//             res.json(users);
+//         }
+//     });
+// });
+
 // userRoutes.route('/:id').get(function(req, res) {
 //     let id = req.params.id;
 //     User.findById(id, function(err, user) {
@@ -42,8 +45,6 @@ router.get("/logout", (req, res) => {
 //         }
 //     });
 // });
-
-router.get('/:id', userController.findById);
 
 // userRoutes.route('/add').post(function(req, res) {
 //     let user = new User(req.body);
