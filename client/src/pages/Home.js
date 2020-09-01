@@ -19,7 +19,6 @@ import API from '../utils/API';
 // }
 
 // export default Home;
-
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -64,14 +63,16 @@ export default class Home extends React.Component {
         const { id, firstname } = this.props.match.params;
         const user = (await API.getUserData()).data;
         console.log(user.firstname);
-
+        this.setState({
+            firstname: user.firstname
+        })
     }
 
-    render() {
+    render(user) {
         return(
             <div className="row">
                 <div className="col-sm-12 header">
-                    <h1>Welcome, </h1>
+                    <h1>Welcome, {this.state.firstname}</h1>
                     <Link to="/past-trips"><Circles icon={faCar}/></Link>
                     <Link to="/settings"><Circles icon={faCog}/></Link>
                     <Link to="/new-trip"><Circles icon={faPlus}/></Link>
