@@ -44,9 +44,11 @@ class Signup extends Component {
 
     signUpComplete = () => {
         return (
-            <div>
-                <h3>Your account has been created!</h3>
-                <Circles icon={faHome} />
+            <div className="row">
+                <div className="col-sm-12 header">
+                    <h3>Your account has been created!</h3>
+                    <Link to="/home"><Circles icon={faHome} /></Link>
+                </div>
             </div>
         )
     }
@@ -79,7 +81,7 @@ class Signup extends Component {
                             name="password" 
                             onChange={this.handleInputChange}
                             /><br />
-                        <Link to="/home"><button className="loginbtn" onClick={this.handleSuccess}>Get started</button></Link>
+                        <button className="loginbtn" onClick={this.handleSuccess}>Get started</button>
                         
                     </div>
                 </div>
