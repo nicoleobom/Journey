@@ -4,9 +4,7 @@ import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocom
 import useOnClickOutside from 'react-cool-onclickoutside';
 import { withState } from 'recompose';
 
-const saveCurrentAddress = withState("currentAddress", "updateState", '');
-
-const Question1 = saveCurrentAddress(({ currentAddress, updateState }) => {
+const Question1 = () => {
 
     const {
         ready,
@@ -33,7 +31,6 @@ const Question1 = saveCurrentAddress(({ currentAddress, updateState }) => {
         debugger;
         setValue(description, false);
         clearSuggestions();
-        updateState(description);
 
         getGeocode({ address: description })
             .then((results) => getLatLng(results[0]))
@@ -74,7 +71,7 @@ const Question1 = saveCurrentAddress(({ currentAddress, updateState }) => {
                 {status === "OK" && <ul>{renderSuggestions()}</ul>}
             </div>
         )
-});
+};
 
 
 export default Question1;
