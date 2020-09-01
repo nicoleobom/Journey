@@ -15,6 +15,7 @@ const { User } = require("../../models");
 //         }
 //     });
 // });
+router.post("/create", userController.create);
 
 router.post("/login", passport.authenticate("local"), userController.login);
 
@@ -22,11 +23,9 @@ router.get("/authenticate", authenticate);
 
 router.use(authenticate);
 
-router.get('/*', authenticate);
+// router.get('/*', authenticate);
 
 router.get('/', userController.findAll);
-
-router.post("/create", userController.create);
 
 router.get("/logout", (req, res) => {
 	req.logout();

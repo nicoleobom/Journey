@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 const bcrypt = require('bcrypt');
 
 let userSchema = new Schema ({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
     username: { type: String, required: true },
     password: { type: String, required: true },
     trips: {
@@ -16,6 +16,7 @@ let userSchema = new Schema ({
 // Define schema methods
 userSchema.methods = {
 	checkPassword: function (user, inputPassword) {
+		console.log('bcrypt');
 		return bcrypt.compareSync(inputPassword, user.password)
 	},
 	hashPassword: plainTextPassword => {
