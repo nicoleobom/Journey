@@ -45,6 +45,18 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
+
+        if (currentQuestion !== 1) {
+            document.getElementById('q1').style.display = 'none';
+        } else {
+            document.getElementById('q1').style.display = 'block';
+        }        
+        
+        if (currentQuestion !== 2) {
+            document.getElementById('q2').style.display = 'none';
+        } else {
+            document.getElementById('q2').style.display = 'block';
+        }
     }
 
     _results() {
@@ -59,6 +71,18 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
+        
+        if (currentQuestion !== 1) {
+            document.getElementById('q1').style.display = 'none';
+        } else {
+            document.getElementById('q1').style.display = 'block';
+        }        
+        
+        if (currentQuestion !== 2) {
+            document.getElementById('q2').style.display = 'none';
+        } else {
+            document.getElementById('q2').style.display = 'block';
+        }
     }
 
     handleChange(event) {

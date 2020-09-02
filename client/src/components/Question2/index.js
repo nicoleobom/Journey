@@ -1,75 +1,74 @@
 import React from 'react';
-// import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-// import useOnClickOutside from 'react-cool-onclickoutside';
+import './index.css';
+import SearchBar from 'material-ui-search-bar';
 
-const Question2 = props => {
-    // const {
-    //     ready,
-    //     value,
-    //     suggestions: { status, data },
-    //     setValue,
-    //     clearSuggestions,
-    // } = usePlacesAutocomplete({
-    //     requestOptions: {
-
-    //     },
-    //     debounce: 300,
-    // });
-
-    // const ref = useOnClickOutside(() => {
-    //     clearSuggestions();
-    // });
-
-    // const handleInput = event => {
-    //     setValue(event.target.value);
-    // };
-
-    // const handleSelect = ({ description }) => () => {
-    //     setValue(description, false);
-    //     clearSuggestions();
-
-    //     getGeocode({ address: description })
-    //         .then((results) => getLatLng(results[0]))
-    //         .then(({ lat, lng }) => {
-    //             console.log('📍 Coordinates: ', { lat, lng });
-    //         })
-    //         .catch((error) => {
-    //             console.log('Error!', error);
-    //         });
-    // };
-
-    // const renderSuggestions = () =>
-    //     data.map((suggestion) => {
-    //         const {
-    //             id,
-    //             structured_formatting: { main_text, secondary_text },
-    //         } = suggestion;
-
-    //         return (
-    //             <li key={id} onClick={handleSelect(suggestion)}>
-    //                 <strong>{main_text}</strong> <small>{secondary_text}</small>
-    //             </li>
-    //         )
-    //     });
-
-        if (props.currentQuestion !== 2) {
-            return null;
+export default class Question1 extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            endpoint: '',
+            currentQuestion: 2,
         }
+        this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.autocomplete = null;
+        
+    }
 
-        return (
-            <div id="q2" className="bg-q">
-                {/* <h3>Where do you want to go?</h3>
-                <input
-                    className="location-search-input"
-                    value={value}
-                    onChange={handleInput}
-                    disabled={!ready}
-                    placeholder="The world is your oyster..."
-                />
-                {status === "OK" && <ul>{renderSuggestions()}</ul>} */}
-            </div>
+    componentDidMount = () => {
+        /*global google*/
+        this.autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'), {}
         )
 
-}
+        this.autocomplete.addListener('place_changed', this.handlePlaceSelect)
+    }
 
-export default Question2;
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        this.props.dispatch(this.state);
+        this.clearForm();
+    }
+
+    handlePlaceSelect() {
+        debugger;
+        let addressObject = this.autocomplete.getPlace();
+        let newAddress ='';
+        const address = addressObject.address_components;
+        for (var i=0; i < address.length; i++) {
+            let component = address[i].long_name
+            newAddress = newAddress + component + ' ';
+        }
+        console.log(newAddress)
+        this.setState({
+            endpoint: (newAddress)
+        });
+    }
+
+    render() {
+        return(
+            <div className="row" id="q2">
+                <div className="col-sm-12 header bg-q">
+                    <h3>Where do you want to go?</h3>
+                    <SearchBar
+                        id="autocomplete"
+                        type="text"
+                        placeholder="Search places..."
+                        onSubmit={this.handleSubmit}
+                        value={this.state.endpoint} 
+                        style={{
+                            margin: '0 auto',
+                            maxWidth: 500,
+                        }}
+                    />
+                </div>
+            </div>
+        )
+    }
+
+}

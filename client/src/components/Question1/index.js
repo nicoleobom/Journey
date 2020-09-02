@@ -1,19 +1,13 @@
 import React from 'react';
 import './index.css';
-// import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-// import useOnClickOutside from 'react-cool-onclickoutside';
-// import { withState } from 'recompose';
-// import useOnclickOutside from 'react-cool-onclickoutside';
 import SearchBar from 'material-ui-search-bar';
-import Script from 'react-load-script';
-import { checkPropTypes } from 'prop-types';
-
 
 export default class Question1 extends React.Component {
     constructor(props){
         super(props);
         this.state = {
             startpoint: '',
+            currentQuestion: 1,
         }
         this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -54,13 +48,11 @@ export default class Question1 extends React.Component {
         this.setState({
             startpoint: (newAddress)
         });
-        // console.log(address[0].long_name, address[2].short_name)
-
     }
 
     render() {
         return(
-            <div className="row">
+            <div className="row" id="q1">
                 <div className="col-sm-12 header bg-q">
                     <h3>Where are you starting from?</h3>
                     <SearchBar
