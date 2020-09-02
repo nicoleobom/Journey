@@ -11,20 +11,12 @@ const db = require('./config/key').mongoURI;
 const PORT = process.env.PORT || 4000;
 
 app.use(cors());
-// app.use(bodyParser.json());
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// mongoose.connect('mongodb://localhost/journey', { useNewUrlParser: true });
-// const connection = mongoose.connection;
-
-// connection.once('open', function() {
-//     console.log('MongoDB database connection establish successfully.');
-// })
-
 mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Atlas Database`));
 
-// session
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
 
 app.use(passport.initialize());
