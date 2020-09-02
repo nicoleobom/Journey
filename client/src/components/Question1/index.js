@@ -6,6 +6,7 @@ import './index.css';
 // import useOnclickOutside from 'react-cool-onclickoutside';
 import SearchBar from 'material-ui-search-bar';
 import Script from 'react-load-script';
+import { checkPropTypes } from 'prop-types';
 
 
 export default class Question1 extends React.Component {
@@ -41,32 +42,39 @@ export default class Question1 extends React.Component {
     }
 
     handlePlaceSelect() {
+        debugger;
         let addressObject = this.autocomplete.getPlace();
-        let address = addressObject.address_components;
+        let newAddress ='';
+        const address = addressObject.address_components;
+        for (var i=0; i < address.length; i++) {
+            let component = address[i].long_name
+            newAddress = newAddress + component + ' ';
+        }
+        console.log(newAddress)
         this.setState({
-            startpoint: (address[0].long_name + address[2].short_name)
+            startpoint: (newAddress)
         });
-        console.log(address[0].long_name, address[2].short_name)
+        // console.log(address[0].long_name, address[2].short_name)
 
     }
-    
+
     render() {
         return(
-            <div>
-                {/* <Script url="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" onLoad={this.handleScriptLoad}
-                /> */}
-                <SearchBar
-                    id="autocomplete"
-                    ref="input"
-                    type="text"
-                    placeholder="Search places..."
-                    onSubmit={this.handleSubmit}
-                    value={this.state.query} 
-                    style={{
-                        margin: '0 auto',
-                        maxWidth: 800,
-                    }}
-                />
+            <div className="row">
+                <div className="col-sm-12 header bg-q">
+                    <h3>Where are you starting from?</h3>
+                    <SearchBar
+                        id="autocomplete"
+                        type="text"
+                        placeholder="Search places..."
+                        onSubmit={this.handleSubmit}
+                        value={this.state.startpoint} 
+                        style={{
+                            margin: '0 auto',
+                            maxWidth: 500,
+                        }}
+                    />
+                </div>
             </div>
         )
     }
