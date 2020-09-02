@@ -18,9 +18,9 @@ class AddTrip extends React.Component {
         super(props);
         this.state = {
             currentQuestion: 1, // default first step
-            startpoint: '',
-            endpoint: '',
-            budget: null,
+            startpoint: Question1.state.startpoint,
+            endpoint: Question2.endpoint,
+            budget: Question3.budget,
             people: 0,
             vehicle: [],
             dates: Date(),
@@ -42,8 +42,12 @@ class AddTrip extends React.Component {
     _next() {
         let currentQuestion = this.state.currentQuestion;
         currentQuestion = currentQuestion >= 8 ?  console.log('almost done') : currentQuestion + 1;
+        debugger;
         this.setState({
-            currentQuestion: currentQuestion
+            currentQuestion: currentQuestion,
+            startpoint: Question1.state.startpoint,
+            endpoint: Question2.endpoint,
+            budget: Question3.budget,
         })
 
         if (currentQuestion !== 1) {
@@ -71,7 +75,7 @@ class AddTrip extends React.Component {
         this.setState({
             currentQuestion: currentQuestion
         })
-        
+
         if (currentQuestion !== 1) {
             document.getElementById('q1').style.display = 'none';
         } else {

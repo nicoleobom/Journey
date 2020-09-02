@@ -19,7 +19,7 @@ export default class Question1 extends React.Component {
     componentDidMount = () => {
         /*global google*/
         this.autocomplete = new google.maps.places.Autocomplete(
-            document.getElementById('autocomplete'), {}
+            document.getElementById('autocomplete2'), {}
         )
 
         this.autocomplete.addListener('place_changed', this.handlePlaceSelect)
@@ -56,9 +56,9 @@ export default class Question1 extends React.Component {
                 <div className="col-sm-12 header bg-q">
                     <h3>Where do you want to go?</h3>
                     <SearchBar
-                        id="autocomplete"
+                        id="autocomplete2"
                         type="text"
-                        placeholder="Search places..."
+                        placeholder="The world is your oyster..."
                         onSubmit={this.handleSubmit}
                         value={this.state.endpoint} 
                         style={{

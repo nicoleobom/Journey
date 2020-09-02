@@ -25,7 +25,7 @@ export default class Login extends React.Component {
             this.props.history.push('/home');
             this.setState({ isSignedIn: true });
         }
-    }
+    };
 
     render() {
         return(
