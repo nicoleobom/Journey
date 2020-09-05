@@ -40,7 +40,6 @@ export default class AddTrip extends React.Component {
     }
 
     handleChange = input => event => {
-        debugger;
         this.setState({ [input] : event.target.value })
     }
 

@@ -3,24 +3,24 @@ import { ListGroup, Button } from 'react-bootstrap';
 import API from '../utils/API';
 
 export default class Results extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state={
-    //         firstname: "",
-    //     }
-    // }
+    constructor(props) {
+        super(props);
+        this.state={
+            firstname: "",
+        }
+    }
 
-    // componentDidMount() {
-    //     this.userFirstName();
-    // }
+    componentDidMount() {
+        this.userFirstName();
+    }
 
-    // userFirstName = async () => {
-    //     const user = (await API.getUserData()).data;
-    //     console.log(user.firstname);
-    //     this.setState({
-    //         firstname: user.firstname
-    //     })
-    // }
+    userFirstName = async () => {
+        const user = (await API.getUserData()).data;
+        console.log(user.firstname);
+        this.setState({
+            firstname: user.firstname
+        })
+    }
 
     render() {
         debugger;
@@ -28,7 +28,7 @@ export default class Results extends React.Component {
         return(
             <div className="row">
                 <div className="col-sm-12 header">
-                    <h3>'s Trip to {this.props.endpoint}</h3>
+                    <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <ListGroup>
                         <ListGroup.Item>{startpoint}</ListGroup.Item>
                         <ListGroup.Item>{endpoint}</ListGroup.Item>
