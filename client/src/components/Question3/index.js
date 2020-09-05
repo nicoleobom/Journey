@@ -3,37 +3,27 @@ import { InputGroup, FormControl } from 'react-bootstrap';
 import './index.css';
 
 export default class Question3 extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            budget: '',
-        }
-
+    back = (event) => {
+        event.preventDefault();
+        this.props.prevStep();
     }
 
-    handleInputChange = event => {
-        let value = event.target.value;
-        const budget = event.target.budget
-
-        this.setState({ [budget]: value });
+    nextQuestion = (event) => {
+        event.preventDefault();
+        this.props.nextStep();
+        // this.clearForm();
     }
-
 
     render() {
-        if (this.state.currentQuestion !== 3) {
-            return null;
-        }
+        const { values } = this.props;
         return(
-            <div className="bg-q" id="q3">
-                <h3>What's your budget?</h3>
-                    <div className="budgetform">
-                        <InputGroup className="mb-3 budgetinput">
-                            <InputGroup.Prepend>
-                                <InputGroup.Text>$</InputGroup.Text>
-                            </InputGroup.Prepend>
-                            <FormControl min="100" step="100" placeholder="100" type="number" id="budgetinput" aria-label="Amount (to the nearest dollar)" />
-                        </InputGroup>
-                    </div>
+            <div className="row" id="q3">
+                <form className="col-sm-12 header bg-q">
+                    <h3>What's your budget?</h3>
+                    <input type="number" onChange={this.props.handleChange('budget')} defaultValue={values.budget} placeholder="Search..."></input>
+                </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="back" onClick={this.back}>Back</button>
             </div>
         );
     }

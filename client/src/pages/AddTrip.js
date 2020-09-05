@@ -17,10 +17,10 @@ export default class AddTrip extends React.Component {
             step: 1,
             startpoint: "",
             endpoint: "",
-            budget: "",
-            people: 0,
+            budget: 0,
+            people: 1,
             vehicle: '',
-            dates: '',
+            dates: [],
             stops: [],
             night: '',
         }
@@ -37,6 +37,7 @@ export default class AddTrip extends React.Component {
     }
 
     handleChange = input => event => {
+        debugger;
         this.setState({ [input] : event.target.value })
     }
 

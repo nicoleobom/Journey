@@ -59,7 +59,7 @@ export default class Question1 extends React.Component {
             <div className="row" id="q1">
                 <form className="col-sm-12 header bg-q">
                     <h3>Where are you starting from?</h3>
-                    <input type="text" onChange={this.props.handleChange('startpoint')} placeholder="Search..."></input>
+                    <input type="text" onChange={this.props.handleChange('startpoint')} defaultValue={values.startpoint} placeholder="Search..."></input>
                     {/* <SearchBar
                         id="autocomplete"
                         type="text"
@@ -71,8 +71,8 @@ export default class Question1 extends React.Component {
                             maxWidth: 500,
                         }}
                     /> */}
-                    <button onClick={this.nextQuestion}>Go</button>
                 </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
             </div>
         )
     }

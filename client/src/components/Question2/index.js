@@ -48,6 +48,11 @@ export default class Question2 extends React.Component {
     //     });
     // }
 
+    back = (event) => {
+        event.preventDefault();
+        this.props.prevStep();
+    }
+
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
@@ -59,8 +64,8 @@ export default class Question2 extends React.Component {
         return(
             <div className="row" id="q1">
                 <form className="col-sm-12 header bg-q">
-                    <h3>Where are you starting from?</h3>
-                    <input type="text" onChange={this.props.handleChange('startpoint')} placeholder="Search..."></input>
+                    <h3>Where are you going?</h3>
+                    <input type="text" onChange={this.props.handleChange('endpoint')} defaultValue={values.endpoint} placeholder="Search..."></input>
                     {/* <SearchBar
                         id="autocomplete"
                         type="text"
@@ -72,8 +77,9 @@ export default class Question2 extends React.Component {
                             maxWidth: 500,
                         }}
                     /> */}
-                    <button onClick={this.nextQuestion}>Go</button>
                 </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="back" onClick={this.back}>Back</button>
             </div>
         )
     }

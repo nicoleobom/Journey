@@ -1,23 +1,34 @@
 import React from 'react';
-import Circles from '../Circles/index';
-import { faCar, faBus, faTrain, faPlane} from '@fortawesome/free-solid-svg-icons';
 import './index.css';
 
-function Question5 (props) {
-    if (props.currentQuestion !== 5) {
-        return null;
+export default class Question5 extends React.Component {
+    back = (event) => {
+        event.preventDefault();
+        this.props.prevStep();
     }
-    return(
-        <div className="bg-q">
-            <h3>How do you want to get there?</h3>
-            <div className="circles">
-                <Circles icon={faCar}/>
-                <Circles icon={faBus}/>
-                <Circles icon={faTrain}/>
-                <Circles icon={faPlane}/>
-            </div>
-        </div>
-    );
-}
 
-export default Question5;
+    nextQuestion = (event) => {
+        event.preventDefault();
+        this.props.nextStep();
+        // this.clearForm();
+    }
+    
+    render() {
+        const { values } = this.props;
+        return(
+            <div className="row" id="q5">
+                <form className="col-sm-12 header bg-q">
+                    <h3>How do you want to get there?</h3>
+                    <select id="vehicle" name="vehicle" onChange={this.props.handleChange('vehicle')} defaultValue={values.vehicle}>
+                        <option value="car">Car</option>
+                        <option value="bus">Bus</option>
+                        <option value="train">Train</option>
+                        <option value="plane">Plane</option>
+                    </select>
+                 </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="back" onClick={this.back}>Back</button>
+            </div>
+        );
+    }
+}
