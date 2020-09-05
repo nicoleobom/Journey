@@ -10,7 +10,6 @@ export default class Question4 extends React.Component {
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
-        // this.clearForm();
     }
 
     render(){
@@ -24,7 +23,6 @@ export default class Question4 extends React.Component {
                 <button className="next" onClick={this.nextQuestion}>Go</button>
                 <button className="back" onClick={this.back}>Back</button>
             </div>
-
         );
     }
 }

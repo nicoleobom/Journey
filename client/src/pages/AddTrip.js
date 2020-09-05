@@ -28,7 +28,10 @@ export default class AddTrip extends React.Component {
 
     nextStep = () => {
         const { step } = this.state;
-        this.setState({ step: step + 1 })
+        this.setState({ 
+            step: step + 1 
+
+        })
     }
 
     prevStep = () => {
@@ -102,7 +105,9 @@ export default class AddTrip extends React.Component {
                         values={values}
                         />
             case 9:
-                return <Results />
+                return <Results 
+                        values={values}
+                        />
         }
     }
 }

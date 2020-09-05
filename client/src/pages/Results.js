@@ -1,13 +1,34 @@
 import React from 'react';
 import { ListGroup, Button } from 'react-bootstrap';
+import API from '../utils/API';
 
 export default class Results extends React.Component {
+    // constructor(props) {
+    //     super(props);
+    //     this.state={
+    //         firstname: "",
+    //     }
+    // }
+
+    // componentDidMount() {
+    //     this.userFirstName();
+    // }
+
+    // userFirstName = async () => {
+    //     const user = (await API.getUserData()).data;
+    //     console.log(user.firstname);
+    //     this.setState({
+    //         firstname: user.firstname
+    //     })
+    // }
+
     render() {
+        debugger;
         const {values: { startpoint, endpoint, budget, people, vehicle, dates, stops, night }} = this.props;
         return(
             <div className="row">
                 <div className="col-sm-12 header">
-                    <h3>Nicole's Trip to Nashville, TN</h3>
+                    <h3>'s Trip to {this.props.endpoint}</h3>
                     <ListGroup>
                         <ListGroup.Item>{startpoint}</ListGroup.Item>
                         <ListGroup.Item>{endpoint}</ListGroup.Item>

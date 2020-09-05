@@ -50,7 +50,6 @@ export default class Question1 extends React.Component {
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
-        // this.clearForm();
     }
 
     render() {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { InputGroup, FormControl } from 'react-bootstrap';
 import './index.css';
 
 export default class Question3 extends React.Component {
@@ -11,7 +10,6 @@ export default class Question3 extends React.Component {
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
-        // this.clearForm();
     }
 
     render() {

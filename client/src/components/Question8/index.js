@@ -9,7 +9,6 @@ export default class Question8 extends React.Component {
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
-        // this.clearForm();
     }
     
     render() {

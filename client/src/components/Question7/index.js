@@ -11,7 +11,6 @@ export default class Question7 extends React.Component {
     nextQuestion = (event) => {
         event.preventDefault();
         this.props.nextStep();
-        // this.clearForm();
     }
 
     render() {
@@ -21,28 +20,28 @@ export default class Question7 extends React.Component {
                 <form className="col-sm-12 header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
                     <input id="national-parks" name="national-parks" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="national-parks">National Parks</label>
+                        <label htmlFor="national-parks">National Parks</label>
                     
                     <input id="restaurants" name="restaurants" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="restaurants">Top-rated restaurants</label>
+                        <label htmlFor="restaurants">Top-rated restaurants</label>
 
                     <input id="dog-friendly" name="dog-friendly" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="dog-friendly">Dog-friendly areas</label>
+                        <label htmlFor="dog-friendly">Dog-friendly areas</label>
 
                     <input id="museums" name="museums" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="museums">Museums and art exhibits</label>
+                        <label htmlFor="museums">Museums and art exhibits</label>
 
                     <input id="coffee" name="coffee" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="coffee">Best coffee</label>
+                        <label htmlFor="coffee">Best coffee</label>
 
                     <input id="beaches-parks" name="beaches-parks" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="beaches-parks">Beaches and parks</label>
+                        <label htmlFor="beaches-parks">Beaches and parks</label>
 
                     <input id="food-trucks" name="food-trucks" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="food-trucks">Food trucks</label>
+                        <label htmlFor="food-trucks">Food trucks</label>
 
                     <input id="trails" name="trails" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label for="trails">Walking trails and bike paths</label>
+                        <label htmlFor="trails">Walking trails and bike paths</label>
 
                  </form>
                 <button className="next" onClick={this.nextQuestion}>Go</button>
@@ -50,15 +49,4 @@ export default class Question7 extends React.Component {
             </div>
         );
     }
-    // if (props.currentQuestion !== 7) {
-    //     return null;
-    // }
-    // return(
-    //     <div className="bg-q">
-    //         <h3>What kinds of places do you want to stop at?</h3>
-    //         <div className="leftalign">
-    //             <Checkbox />
-    //         </div>
-    //     </div>
-    // );
 }
