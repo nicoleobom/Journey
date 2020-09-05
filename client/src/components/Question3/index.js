@@ -7,8 +7,8 @@ export default class Question3 extends React.Component {
         super(props);
         this.state = {
             budget: '',
-            currentQuestion: 3,
         }
+
     }
 
     handleInputChange = event => {
@@ -20,8 +20,11 @@ export default class Question3 extends React.Component {
 
 
     render() {
+        if (this.state.currentQuestion !== 3) {
+            return null;
+        }
         return(
-            <div className="bg-q">
+            <div className="bg-q" id="q3">
                 <h3>What's your budget?</h3>
                     <div className="budgetform">
                         <InputGroup className="mb-3 budgetinput">

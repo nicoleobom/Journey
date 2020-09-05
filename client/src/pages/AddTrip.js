@@ -8,187 +8,100 @@ import Question6 from '../components/Question6/index';
 import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
 import Results from '../pages/Results';
-import { Redirect, Link } from 'react-router-dom';
-
 import '../index.css';
 
-
-class AddTrip extends React.Component {
+export default class AddTrip extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentQuestion: 1, // default first step
-            startpoint: Question1.state.startpoint,
-            endpoint: Question2.endpoint,
-            budget: Question3.budget,
+            step: 1,
+            startpoint: "",
+            endpoint: "",
+            budget: "",
             people: 0,
-            vehicle: [],
-            dates: Date(),
+            vehicle: '',
+            dates: '',
             stops: [],
             night: '',
-            redirect: null
-        }
-      
-
-        this._next = this._next.bind(this);
-        this._prev = this._prev.bind(this);
-
-        this.handleChange = this.handleChange.bind(this);
-
-
-        
-    }
-
-    _next() {
-        let currentQuestion = this.state.currentQuestion;
-        currentQuestion = currentQuestion >= 8 ?  console.log('almost done') : currentQuestion + 1;
-        debugger;
-        this.setState({
-            currentQuestion: currentQuestion,
-            startpoint: Question1.state.startpoint,
-            endpoint: Question2.endpoint,
-            budget: Question3.budget,
-        })
-
-        if (currentQuestion !== 1) {
-            document.getElementById('q1').style.display = 'none';
-        } else {
-            document.getElementById('q1').style.display = 'block';
-        }        
-        
-        if (currentQuestion !== 2) {
-            document.getElementById('q2').style.display = 'none';
-        } else {
-            document.getElementById('q2').style.display = 'block';
         }
     }
 
-    _results() {
-        return(
-            <Redirect to={Results} />
-        );
+    nextStep = () => {
+        const { step } = this.state;
+        this.setState({ step: step + 1 })
     }
 
-    _prev() {
-        let currentQuestion = this.state.currentQuestion;
-        currentQuestion = currentQuestion < 1 ? 1: currentQuestion - 1;
-        this.setState({
-            currentQuestion: currentQuestion
-        })
-
-        if (currentQuestion !== 1) {
-            document.getElementById('q1').style.display = 'none';
-        } else {
-            document.getElementById('q1').style.display = 'block';
-        }        
-        
-        if (currentQuestion !== 2) {
-            document.getElementById('q2').style.display = 'none';
-        } else {
-            document.getElementById('q2').style.display = 'block';
-        }
+    prevStep = () => {
+        const { step } = this.state;
+        this.setState({ step: step - 1 })
     }
 
-    handleChange(event) {
-        const { username, value } = event.target
-        this.setState({
-            [username]: value
-        });
-    }
-
-    get previousButton() {
-        let currentQuestion = this.state.currentQuestion;
-        if (currentQuestion !== 1) {
-            return(
-                <button className="btn prevbtn float-left" type="button" onClick={this._prev}>Back</button>
-            )
-        }
-        return null;
-    }
-
-    get nextButton() {
-        let currentQuestion = this.state.currentQuestion;
-        
-        if (currentQuestion < 8)  {
-            return(
-                <button className="btn float-right nextbtn" type="button" onClick={this._next}>Next</button>
-            )
-        } else {
-            return(
-                <button className="btn float-right nextbtn" ><Link to="/results">Results</Link></button>
-            )
-        }
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        const { startpoint, endpoint, budget, people, vehicle, dates, stops, night } = this.state;
-        alert(`Your details: \n
-            Starting: ${startpoint}
-            Ending: ${endpoint}
-            Budget: ${budget}
-            People: ${people}
-            Vehicle: ${vehicle}
-            Dates: ${dates}
-            Stops: ${stops}
-            Overnight: ${night}
-        `)
+    handleChange = input => event => {
+        this.setState({ [input] : event.target.value })
     }
 
     render() {
-        return(
-            <div className="row">
-                <div className="col-sm-12 questionheader">
-                    <Question1 
-                        currentQuestion={this.state.currentQuestion}
+        const {step} = this.state;
+        const { startpoint, endpoint, budget, people, vehicle, dates, stops, night } = this.state;
+        const values = { startpoint, endpoint, budget, people, vehicle, dates, stops, night };
+        switch(step) {
+            case 1:
+                return <Question1 
+                        nextStep={this.nextStep}
                         handleChange={this.handleChange}
-                        startpoint={this.state.startpoint}
-                    />
-                    <Question2 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 2:
+                return <Question2
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        endpoint={this.state.endpoint}
-                    />
-                    <Question3 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 3:
+                return <Question3
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        budget={this.state.budget}
-                    />
-                    <Question4 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 4:
+                return <Question4
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        people={this.state.people}
-                    />
-                    <Question5 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 5:
+                return <Question5
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        vehicle={this.state.vehicle}
-                    />
-                    <Question6 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 6:
+                return <Question6
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        dates={this.state.dates}
-                    />
-                    <Question7 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 7: 
+                return <Question7
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        stops={this.state.stops}
-                    />
-                    <Question8 
-                        currentQuestion={this.state.currentQuestion}
+                        values={values}
+                        />
+            case 8:
+                return <Question8
+                        nextStep={this.nextStep}
+                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
-                        night={this.state.night}
-                    />
-                    {this.previousButton}
-                    {this.nextButton}
-                </div>
-            </div>
-        );
+                        values={values}
+                        />
+            case 9:
+                return <Results />
+        }
     }
 }
-
-
-
-
-
-export default AddTrip;
