@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import Searchbar from '../Searchbar/index';
 
 export default class Question1 extends React.Component {
 
@@ -7,6 +8,7 @@ export default class Question1 extends React.Component {
         event.preventDefault();
         console.log(this.props.startpoint)
         this.props.nextStep();
+
     }
 
     render() {
@@ -15,11 +17,10 @@ export default class Question1 extends React.Component {
             <div className="row" id="q1">
                 <form className="col-sm-12 header bg-q">
                     <h3>Where are you starting from?</h3>
-                    <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter city"></input><br />
-                    <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter state"></input><br />
-                    <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter zip"></input>
+                    {/* <input id="startpoint" className="address" type="text" onChange={this.props.handleChange('startpoint')} placeholder="Enter city, state, and zip"></input><br /> */}
+                    <Searchbar />
                 </form>
-                <button className="next" onClick={this.nextQuestion} onChange={this.props.handleChange('startpoint')}>Go</button>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
             </div>
         )
     }
