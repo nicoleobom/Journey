@@ -1,75 +1,31 @@
 import React from 'react';
-import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
-import useOnClickOutside from 'react-cool-onclickoutside';
+import './index.css';
 
-const Question2 = props => {
-    const {
-        ready,
-        value,
-        suggestions: { status, data },
-        setValue,
-        clearSuggestions,
-    } = usePlacesAutocomplete({
-        requestOptions: {
+export default class Question2 extends React.Component {
+    back = (event) => {
+        event.preventDefault();
+        this.props.prevStep();
+    }
 
-        },
-        debounce: 300,
-    });
+    nextQuestion = (event) => {
+        event.preventDefault();
+        this.props.nextStep();
+    }
 
-    const ref = useOnClickOutside(() => {
-        clearSuggestions();
-    });
-
-    const handleInput = event => {
-        setValue(event.target.value);
-    };
-
-    const handleSelect = ({ description }) => () => {
-        setValue(description, false);
-        clearSuggestions();
-
-        getGeocode({ address: description })
-            .then((results) => getLatLng(results[0]))
-            .then(({ lat, lng }) => {
-                console.log('📍 Coordinates: ', { lat, lng });
-            })
-            .catch((error) => {
-                console.log('Error!', error);
-            });
-    };
-
-    const renderSuggestions = () =>
-        data.map((suggestion) => {
-            const {
-                id,
-                structured_formatting: { main_text, secondary_text },
-            } = suggestion;
-
-            return (
-                <li key={id} onClick={handleSelect(suggestion)}>
-                    <strong>{main_text}</strong> <small>{secondary_text}</small>
-                </li>
-            )
-        });
-
-        if (props.currentQuestion !== 2) {
-            return null;
-        }
-
-        return (
-            <div ref={ref} id="q2" className="bg-q">
-                <h3>Where do you want to go?</h3>
-                <input
-                    className="location-search-input"
-                    value={value}
-                    onChange={handleInput}
-                    disabled={!ready}
-                    placeholder="The world is your oyster..."
-                />
-                {status === "OK" && <ul>{renderSuggestions()}</ul>}
+    render() {
+        const { values } = this.props;
+        return(
+            <div className="row" id="q1">
+                <form className="col-sm-12 header bg-q">
+                    <h3>Where are you going?</h3>
+                    <input className="address" type="text" defaultValue={values.endpoint} placeholder="Enter city"></input><br />
+                    <input className="address" type="text" defaultValue={values.endpoint} placeholder="Enter state"></input><br />
+                    <input className="address" type="text" onChange={this.props.handleChange('endpoint')} defaultValue={values.endpoint} placeholder="Enter zip"></input>                   
+                </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="back" onClick={this.back}>Back</button>
             </div>
         )
+    }
 
 }
-
-export default Question2;

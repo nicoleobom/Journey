@@ -1,22 +1,32 @@
 import React from 'react';
-import Circles from '../Circles/index';
-import { faHotel, faCampground, faHome, faUserFriends } from '@fortawesome/free-solid-svg-icons';
 
-function Question8 (props) {
-    if (props.currentQuestion !== 8) {
-        return null;
+export default class Question8 extends React.Component {
+    back = (event) => {
+        event.preventDefault();
+        this.props.prevStep();
     }
-    return(
-        <div className="bg-q">
-            <h3>How do you prefer to stay the night?</h3>
-            <div className="circles">
-                <Circles icon={faHotel}/>
-                <Circles icon={faCampground}/>
-                <Circles icon={faHome}/>
-                <Circles icon={faUserFriends}/>
-            </div>
-        </div>
-    );
-}
 
-export default Question8;
+    nextQuestion = (event) => {
+        event.preventDefault();
+        this.props.nextStep();
+    }
+    
+    render() {
+        const { values } = this.props;
+        return(
+            <div className="row" id="q8">
+                <form className="col-sm-12 header bg-q">
+                    <h3>How do you prefer to stay the night?</h3>
+                    <select id="night" name="night" defaultValue="hotel" onChange={this.props.handleChange('night')}>
+                        <option value="hotel">Hotel</option>
+                        <option value="campground">Campground</option>
+                        <option value="airbnb">AirBnB</option>
+                        <option value="friends">Friend's House</option>
+                    </select>
+                 </form>
+                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="back" onClick={this.back}>Back</button>
+            </div>
+        );
+    }  
+}
