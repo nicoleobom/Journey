@@ -15,7 +15,7 @@ export default class AddTrip extends React.Component {
         super(props);
         this.state = {
             step: 1,
-            startpoint: "",
+            startpoint: [],
             endpoint: "",
             budget: 0,
             people: 1,

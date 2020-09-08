@@ -5,6 +5,7 @@ export default class Question1 extends React.Component {
 
     nextQuestion = (event) => {
         event.preventDefault();
+        console.log(this.props.startpoint)
         this.props.nextStep();
     }
 
@@ -16,9 +17,9 @@ export default class Question1 extends React.Component {
                     <h3>Where are you starting from?</h3>
                     <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter city"></input><br />
                     <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter state"></input><br />
-                    <input className="address" type="text" onChange={this.props.handleChange('startpoint')} defaultValue={values.startpoint} placeholder="Enter zip"></input>
+                    <input className="address" type="text" defaultValue={values.startpoint} placeholder="Enter zip"></input>
                 </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="next" onClick={this.nextQuestion} onChange={this.props.handleChange('startpoint')}>Go</button>
             </div>
         )
     }
