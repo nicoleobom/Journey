@@ -34,6 +34,7 @@ export default class Searchbar extends React.Component {
                city: address[0].long_name,
                query: addressObject.formatted_address,
            })
+           console.log(this.state.city);
        }
    }
 
