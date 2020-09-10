@@ -22,7 +22,7 @@ export default class AddTrip extends React.Component {
             vehicle: 'Car',
             startDate: "",
             endDate: "",
-            stops: [],
+            stops: null,
             night: 'Hotel',
         }
     }
@@ -47,6 +47,10 @@ export default class AddTrip extends React.Component {
     setLocation = (key, value) => {
         this.setState({ [key] : value })
         console.log(this.state);
+    }
+
+    stopsArray = (stopsArray) => {
+        this.setState({ stops: stopsArray })
     }
 
     render() {
@@ -102,6 +106,7 @@ export default class AddTrip extends React.Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        stopsArray={this.stopsArray}
                         values={values}
                         />
             case 8:
