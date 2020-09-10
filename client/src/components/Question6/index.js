@@ -8,10 +8,10 @@ export default class Question6 extends React.Component {
     }
 
     nextQuestion = (event) => {
-        // if (!this.props.values.startDate || !this.props.values.endDate) {
-        //     window.alert("Please enter a start and end date");
-        //     return;
-        // }
+        if (!this.props.values.startDate || !this.props.values.endDate) {
+            window.alert("Please enter a start and end date");
+            return;
+        }
         event.preventDefault();
         this.props.nextStep();
     }
