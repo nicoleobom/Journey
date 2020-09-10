@@ -23,7 +23,7 @@ export default class Results extends React.Component {
     }
 
     render() {
-        debugger;
+        // debugger;
         const {values: { startpoint, endpoint, budget, people, vehicle, dates, stops, night }} = this.props;
         return(
             <div className="row">
