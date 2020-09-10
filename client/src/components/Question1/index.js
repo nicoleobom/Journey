@@ -64,7 +64,6 @@ export default class Question1 extends React.Component {
  
     nextQuestion = (event) => {
         event.preventDefault();
-        console.log(this.props)
         this.props.nextStep();
     }
 

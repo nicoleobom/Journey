@@ -57,14 +57,15 @@ export default class AddTrip extends React.Component {
                 return <Question1 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
-                        values={values}
                         setLocation={this.setLocation}
+                        values={values}
                         />
             case 2:
                 return <Question2
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        setLocation={this.setLocation}
                         values={values}
                         />
             case 3:
