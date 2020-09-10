@@ -23,12 +23,7 @@ export default class Question7 extends React.Component {
             <div className="row" id="q7">
                 <form className="col-sm-12 header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
-<<<<<<< HEAD
-                    <CheckboxContainer />
-                    {/* <input id="national-parks" name="national-parks" type="checkbox" onChange={this.props.handleChange('stops')} />
-=======
                     <input id="national-parks" name="national-parks" value="national-parks" type="checkbox" onClick={this.props.handleChange('stops')} />
->>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
                         <label htmlFor="national-parks">National Parks</label>
                     
                     <input id="restaurants" name="restaurants" value="restaurants" type="checkbox" onChange={this.props.handleChange('stops')} />
@@ -49,18 +44,12 @@ export default class Question7 extends React.Component {
                     <input id="food-trucks" name="food-trucks" value="food-trucks" type="checkbox" onChange={this.props.handleChange('stops')} />
                         <label htmlFor="food-trucks">Food trucks</label>
 
-<<<<<<< HEAD
-                    <input id="trails" name="trails" type="checkbox" onChange={this.props.handleChange('stops')} />
-                        <label htmlFor="trails">Walking trails and bike paths</label> */}
-=======
                     <input id="trails" name="trails" value="trails" type="checkbox" onChange={this.props.handleChange('stops')} />
                         <label htmlFor="trails">Walking trails and bike paths</label>
->>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
 
                  </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
-                <button className="back" onClick={this.back}>Back</button>
-            </div>
+                 <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
         );
     }
 }

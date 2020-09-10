@@ -52,20 +52,6 @@ export default class Question1 extends React.Component {
     //     // console.log(place);
     //     // const address = place.address_components;
  
-<<<<<<< HEAD
-    handlePlaceSelect = () => {
-        const addressObject = this.autocomplete.getPlaces();
-        const address = addressObject.address_components;
- 
-        if(address) {
-            this.setState({
-                city: address[0].long_name,
-                query: addressObject.formatted_address,
-            })
-            this.props.handleChange('startpoint');
-        }
-    }
-=======
     //     // if(address) {
     //         // this.setState({
     //         //     city: address[0].long_name,
@@ -75,7 +61,6 @@ export default class Question1 extends React.Component {
     //         // this.props.handleChange('startpoint');
     //     // }
     // }
->>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
  
     nextQuestion = (event) => {
         event.preventDefault();
@@ -92,9 +77,8 @@ export default class Question1 extends React.Component {
                         placeholder="Search cities"
                         onChange={this.handleScriptLoad}
                     />
-                    {/* <Searchbar /> */}
                 </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
+                <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
             </div>
         )
     }

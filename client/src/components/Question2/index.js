@@ -22,19 +22,6 @@ export default class Question2 extends React.Component {
         }
  
         /*global google*/
-<<<<<<< HEAD
-        this.autocomplete = new google.maps.places.Autocomplete(
-            document.getElementById('autocomplete'), options,
-        );
- 
-        this.autocomplete.setFields(['address_components', 'formatted_address']);
-        this.autocomplete.addListener('places_changed', this.handlePlaceSelect);
-    }
- 
-    handlePlaceSelect = () => {
-        const addressObject = this.autocomplete.getPlaces();
-        const address = addressObject.address_components;
-=======
         const autocomplete = new google.maps.places.Autocomplete(
             document.getElementById('autocomplete'), options);
         autocomplete.setFields(['address_components', 'formatted_address']);
@@ -42,7 +29,6 @@ export default class Question2 extends React.Component {
             const place = autocomplete.getPlace();
             console.log(place);
             const address = place.address_components;
->>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
  
             if(address) {
                 this.setState({
@@ -79,8 +65,8 @@ export default class Question2 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                 </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
-                <button className="back" onClick={this.back}>Back</button>
+                <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>
             </div>
         )
     }

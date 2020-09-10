@@ -32,3 +32,35 @@ ul {
 .address {
     margin-top: 20px;
 }
+
+.next {
+    position: fixed;
+    right: 20%;
+    bottom: 45%;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    width: 100px !important;
+    transition: ease-in-out .25s;
+    color: white;
+    font-weight: bold;
+}
+
+.back {
+    position: fixed;
+    left: 20%;
+    bottom: 45%;
+    background-color: lightskyblue;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    width: 100px !important;
+    transition: ease-in-out .25s;
+    color: white;
+    font-weight: bolder;
+}
+
+.next:hover, .back:hover {
+    background-color: lightsteelblue;
+}

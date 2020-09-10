@@ -23,12 +23,8 @@ export default class Results extends React.Component {
     }
 
     render() {
-<<<<<<< HEAD
-        const {values: { startpoint, endpoint, budget, people, vehicle, dates, stops, night }} = this.props;
-=======
         // debugger;
         const {values: { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
->>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
         return(
             <div className="row">
                 <div className="col-sm-12 header">
