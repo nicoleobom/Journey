@@ -64,6 +64,8 @@ export default class Question2 extends React.Component {
                         placeholder="Search cities"
                         onChange={this.handleScriptLoad}
                     />
+                    <p>or</p>
+                    <button value="I don't know" type="button" onClick={this.props.handleChange('endpoint')}>I don't know!</button>
                 </form>
                 <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
                 <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>

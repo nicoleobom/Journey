@@ -8,10 +8,10 @@ export default class Question6 extends React.Component {
     }
 
     nextQuestion = (event) => {
-        if (!this.props.values.startDate || !this.props.values.endDate) {
-            window.alert("Please enter a start and end date");
-            return;
-        }
+        // if (!this.props.values.startDate || !this.props.values.endDate) {
+        //     window.alert("Please enter a start and end date");
+        //     return;
+        // }
         event.preventDefault();
         this.props.nextStep();
     }
@@ -27,6 +27,8 @@ export default class Question6 extends React.Component {
                     <br />
                     <label htmlFor="end">End date:</label>
                     <input id="end" type="date" onChange={this.props.handleChange('endDate')} defaultValue={values.endDate} />
+                    <p>or</p>
+                    <button value="I don't know" type="button" onClick={this.props.handleChange('startDate', 'endDate')}>You tell me!</button>
                  </form>
                  <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
                 <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
