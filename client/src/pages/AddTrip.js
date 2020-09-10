@@ -20,9 +20,10 @@ export default class AddTrip extends React.Component {
             budget: 0,
             people: 1,
             vehicle: 'Car',
-            dates: [],
+            startDate: "",
+            endDate: "",
             stops: [],
-            night: '',
+            night: 'Hotel',
         }
     }
 
@@ -50,8 +51,8 @@ export default class AddTrip extends React.Component {
 
     render() {
         const {step} = this.state;
-        const { startpoint, endpoint, budget, people, vehicle, dates, stops, night } = this.state;
-        const values = { startpoint, endpoint, budget, people, vehicle, dates, stops, night };
+        const { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night } = this.state;
+        const values = { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night };
         switch(step) {
             case 1:
                 return <Question1 
