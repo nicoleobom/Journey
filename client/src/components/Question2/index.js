@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import cities from '../../assets/geo/cities'
 
 export default class Question2 extends React.Component {
     constructor(props) {
@@ -54,8 +55,22 @@ export default class Question2 extends React.Component {
         this.props.nextStep();
     }
 
+    chooseCity = () => {
+        const randomLocation = cities[Math.floor(Math.random() * Math.floor(201))];
+        const randomCity = randomLocation.city + ', ' + randomLocation.state + ', USA';
+        console.log(randomCity);
+
+        this.setState({
+            city: randomLocation.city,
+            query: randomCity,
+        });
+        console.log(this.state);
+        this.props.setLocation('endpoint', randomCity);
+    }
+
     render() {
         const { values } = this.props;
+
         return(
             <div className="row" id="q1">
                 <form className="col-sm-12 header bg-q">
@@ -65,7 +80,7 @@ export default class Question2 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                     <p>or</p>
-                    <button value="I don't know" type="button" onClick={this.props.handleChange('endpoint')}>I don't know!</button>
+                    <button value="I don't know" type="button" onClick={this.chooseCity}>I don't know!</button>
                 </form>
                 <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
                 <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>
