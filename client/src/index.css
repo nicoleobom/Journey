@@ -153,3 +153,12 @@ a {
   border: none;
   border-radius: 50px;
 }
+
+.results {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.results-content {
+  text-align: left;
+}
