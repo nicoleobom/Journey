@@ -25,7 +25,6 @@ export default class Searchbar extends React.Component {
    }
 
    handlePlaceSelect = () => {
-       debugger;
        const addressObject = this.autocomplete.getPlace();
        const address = addressObject.address_components;
 

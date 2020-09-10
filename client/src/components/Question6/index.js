@@ -27,10 +27,11 @@ export default class Question6 extends React.Component {
                     <br />
                     <label htmlFor="end">End date:</label>
                     <input id="end" type="date" onChange={this.props.handleChange('endDate')} defaultValue={values.endDate} />
+                    <p>or</p>
+                    <button value="I don't know" type="button" onClick={this.props.handleChange('startDate', 'endDate')}>You tell me!</button>
                  </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
-                <button className="back" onClick={this.back}>Back</button>
-            </div>
+                 <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
         );
     }
 }

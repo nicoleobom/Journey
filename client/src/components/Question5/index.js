@@ -25,9 +25,8 @@ export default class Question5 extends React.Component {
                         <option value="Plane">Plane</option>
                     </select>
                  </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
-                <button className="back" onClick={this.back}>Back</button>
-            </div>
+                 <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
         );
     }
 }

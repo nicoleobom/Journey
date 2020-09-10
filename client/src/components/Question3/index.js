@@ -20,9 +20,8 @@ export default class Question3 extends React.Component {
                     <h3>What's your budget?</h3>
                     $<input type="number" min="100" step="100" onChange={this.props.handleChange('budget')} defaultValue={values.budget} placeholder="Search..."></input>
                 </form>
-                <button className="next" onClick={this.nextQuestion}>Go</button>
-                <button className="back" onClick={this.back}>Back</button>
-            </div>
+                <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
         );
     }
 }
