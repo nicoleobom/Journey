@@ -19,11 +19,9 @@ export default class SignUpForm extends React.Component {
 
     handleSubmit = async event => {
         event.preventDefault();
-        debugger;
         const response = await API.createUser(this.state)
         console.log(this.state)
         console.log(response)
-        debugger;
         if (response.status === 200) this.props.handleSuccess();
     }
 

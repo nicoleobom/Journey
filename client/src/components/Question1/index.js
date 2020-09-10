@@ -26,7 +26,6 @@ export default class Question1 extends React.Component {
     }
  
     handlePlaceSelect = () => {
-        debugger;
         const addressObject = this.autocomplete.getPlaces();
         const address = addressObject.address_components;
  
