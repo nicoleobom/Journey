@@ -37,12 +37,12 @@ export default class Results extends React.Component {
                 <div className="col-sm-12 header">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
-                        <Moment className="results" format="MMMM DD, YYYY">
+                        <p><Moment className="results" format="MMMM DD, YYYY">
                             {startDate}
                         </Moment>-
                         <Moment className="results" format="MMMM DD, YYYY">
                              {endDate}
-                        </Moment>
+                        </Moment></p>
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
