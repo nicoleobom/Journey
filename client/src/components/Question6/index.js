@@ -19,10 +19,10 @@ export default class Question6 extends React.Component {
                 <form className="col-sm-12 header bg-q">
                     <h3>When would you like to go?</h3>
                     <label htmlFor="start">Start date:</label>
-                    <input id="start" type="date" onChange={this.props.handleChange('dates')} defaultValue={values.dates} />
+                    <input id="start" type="date" onChange={this.props.handleChange('startDate')} defaultValue={values.startDate} />
                     <br />
                     <label htmlFor="end">End date:</label>
-                    <input id="end" type="date" onChange={this.props.handleChange('dates')} defaultValue={values.dates} />
+                    <input id="end" type="date" onChange={this.props.handleChange('endDate')} defaultValue={values.endDate} />
                  </form>
                 <button className="next" onClick={this.nextQuestion}>Go</button>
                 <button className="back" onClick={this.back}>Back</button>

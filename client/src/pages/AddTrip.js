@@ -19,10 +19,11 @@ export default class AddTrip extends React.Component {
             endpoint: "",
             budget: 0,
             people: 1,
-            vehicle: '',
-            dates: [],
+            vehicle: 'Car',
+            startDate: "",
+            endDate: "",
             stops: [],
-            night: '',
+            night: 'Hotel',
         }
     }
 
@@ -40,17 +41,24 @@ export default class AddTrip extends React.Component {
 
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
+        console.log(this.state);
+    }
+
+    setLocation = (key, value) => {
+        this.setState({ [key] : value })
+        console.log(this.state);
     }
 
     render() {
         const {step} = this.state;
-        const { startpoint, endpoint, budget, people, vehicle, dates, stops, night } = this.state;
-        const values = { startpoint, endpoint, budget, people, vehicle, dates, stops, night };
+        const { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night } = this.state;
+        const values = { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night };
         switch(step) {
             case 1:
                 return <Question1 
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
+                        setLocation={this.setLocation}
                         values={values}
                         />
             case 2:
@@ -58,6 +66,7 @@ export default class AddTrip extends React.Component {
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        setLocation={this.setLocation}
                         values={values}
                         />
             case 3:

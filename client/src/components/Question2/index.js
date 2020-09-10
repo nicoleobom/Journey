@@ -4,11 +4,17 @@ import './index.css';
 export default class Question2 extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            city: '',
-            query: '',
-        }
+        this.state = this.initialState()
+        this.handleScriptLoad = this.handleScriptLoad.bind(this)
+        this.autocomplete = null
     }
+
+    initialState() {
+        return {
+          city: '',
+          query: '',
+        }
+      }
  
     handleScriptLoad = () => {
         const options = {
@@ -16,6 +22,7 @@ export default class Question2 extends React.Component {
         }
  
         /*global google*/
+<<<<<<< HEAD
         this.autocomplete = new google.maps.places.Autocomplete(
             document.getElementById('autocomplete'), options,
         );
@@ -27,14 +34,28 @@ export default class Question2 extends React.Component {
     handlePlaceSelect = () => {
         const addressObject = this.autocomplete.getPlaces();
         const address = addressObject.address_components;
+=======
+        const autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'), options);
+        autocomplete.setFields(['address_components', 'formatted_address']);
+        autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            console.log(place);
+            const address = place.address_components;
+>>>>>>> 341316e7af504c748c85211cf6ee0551d7ec6aa5
  
-        if(address) {
-            this.setState({
-                city: address[0].long_name,
-                query: addressObject.formatted_address,
-            })
-            this.props.handleChange('startpoint');
-        }
+            if(address) {
+                this.setState({
+                    city: address[0].long_name,
+                    query: place.formatted_address,
+                })
+                console.log(this.state);
+            }
+
+            const endpoint = this.state.query;
+            this.props.setLocation('endpoint', endpoint);
+        })
+        
     }
 
     back = (event) => {
