@@ -63,6 +63,10 @@ export default class Question1 extends React.Component {
     // }
  
     nextQuestion = (event) => {
+        if (!this.props.values.startpoint) {
+            window.alert("Please enter a startpoint");
+            return;
+        }
         event.preventDefault();
         this.props.nextStep();
     }
@@ -78,7 +82,7 @@ export default class Question1 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                 </form>
-                <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
+                <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x i-btn-style"></i></button>
             </div>
         )
     }

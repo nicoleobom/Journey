@@ -18,7 +18,6 @@ export default class Question7 extends React.Component {
 
     render() {
         const { values } = this.props;
-        // const options = ["National Parks", "Top-rated restaurants", "Dog-friendly areas", "Museums and art exhibits", "Best coffee", "Beaches and parks", "Food trucks", "Walking trails and bike paths"]
         return(
             <div className="row" id="q7">
                 <form className="col-sm-12 header bg-q">
