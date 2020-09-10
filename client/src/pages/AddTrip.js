@@ -40,6 +40,12 @@ export default class AddTrip extends React.Component {
 
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
+        console.log(this.state);
+    }
+
+    setLocation = (key, value) => {
+        this.setState({ [key] : value })
+        console.log(this.state);
     }
 
     render() {
@@ -52,6 +58,7 @@ export default class AddTrip extends React.Component {
                         nextStep={this.nextStep}
                         handleChange={this.handleChange}
                         values={values}
+                        setLocation={this.setLocation}
                         />
             case 2:
                 return <Question2
