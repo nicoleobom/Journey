@@ -17,7 +17,7 @@ export default class AddTrip extends React.Component {
             step: 1,
             startpoint: "",
             endpoint: "",
-            budget: 0,
+            budget: 100,
             people: 1,
             vehicle: 'Car',
             startDate: "",
