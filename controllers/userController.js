@@ -25,9 +25,9 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 
-	updateScore: (req, res) => {
+	updateTrips: (req, res) => {
 		db.User
-			.updateOne({ _id: req.body.id }, { $push: { scores: req.body.score } }, { upsert: true })
+			.updateOne({ _id: req.body.id }, { $push: { trips: req.body.trips } }, { upsert: true })
 			.then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
 	},

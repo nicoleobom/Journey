@@ -19,7 +19,6 @@ export default class Home extends React.Component {
     userFirstName = async () => {
         const { id, firstname } = this.props.match.params;
         const user = (await API.getUserData()).data;
-        console.log(user.firstname);
         this.setState({
             firstname: user.firstname
         })

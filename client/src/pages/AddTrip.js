@@ -41,12 +41,12 @@ export default class AddTrip extends React.Component {
 
     handleChange = input => event => {
         this.setState({ [input] : event.target.value })
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     setLocation = (key, value) => {
         this.setState({ [key] : value })
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     stopsArray = (stopsArray) => {

@@ -36,5 +36,9 @@ export default {
 	// Gets data for currently logged in user
 	getUserData: () => {
 		return axios.get("/api/user/data");
+	},
+	// Update user's trips
+	updateUserTrip: (userData) => {
+		return axios.put("/api/user/addTrip", userData);
 	}
 };

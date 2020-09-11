@@ -13,14 +13,24 @@ export default class Results extends React.Component {
 
     componentDidMount() {
         this.userFirstName();
+        this.updateUserTrip();
     }
 
     userFirstName = async () => {
         const user = (await API.getUserData()).data;
-        console.log(user.firstname);
         this.setState({
             firstname: user.firstname
         })
+    }
+
+    updateUserTrip = async () => {
+        const user = (await API.getUserData()).data;
+        const userData = {
+            id: user._id,
+            trips: this.props.values
+        }
+        API.updateUserTrip(userData);
+        console.log(userData);
     }
 
     render() {
