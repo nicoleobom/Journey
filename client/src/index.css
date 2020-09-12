@@ -73,7 +73,8 @@ input {
   margin-top: 20px;
   border: none;
   border-radius: 12px;
-  background-color: white;
+  background-color: #566048;
+  color: white;
   transition: ease-in-out .25s;
   text-transform: uppercase;
   font-size: 12px;
@@ -83,8 +84,7 @@ input {
 }
 
 .loginbtn:hover {
-  background-color: #29301e;
-  color: white;
+  background-color: rgba(86,96,72,.8);
 }
 
 #signupText {
@@ -104,41 +104,28 @@ a {
   font-family: 'Arial', 'sans-serif';
 }
 
-.nextbtn {
-  background-color: #29301e !important;
+.next {
+  background-color: #566048 !important;
   color: white !important;
-  font-family: 'LadyNature', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 20px !important;
   transition: ease-in-out .25s;
-  border-radius: 15px !important;
+  border-radius: 25px !important;
   position: fixed;
-  right: 10%;
-  bottom: 40%;
 }
 
-.nextbtn:hover {
-  background-color: #98a685 !important;
+.next:hover {
+  background-color: rgba(86,96,72,.8) !important;
 }
 
-.prevbtn {
-  background-color: #29301e !important;
+.back {
+  background-color: #566048 !important;
   color: white !important;
-  font-family: 'LadyNature', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 20px !important;
   transition: ease-in-out .25s;
-  border-radius: 15px !important;
+  border-radius: 25px !important;
   position: fixed;
-  left: 10%;
-  bottom: 40%;
 }
 
-.prevbtn:hover {
-  background-color: #98a685 !important;
-
+.back:hover {
+  background-color: rgba(86,96,72,.8) !important;
 }
 
 .navstyle {
