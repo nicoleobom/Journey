@@ -26,11 +26,12 @@ export default class PastTrips extends React.Component {
 
     render() {
         const userTrips = this.state.trips;
-        const filteredTrips = userTrips.filter(function (el) {
-            return el != null;
-          });
-        const trip = filteredTrips.map((trip) => 
-            <div>
+        // const filteredTrips = userTrips.filter(function (el) {
+        //     return el != null;
+        //   });
+        console.log(userTrips)
+        const trip = userTrips.map((trip) => 
+            <div key={trip._id}>
                 <h4><Moment className="results" format="MMMM DD, YYYY">
                 {trip.endDate}
                 </Moment> Trip to {trip.endpoint}</h4>
