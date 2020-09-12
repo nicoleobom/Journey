@@ -10,11 +10,6 @@ function Settings(props) {
                 <h3>Settings</h3>
 
                 <div className="section">
-                    <label>Change your avatar:</label><br />
-                    <input type="file" id="single" className="settingsinput" onChange={props.onChange} /> <br />
-                </div>
-
-                <div className="section">
                     <label>Change your username:</label><br />
                     <input id="newusername" placeholder="new username" className="settingsinput" /><br />
                 </div>
