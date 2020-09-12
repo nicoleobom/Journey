@@ -26,23 +26,17 @@ export default class Results extends React.Component {
 
     render() {
         let {values: { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
-        const numOfDays = <Moment to={startDate} unit="days">{endDate}</Moment>
-
-        if (endpoint === "I don't know") {
-            const randomNumber = Math.floor(Math.random() * (200 - 1) + 1);
-            endpoint = cities[randomNumber].city + ", " + cities[randomNumber].state;
-        }
         return(
             <div className="row">
                 <div className="col-sm-12 header">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
-                        <p><Moment className="results" format="MMMM DD, YYYY">
+                        <Moment className="results" format="MMMM DD, YYYY">
                             {startDate}
                         </Moment>-
                         <Moment className="results" format="MMMM DD, YYYY">
                              {endDate}
-                        </Moment></p>
+                        </Moment>
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>

@@ -9,5 +9,5 @@ export default function Days(props) {
                 Place 2, linked
                 Place 3, linked */}
             </div>
-    }
+        )
 }
