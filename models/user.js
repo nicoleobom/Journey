@@ -6,11 +6,24 @@ let userSchema = new Schema ({
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     username: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    trips: {
-        type: Schema.Types.ObjectId,
-        ref: "Trip"
-    }
+	password: { type: String, required: true },
+	trips: [
+		{
+			startpoint: { type: String, required: true },
+			endpoint: { type: String, required: true },
+			budget: { type: Number },
+			people: { type: Number, default: 1 },
+			vehicle: { type: String },
+			startDate: { type: Date },
+			endDate: { type: Date },
+			stops: { type: Array },
+			night: { type: String }
+		}
+	]
+    // trips: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: "Trip"
+    // }
 });
 
 // Define schema methods

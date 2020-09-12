@@ -7,7 +7,8 @@ let tripSchema = new Schema ({
     budget: { type: Number },
     people: { type: Number, default: 1 },
     vehicle: { type: String },
-    dates: { type: Date },
+    startDate: { type: Date },
+    endDate: { type: Date },
     stops: { type: Array },
     night: { type: String }
 })
