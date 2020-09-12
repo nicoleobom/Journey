@@ -164,3 +164,24 @@ a {
   font-weight: normal;
   color: #29301e;
 }
+
+.swal-modal {
+  background: white;
+  border: none;
+  border-radius: 25px;
+  color: #566048;
+  font-family: 'Varela Round', sans-serif;
+  font-weight: bolder;
+}
+
+.swal-button {
+  background-color: #566048;
+  color: white;
+  outline: none !important;
+  border: none;
+  border-radius: 15px !important;
+}
+
+.swal-button:hover {
+  background-color: rgba(86,96,72,.8) !important;
+}

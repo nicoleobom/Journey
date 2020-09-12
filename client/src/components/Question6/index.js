@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import Moment from 'react-moment';
+import swal from 'sweetalert';
 
 export default class Question6 extends React.Component {
     back = (event) => {
@@ -12,20 +13,20 @@ export default class Question6 extends React.Component {
 
         if (this.props.values.startDate) {
             if (!this.props.values.endDate) {
-                window.alert("Please enter an end date");
+                swal("Please enter an end date");
                 return;
             }
         }
 
         if (this.props.values.endDate) {
             if (!this.props.values.startDate) {
-                window.alert("Please enter a start date");
+                swal("Please enter a start date");
                 return;
             }
         }
 
         if(!this.props.values.startDate && !this.props.values.endDate) {
-            window.alert("Please select dates.");
+            swal("Please select dates.");
             return;
         }
         

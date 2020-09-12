@@ -1,6 +1,7 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import API from '../utils/API';
+import swal from 'sweetalert';
 
 export default class Login extends React.Component {
     state = {
@@ -19,7 +20,7 @@ export default class Login extends React.Component {
     handleFormSubmit = async event => {
         event.preventDefault();
         const { username, password } = this.state;
-        if(!username.length || !password.length) alert('Please enter both a username and password');
+        if(!username.length || !password.length) swal('Please enter both a username and password');
         const response = await API.loginUser({ username, password })
         if(response.status === 200) {
             this.props.history.push('/home');
