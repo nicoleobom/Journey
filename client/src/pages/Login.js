@@ -30,7 +30,7 @@ export default class Login extends React.Component {
     render() {
         return(
             <div className="row">
-                <div className="col-sm-12 header">
+                <div className="col-sm-12 header-2">
                     <h1>Journey</h1>
                     <input 
                         id="username"

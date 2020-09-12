@@ -1,0 +1,60 @@
+#night {
+    border-radius: 15px;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #566048;
+    outline: none!important;
+}
+
+.option {
+    border-radius: 15px;
+    outline: none !important;
+    border: none !important;
+    font-weight: bold;
+    color: #566048;
+}
+
+.next {
+    text-align: center;
+    position: fixed;
+    right: 20%;
+    bottom: 45%;
+    background-color: #29301e;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    width: 75px !important;
+    transition: ease-in-out .25s;
+    color: white;
+    font-weight: bold;
+}
+
+.back {
+    text-align: center;
+    position: fixed;
+    left: 20%;
+    bottom: 45%;
+    background-color: #29301e;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    width: 75px !important;
+    transition: ease-in-out .25s;
+    color: white;
+    font-weight: bolder;
+}
+
+.next:hover, .back:hover {
+    background-color: rgba(41,48,30, .8)
+}
+
+i {
+    color: white !important;
+    margin: 0 !important;
+}
+
+i:hover {
+    text-decoration: none;
+    color: white!important;
+}

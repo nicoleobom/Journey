@@ -18,10 +18,10 @@ export default class Question4 extends React.Component {
             <div className="row" id="q4">
                 <form className="col-sm-12 header bg-q">
                     <h3>How many people are going?</h3>
-                    <input type="number" onChange={this.props.handleChange('people')} defaultValue={values.people} ></input>
+                    <input id="people" type="number" onChange={this.props.handleChange('people')} defaultValue={values.people} ></input>
                 </form>
-                <button className="next" onClick={this.nextQuestion}><i class="fas fa-angle-right fa-2x"></i></button>
-                <button className="back" onClick={this.back}><i class="fas fa-angle-left fa-2x"></i></button>            </div>
+                <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                <button className="back" onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>            </div>
         );
     }
 }
