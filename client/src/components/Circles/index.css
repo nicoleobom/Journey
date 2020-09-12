@@ -1,15 +1,16 @@
 .circle {
-    padding: 50px;
+    padding: 30px;
     border: none;
     border-radius: 50%;
     transition: ease-in-out .25s;
     margin: 10px;
     outline: none!important;
-    color: #29301e;
+    color: white;
+    background-color: #566048;
 }
 
 .circle:hover {
-    background-color: #98a685;
+    background-color:rgba(86,96,72,.8);
 }
 
 .circle:focus {

@@ -1,3 +1,41 @@
 .leftalign {
     text-align: left;
 }
+
+.leftalign label {
+    padding-left: 15px !important;
+    color: white;
+    font-weight: normal;
+}
+
+input[type="checkbox"] {
+    visibility: hidden;
+}
+  
+input[type="checkbox"] + label:before {
+    border: 2px solid #566048;
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 1em 0 0;
+    padding: 0;
+    vertical-align: top;
+    width: 16px;;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background: #fff;
+    color: #566048;
+    font-weight: bolder;
+    content: "\2713";
+    text-align: center;
+}
+
+input[type="checkbox"]:checked + label:after {
+    font-weight: bold;
+}
+  
+input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
+}

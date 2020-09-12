@@ -1,4 +1,22 @@
-.circles {
+/* .circles {
     display: inline-block;
     margin-top: 50px;
+}
+ */
+
+#vehicle {
+    border-radius: 15px;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    color: #566048;
+    outline: none!important;
+}
+
+.option {
+    border-radius: 15px;
+    outline: none !important;
+    border: none !important;
+    font-weight: bold;
+    color: #566048;
 }

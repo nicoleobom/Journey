@@ -2,6 +2,7 @@ import React from 'react';
 import { ListGroup, Button } from 'react-bootstrap';
 import API from '../utils/API';
 import Moment from 'react-moment';
+import cities from '../assets/geo/cities';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -34,9 +35,7 @@ export default class Results extends React.Component {
     }
 
     render() {
-        // debugger;
-        const {values: { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
-               
+        let {values: { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
         return(
             <div className="row">
                 <div className="col-sm-12 header">
@@ -51,8 +50,9 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
+                        
                     </div>
-                    <ListGroup>
+                    {/* <ListGroup>
                         <ListGroup.Item>{startpoint}</ListGroup.Item>
                         <ListGroup.Item>{endpoint}</ListGroup.Item>
                         <ListGroup.Item>{budget}</ListGroup.Item>
@@ -62,7 +62,7 @@ export default class Results extends React.Component {
                         <ListGroup.Item>{endDate}</ListGroup.Item>
                         <ListGroup.Item>{stops}</ListGroup.Item>
                         <ListGroup.Item>{night}</ListGroup.Item>
-                    </ListGroup>
+                    </ListGroup> */}
                 </div>
             </div>
         )

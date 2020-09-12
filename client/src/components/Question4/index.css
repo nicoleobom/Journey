@@ -1,3 +1,10 @@
 .answers {
     margin-top: 50px !important;
 }
+
+#people {
+    width: 50px;
+    text-align: center;
+    font-weight: bold;
+    color: #566048
+}

@@ -8,3 +8,14 @@
     border-radius: 15px;
     color: #29301e;
 }
+
+label {
+    font-weight: bold;
+    color: #566048;
+    padding-top: 15px;
+}
+
+#start, #end {
+    color: #566048;
+    text-align: center;
+}
