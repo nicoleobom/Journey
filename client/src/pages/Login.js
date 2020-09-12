@@ -19,7 +19,6 @@ export default class Login extends React.Component {
     handleFormSubmit = async event => {
         event.preventDefault();
         const { username, password } = this.state;
-        debugger;
         if(!username.length || !password.length) alert('Please enter both a username and password');
         const response = await API.loginUser({ username, password })
         if(response.status === 200) {
