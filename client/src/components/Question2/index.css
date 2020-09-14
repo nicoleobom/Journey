@@ -16,7 +16,7 @@ p {
 }
 
 #idk {
-    background-color: #29301e;
+    background-color: #566048;
     border: none;
     border-radius: 15px;
     color: white;
@@ -26,10 +26,10 @@ p {
 }
 
 #idk:hover {
-    background-color: #98a685;
+    background-color: rgba(86,96,72,.8);
 }
 
 #idk:active, #idk:focus {
-    background-color: #98a685;
+    background-color:  rgba(86,96,72,.8);
     outline: none!important;
 }

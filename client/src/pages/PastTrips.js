@@ -33,7 +33,7 @@ export default class PastTrips extends React.Component {
         const trip = userTrips.map((trip) => 
             <div key={trip._id}>
                 <h4><Moment className="results" format="MMMM DD, YYYY">
-                {trip.endDate}
+                {trip.startDate}
                 </Moment> Trip to {trip.endpoint}</h4>
             </div>
         );
