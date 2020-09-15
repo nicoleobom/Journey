@@ -6,7 +6,7 @@ import cities from '../assets/geo/cities';
 
 export default class Results extends React.Component {
     constructor(props) {
-        super(props);
+        // super(props);
         this.state={
             firstname: "",
         }
@@ -52,17 +52,6 @@ export default class Results extends React.Component {
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
                         
                     </div>
-                    {/* <ListGroup>
-                        <ListGroup.Item>{startpoint}</ListGroup.Item>
-                        <ListGroup.Item>{endpoint}</ListGroup.Item>
-                        <ListGroup.Item>{budget}</ListGroup.Item>
-                        <ListGroup.Item>{people}</ListGroup.Item>
-                        <ListGroup.Item>Travel by {vehicle}</ListGroup.Item>
-                        <ListGroup.Item>{startDate}</ListGroup.Item>
-                        <ListGroup.Item>{endDate}</ListGroup.Item>
-                        <ListGroup.Item>{stops}</ListGroup.Item>
-                        <ListGroup.Item>{night}</ListGroup.Item>
-                    </ListGroup> */}
                 </div>
             </div>
         )

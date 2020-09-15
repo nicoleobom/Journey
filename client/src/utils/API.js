@@ -40,5 +40,9 @@ export default {
 	// Update user's trips
 	updateUserTrip: (userData) => {
 		return axios.put("/api/user/addTrip", userData);
+	},
+	// Update user's settings
+	updateUserSettings: (userData) => {
+		return axios.put("/api/user/", userData);
 	}
 };

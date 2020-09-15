@@ -31,7 +31,7 @@ export default class Login extends React.Component {
     render() {
         return(
             <div className="row">
-                <div className="col-sm-12 header-2">
+                <form onSubmit={this.handleFormSubmit} className="col-sm-12 header-2">
                     <h1>Journey</h1>
                     <input 
                         id="username"
@@ -48,9 +48,9 @@ export default class Login extends React.Component {
                         name="password"
                         onChange={this.handleInputChange}
                     /><br />
-                    <button className="loginbtn" onClick={this.handleFormSubmit}>login</button>
+                    <button type="submit" className="loginbtn">login</button>
                     <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link></p>
-                </div>
+                </form>
             </div>
         );
     }
