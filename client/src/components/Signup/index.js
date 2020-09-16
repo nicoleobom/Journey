@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 import API from '../../utils/API';
 
 export default class SignUpForm extends React.Component {
@@ -20,15 +21,18 @@ export default class SignUpForm extends React.Component {
     handleSubmit = async event => {
         event.preventDefault();
         const response = await API.createUser(this.state)
-        console.log(this.state)
-        console.log(response)
+        debugger;
+        const { firstname, lastname, username, password } = this.state;
+        if (!firstname.length || !lastname.length || !username.length || !password.length) {
+            swal('Please enter information into all fields.');
+        }
         if (response.status === 200) this.props.handleSuccess();
     }
 
     render() {
         return(
             <div className="row">
-                    <div className="col-sm-12 header">
+                    <form className="col-sm-12" onSubmit={this.handleSubmit}>
                         <h3>Sign up to start your journey!</h3>
                         <input placeholder="first name" 
                             className="settingsinput" 
@@ -51,9 +55,9 @@ export default class SignUpForm extends React.Component {
                             name="password" 
                             onChange={this.handleInputChange}
                             /><br />
-                        <button className="loginbtn" onClick={this.handleSubmit}>Get started</button>
+                        <button className="loginbtn" type="submit">Get started</button>
                         
-                    </div>
+                    </form>
                 </div>
         )
     }

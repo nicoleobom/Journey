@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-// import { useHistory } from 'react-router-dom';
 import Circles from '../components/Circles/index';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import SignUpForm from '../components/Signup/index';
+import swal from 'sweetalert';
 
 class Signup extends Component {
     constructor(props) {
@@ -30,8 +30,11 @@ class Signup extends Component {
 
     render() {
         return(
-            <div>
-                {!this.state.accountCreated ? <SignUpForm handleSuccess={this.handleSuccess} /> : this.signUpComplete()}
+            <div className="row">
+                <div className="col-sm-12 header-2">
+                    <h1>Journey</h1>
+                    {!this.state.accountCreated ? <SignUpForm handleSuccess={this.handleSuccess} /> : this.signUpComplete()} 
+                </div>
             </div>
         );
     };
