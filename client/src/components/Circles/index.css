@@ -5,12 +5,13 @@
     transition: ease-in-out .25s;
     margin: 10px;
     outline: none!important;
-    color: white;
-    background-color: #566048;
+    color: #566048;
+    background-color: white;
 }
 
 .circle:hover {
     background-color:rgba(86,96,72,.8);
+    color: white;
 }
 
 .circle:focus {
