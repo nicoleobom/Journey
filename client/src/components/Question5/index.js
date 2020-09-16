@@ -13,7 +13,7 @@ export default class Question5 extends React.Component {
     }
     
     render() {
-        const { values } = this.props;
+        // const { values } = this.props;
         return(
             <div className="row" id="q5">
                 <form className="col-sm-12 header bg-q">

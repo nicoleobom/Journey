@@ -204,3 +204,10 @@ a {
     text-align: center;
   }
 }
+
+#placesmap {
+  height: 100% !important;
+  z-index:6;
+  position: fixed !important;
+  bottom: 2px;
+}

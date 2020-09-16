@@ -4,9 +4,9 @@ import './index.css';
 
 function Logo() {
     return (
-        <a className="navbar-brand float-left logo" href="/home">
+        <div className="navbar-brand float-left logo">
             <img src={logo} height="40" alt="journey"/>
-        </a>
+        </div>
     );
 }
 

@@ -1,12 +1,15 @@
 import React from 'react';
-import { ListGroup, Button } from 'react-bootstrap';
 import API from '../utils/API';
 import Moment from 'react-moment';
-import cities from '../assets/geo/cities';
+
+
+let infowindow;
+let map;
+let service;
 
 export default class Results extends React.Component {
     constructor(props) {
-        // super(props);
+        super(props);
         this.state={
             firstname: "",
         }
@@ -34,8 +37,66 @@ export default class Results extends React.Component {
         console.log(userData);
     }
 
+    handleSomething = (callback) => {
+        const queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.props.values.endpoint + "&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = (e) => {
+            if (xhr.readyState !== 4) {
+                return;
+            }
+
+            if (xhr.status === 200) {
+                const obj = JSON.parse(xhr.responseText);
+                console.log('Success', obj);
+                const lat = obj.results[0].geometry.location.lat;
+                const lng = obj.results[0].geometry.location.lng;
+
+                this.getPlaces(lat, lng);
+
+            } else {
+                console.warn('request_error');
+            }
+        };
+
+        xhr.open('GET', queryURL);
+        xhr.send();
+
+    }
+
+    getPlaces = (lat, lng) => {
+        /* global google */
+        // var endpointLoc = new google.maps.LatLng(lat, lng);
+        debugger;
+        const otherQueryURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + this.props.values.stops[0] + "&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:30500@" + lat + "," + lng + "&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs"
+        var xhr2 = new XMLHttpRequest();
+
+        const obj2 = JSON.parse(xhr2.responseText);
+        console.log('Success', obj2);
+        
+        // xhr2.onreadystatechange = (e) => {
+        //     if (xhr2.readyState !== 4) {
+        //         return;
+        //     }
+
+        //     if (xhr2.status === 200) {
+        //         const obj2 = JSON.parse(xhr2.responseText);
+        //         console.log('Success', obj2);
+        
+
+
+        //     } else {
+        //         console.warn('request_error');
+        //     }
+        // };
+
+        xhr2.open('GET', otherQueryURL);
+        xhr2.send();
+    }
+
     render() {
-        let {values: { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
+        this.handleSomething();
+        let {values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
         return(
             <div className="row">
                 <div className="col-sm-12 header">
@@ -50,6 +111,10 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
+                        <div>
+                            <span className="results">Check out these places:</span>
+                            <span id="placesmap"></span>
+                        </div>
                         
                     </div>
                 </div>

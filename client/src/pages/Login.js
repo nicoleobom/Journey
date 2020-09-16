@@ -21,7 +21,7 @@ export default class Login extends React.Component {
         event.preventDefault();
         const { username, password } = this.state;
         if(!username.length || !password.length) swal('Please enter both a username and password');
-        const response = await API.loginUser({ username, password })
+        const response = await API.loginUser({ username, password });
         if(response.status === 200) {
             this.props.history.push('/home');
             this.setState({ isSignedIn: true });
@@ -39,6 +39,7 @@ export default class Login extends React.Component {
                         value={this.state.username}
                         placeholder="username" 
                         name="username"
+                        autoComplete="username"
                         onChange={this.handleInputChange}
                     /><br />
                     <input  
@@ -46,6 +47,7 @@ export default class Login extends React.Component {
                         placeholder="password"
                         type="password"
                         name="password"
+                        autoComplete="current-password"
                         onChange={this.handleInputChange}
                     /><br />
                     <button type="submit" className="loginbtn">login</button>

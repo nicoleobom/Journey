@@ -1,7 +1,6 @@
 import React from 'react';
 import '../index.css';
 import API from '../utils/API';
-import { Redirect } from 'react-router-dom';
 import swal from 'sweetalert';
 
 

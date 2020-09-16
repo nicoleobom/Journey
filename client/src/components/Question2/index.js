@@ -69,7 +69,7 @@ export default class Question2 extends React.Component {
     }
 
     render() {
-        const { values } = this.props;
+        // const { values } = this.props;
 
         return(
             <div className="row" id="q1">

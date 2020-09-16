@@ -12,7 +12,7 @@ function Nav(props) {
     return(
         <div>
             <nav className="navbar navstyle float-left">
-                <Logo />
+                <Link to="/"><Logo /></Link>
             </nav>
             <nav className="navbar navstyle float-right">
                 <Link to="/" className="navbar-brand"><i className="fas fa-home"></i></Link>
