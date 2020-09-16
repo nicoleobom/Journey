@@ -4,8 +4,8 @@ import API from '../utils/API';
 import PastTrip from '../components/PastTrip'
 
 export default class PastTrips extends React.Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super();
         this.state={
             firstname: "",
             trips: []

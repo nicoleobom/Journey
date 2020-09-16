@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import Moment from 'react-moment';
+import swal from 'sweetalert';
 
 export default class Question6 extends React.Component {
     back = (event) => {
@@ -12,36 +12,26 @@ export default class Question6 extends React.Component {
 
         if (this.props.values.startDate) {
             if (!this.props.values.endDate) {
-                window.alert("Please enter an end date");
+                swal("Please enter an end date");
                 return;
             }
         }
 
         if (this.props.values.endDate) {
             if (!this.props.values.startDate) {
-                window.alert("Please enter a start date");
+                swal("Please enter a start date");
                 return;
             }
         }
 
         if(!this.props.values.startDate && !this.props.values.endDate) {
-            window.alert("Please select dates.");
+            swal("Please select dates.");
             return;
         }
         
                
         event.preventDefault(); 
         this.props.nextStep();
-    }
-
-    noDate() {
-        var randomNumber = Math.floor(Math.random() * (14 - 1) + 1);
-        var d = new Date();
-        // var newDate = moment(d, "MM-DD-YYYY").add(randomNumber, 'days')
-        var newDate = <Moment add={{days: randomNumber}}>{d}</Moment>
-        console.log(d)
-        // this.props.handleChange('startDate');
-        // this.props.handleChange('endDate');
     }
 
     render() {
@@ -57,9 +47,6 @@ export default class Question6 extends React.Component {
 
         let dateString = year + '-' + month + '-' + date;
 
-        var randomNumber = Math.floor(Math.random() * (14 - 1) + 1);
-        var d = new Date();
-        var newDate = <Moment add={{days: randomNumber}}>{d}</Moment>
         return(
             <div className="row" id="q6">
                 <form className="col-sm-12 header bg-q">

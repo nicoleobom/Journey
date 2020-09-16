@@ -30,6 +30,9 @@ router.get('/:id', userController.findById);
 
 router.put('/addTrip', userController.updateTrips);
 
+router.put('/', userController.updateUser);
+
+
 // user routes
 // userRoutes.route('/').get(function(req, res) {
 //     User.find(function(err, users) {

@@ -5,14 +5,14 @@ import Logo from '../Logo/index';
 
 function Nav(props) {
     const { location } = props;
-    if (location.pathname.match(/login/) || location.pathname.match(/signup/)){
-        return null;
+    if (location.pathname.match(/login/) || location.pathname.match(/logout/) || location.pathname.match(/signup/)){
+        return null && location.reload();
     }
     
     return(
         <div>
             <nav className="navbar navstyle float-left">
-                <Logo />
+                <Link to="/"><Logo /></Link>
             </nav>
             <nav className="navbar navstyle float-right">
                 <Link to="/" className="navbar-brand"><i className="fas fa-home"></i></Link>

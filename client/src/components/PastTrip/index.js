@@ -1,12 +1,8 @@
 import React from 'react'
 import Moment from 'react-moment'
 
+
 export default class PastTrip extends React.Component {
-    constructor(props) {
-        super(props);
-
-    }
-
     render() {
         const userTrips = this.props.trips;
         console.log(userTrips)

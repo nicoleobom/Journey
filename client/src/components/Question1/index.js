@@ -1,5 +1,6 @@
 import React from 'react';
 import './index.css';
+import swal from 'sweetalert';
 
 export default class Question1 extends React.Component {
     constructor(props) {
@@ -46,7 +47,7 @@ export default class Question1 extends React.Component {
 
     nextQuestion = (event) => {
         if (!this.props.values.startpoint) {
-            window.alert("Please enter a startpoint");
+            swal("Please enter a startpoint");
             return;
         }
         event.preventDefault();

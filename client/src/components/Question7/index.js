@@ -21,35 +21,35 @@ export default class Question7 extends React.Component {
     }
 
     render() {
-        const { values } = this.props;
+        // const { values } = this.props;
         return (
             <div className="row" id="q7">
                 <form className="col-sm-12 header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
                     <div className="leftalign">
-                        <input id="national-parks" name="national-parks" value="national-parks" type="checkbox" onChange={() => this.pushArray('National Parks')} />
-                        <label htmlFor="national-parks">National Parks</label>
+                        <input id="shopping_mall" name="shopping_mall" value="shopping_mall" type="checkbox" onChange={() => this.pushArray('National Parks')} />
+                        <label htmlFor="shopping_mall">Malls</label>
                         <br />
-                        <input id="restaurants" name="restaurants" value="restaurants" type="checkbox" onChange={() => this.pushArray('Restaurants')} />
-                        <label htmlFor="restaurants">Top-rated restaurants</label>
+                        <input id="restaurant" name="restaurant" value="restaurant" type="checkbox" onChange={() => this.pushArray('Restaurants')} />
+                        <label htmlFor="restaurant">Top-rated restaurants</label>
                         <br />
                         <input id="dog-friendly" name="dog-friendly" value="dog-friendly" type="checkbox" onChange={() => this.pushArray('Dog Friendly')} />
                         <label htmlFor="dog-friendly">Dog-friendly areas</label>
                         <br />
-                        <input id="museums" name="museums" value="museums" type="checkbox" onChange={() => this.pushArray('Museums')} />
-                        <label htmlFor="museums">Museums and art exhibits</label>
+                        <input id="museum" name="museum" value="museum" type="checkbox" onChange={() => this.pushArray('Museums')} />
+                        <label htmlFor="museum">Museums and art exhibits</label>
                         <br />
-                        <input id="coffee" name="coffee" value="coffee" type="checkbox" onChange={() => this.pushArray('Coffee')} />
-                        <label htmlFor="coffee">Best coffee</label>
+                        <input id="cafe" name="cafe" value="cafe" type="checkbox" onChange={() => this.pushArray('Coffee')} />
+                        <label htmlFor="cafe">Best coffee</label>
                         <br />
-                        <input id="beaches-parks" name="beaches-parks" value="beaches-parks" type="checkbox" onChange={() => this.pushArray('Beaches and parks')} />
-                        <label htmlFor="beaches-parks">Beaches and parks</label>
+                        <input id="park" name="park" value="park" type="checkbox" onChange={() => this.pushArray('Beaches and parks')} />
+                        <label htmlFor="park">Beaches and parks</label>
                         <br />
-                        <input id="food-trucks" name="food-trucks" value="food-trucks" type="checkbox" onChange={() => this.pushArray('Food Trucks')} />
-                        <label htmlFor="food-trucks">Food trucks</label>
+                        <input id="amusement_park" name="amusement_park" value="amusement_park" type="checkbox" onChange={() => this.pushArray('Food Trucks')} />
+                        <label htmlFor="amusement_park">Amusement Parks</label>
                         <br />
-                        <input id="trails" name="trails" value="trails" type="checkbox" onChange={() => this.pushArray('Trails')} />
-                        <label htmlFor="trails">Walking trails and bike paths</label>
+                        <input id="bar" name="bar" value="bar" type="checkbox" onChange={() => this.pushArray('Trails')} />
+                        <label htmlFor="bar">Bars</label>
                     </div>
                 </form>
                 <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
