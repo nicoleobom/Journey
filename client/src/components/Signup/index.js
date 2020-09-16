@@ -10,7 +10,7 @@ export default class SignUpForm extends React.Component {
             firstname: "",
             lastname: "",
             username: "",
-            password: null,
+            password: "",
         }
     }
 
@@ -21,57 +21,56 @@ export default class SignUpForm extends React.Component {
 
     handleFormSubmit = async event => {
         event.preventDefault();
-        const response = await API.createUser(this.state)
-        debugger;
         const { firstname, lastname, username, password } = this.state;
         if (!firstname.length || !lastname.length || !username.length || !password.length) {
             swal('Please enter information into all fields.');
         }
+        const response = await API.createUser(this.state)
         if (response.status === 200) this.props.handleSuccess();
     }
 
     render() {
-        return(
+        return (
             <div className="row">
-                    <form onSubmit={this.handleFormSubmit} className="col-sm-12">
-                        <h3>Sign up to start your journey!</h3>
-                        <input
-                            placeholder="first name" 
-                            className="settingsinput" 
-                            name="firstname" 
-                            type="text"
-                            value={this.state.firstname}
-                            onChange={this.handleInputChange}
-                            /><br />
-                        <input
-                            placeholder="last name" 
-                            className="settingsinput" 
-                            name="lastname" 
-                            type="text"
-                            value={this.state.lastname}
-                            onChange={this.handleInputChange}
-                            /><br />
-                        <input 
-                            placeholder="username" 
-                            className="settingsinput" 
-                            name="username" 
-                            type="text"
-                            value={this.state.username}
-                            onChange={this.handleInputChange}
-                            /><br />
-                        <input
-                            type="password" 
-                            placeholder="password" 
-                            className="settingsinput" 
-                            name="password" 
-                            type="text"
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            /><br />
-                        <button type="submit" className="loginbtn">Get started</button>
-                        <p id="signupText">Already got an account? <Link to="/login">Click here to log in!</Link></p>
-                    </form>
-                </div>
+                <form onSubmit={this.handleFormSubmit} className="col-sm-12">
+                    <h3>Sign up to start your journey!</h3>
+                    <input
+                        placeholder="first name"
+                        className="settingsinput"
+                        name="firstname"
+                        type="text"
+                        value={this.state.firstname}
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        placeholder="last name"
+                        className="settingsinput"
+                        name="lastname"
+                        type="text"
+                        value={this.state.lastname}
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        placeholder="username"
+                        className="settingsinput"
+                        name="username"
+                        type="text"
+                        value={this.state.username}
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        type="password"
+                        placeholder="password"
+                        className="settingsinput"
+                        name="password"
+                        type="text"
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <button type="submit" className="loginbtn">Get started</button>
+                    <p id="signupText">Already got an account? <Link to="/login">Click here to log in!</Link></p>
+                </form>
+            </div>
         )
     }
 }
