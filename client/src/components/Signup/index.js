@@ -1,14 +1,15 @@
 import React from 'react';
 import swal from 'sweetalert';
 import API from '../../utils/API';
+import { Link } from 'react-router-dom';
 
 export default class SignUpForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstname: null,
-            lastname: null,
-            username: null,
+            firstname: "",
+            lastname: "",
+            username: "",
             password: null,
         }
     }
@@ -18,7 +19,7 @@ export default class SignUpForm extends React.Component {
         this.setState({ [name]: value });
     }
 
-    handleSubmit = async event => {
+    handleFormSubmit = async event => {
         event.preventDefault();
         const response = await API.createUser(this.state)
         debugger;
@@ -32,31 +33,43 @@ export default class SignUpForm extends React.Component {
     render() {
         return(
             <div className="row">
-                    <form className="col-sm-12" onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleFormSubmit} className="col-sm-12">
                         <h3>Sign up to start your journey!</h3>
-                        <input placeholder="first name" 
+                        <input
+                            placeholder="first name" 
                             className="settingsinput" 
                             name="firstname" 
+                            type="text"
+                            value={this.state.firstname}
                             onChange={this.handleInputChange}
                             /><br />
-                        <input placeholder="last name" 
+                        <input
+                            placeholder="last name" 
                             className="settingsinput" 
                             name="lastname" 
+                            type="text"
+                            value={this.state.lastname}
                             onChange={this.handleInputChange}
                             /><br />
-                        <input placeholder="username" 
+                        <input 
+                            placeholder="username" 
                             className="settingsinput" 
                             name="username" 
+                            type="text"
+                            value={this.state.username}
                             onChange={this.handleInputChange}
                             /><br />
-                        <input type="password" 
+                        <input
+                            type="password" 
                             placeholder="password" 
                             className="settingsinput" 
                             name="password" 
+                            type="text"
+                            value={this.state.password}
                             onChange={this.handleInputChange}
                             /><br />
-                        <button className="loginbtn" type="submit">Get started</button>
-                        
+                        <button type="submit" className="loginbtn">Get started</button>
+                        <p id="signupText">Already got an account? <Link to="/login">Click here to log in!</Link></p>
                     </form>
                 </div>
         )
