@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-
+import request from 'request';
 
 let infowindow;
 let map;
@@ -18,6 +18,7 @@ export default class Results extends React.Component {
     componentDidMount() {
         this.userFirstName();
         this.updateUserTrip();
+        this.handleSomething();
     }
 
     userFirstName = async () => {
@@ -38,7 +39,9 @@ export default class Results extends React.Component {
     }
 
     handleSomething = (callback) => {
-        const queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + this.props.values.endpoint + "&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + this.props.values.stops[0] + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+
         var xhr = new XMLHttpRequest();
 
         xhr.onreadystatechange = (e) => {
@@ -49,57 +52,40 @@ export default class Results extends React.Component {
             if (xhr.status === 200) {
                 const obj = JSON.parse(xhr.responseText);
                 console.log('Success', obj);
-                const lat = obj.results[0].geometry.location.lat;
-                const lng = obj.results[0].geometry.location.lng;
+                const results = obj.results
 
-                this.getPlaces(lat, lng);
+                for (let i=0; i < 5; i++) {
+                    let placeName = results[i].name;
+                    let placeRating = results[i].rating;
+                    let placesUsersRating = results[i].user_ratings_total;
+                    let address = results[i].formatted_address;
+
+                    let node = document.createElement('div');
+                    let placeDiv = `<h5>${placeName}</h5>
+                                    <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                    <p>${address}</p>
+                                    `;
+                    node.innerHTML = placeDiv;
+
+                    document.getElementById('placesdiv').appendChild(node)
+
+                }
 
             } else {
                 console.warn('request_error');
             }
         };
 
-        xhr.open('GET', queryURL);
-        xhr.send();
+        xhr.open('GET', proxyurl + queryURL, false);
+        xhr.send(null);
 
-    }
-
-    getPlaces = (lat, lng) => {
-        /* global google */
-        // var endpointLoc = new google.maps.LatLng(lat, lng);
-        debugger;
-        const otherQueryURL = "https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=" + this.props.values.stops[0] + "&inputtype=textquery&fields=photos,formatted_address,name,opening_hours,rating&locationbias=circle:30500@" + lat + "," + lng + "&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs"
-        var xhr2 = new XMLHttpRequest();
-
-        const obj2 = JSON.parse(xhr2.responseText);
-        console.log('Success', obj2);
-        
-        // xhr2.onreadystatechange = (e) => {
-        //     if (xhr2.readyState !== 4) {
-        //         return;
-        //     }
-
-        //     if (xhr2.status === 200) {
-        //         const obj2 = JSON.parse(xhr2.responseText);
-        //         console.log('Success', obj2);
-        
-
-
-        //     } else {
-        //         console.warn('request_error');
-        //     }
-        // };
-
-        xhr2.open('GET', otherQueryURL);
-        xhr2.send();
     }
 
     render() {
-        this.handleSomething();
         let {values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
         return(
             <div className="row">
-                <div className="col-sm-12 header">
+                <div className="col-sm-12 r-h">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
                         <Moment className="results" format="MMMM DD, YYYY">
@@ -111,11 +97,11 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
-                        <div>
-                            <span className="results">Check out these places:</span>
-                            <span id="placesmap"></span>
+                        <p><span className="results">Check out these places: </span></p>
+                        <div id="placesdiv">
+
+
                         </div>
-                        
                     </div>
                 </div>
             </div>
