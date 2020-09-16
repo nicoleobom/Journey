@@ -20,10 +20,7 @@ let userSchema = new Schema ({
 			night: { type: String }
 		}
 	]
-    // trips: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: "Trip"
-    // }
+
 });
 
 // Define schema methods
