@@ -3,6 +3,14 @@
   src: url('./assets/fonts/LadyNature.otf');
 }
 
+html {
+  overflow:   scroll;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 body {
   margin: 0;
   width: 100vw;
