@@ -20,29 +20,29 @@ export default class Login extends React.Component {
     handleFormSubmit = async event => {
         event.preventDefault();
         const { username, password } = this.state;
-        if(!username.length || !password.length) swal('Please enter both a username and password');
+        if (!username.length || !password.length) swal('Please enter both a username and password');
         const response = await API.loginUser({ username, password });
-        if(response.status === 200) {
+        if (response.status === 200) {
             this.props.history.push('/home');
             this.setState({ isSignedIn: true });
         }
     };
 
     render() {
-        return(
+        return (
             <div className="row home-pg-2">
                 <form onSubmit={this.handleFormSubmit} className="col-sm-12 header-2">
                     <h1>Journey</h1>
-                    <input 
+                    <input
                         id="username"
                         type="text"
                         value={this.state.username}
-                        placeholder="username" 
+                        placeholder="username"
                         name="username"
                         autoComplete="username"
                         onChange={this.handleInputChange}
                     /><br />
-                    <input  
+                    <input
                         value={this.state.password}
                         placeholder="password"
                         type="password"

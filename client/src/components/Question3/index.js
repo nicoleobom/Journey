@@ -14,7 +14,7 @@ export default class Question3 extends React.Component {
 
     render() {
         const { values } = this.props;
-        return(
+        return (
             <div className="row home-pg-2" id="q3">
                 <form className="col-sm-12 header bg-q">
                     <h3>What's your budget?</h3>
@@ -22,11 +22,11 @@ export default class Question3 extends React.Component {
                 </form>
                 <div className="col-sm-12">
                     <div className="row">
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="back" style={{display : "block",margin : "auto"}} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="back" style={{ display: "block", margin: "auto" }} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
                         </div>
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="next" style={{display : "block",margin : "auto"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="next" style={{ display: "block", margin: "auto" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                         </div>
                     </div>
                 </div>

@@ -24,13 +24,13 @@ export default class Question6 extends React.Component {
             }
         }
 
-        if(!this.props.values.startDate && !this.props.values.endDate) {
+        if (!this.props.values.startDate && !this.props.values.endDate) {
             swal("Please select dates.");
             return;
         }
-        
-               
-        event.preventDefault(); 
+
+
+        event.preventDefault();
         this.props.nextStep();
     }
 
@@ -47,7 +47,7 @@ export default class Question6 extends React.Component {
 
         let dateString = year + '-' + month + '-' + date;
 
-        return(
+        return (
             <div className="row home-pg-2" id="q6">
                 <form className="col-sm-12 header bg-q">
                     <h3>When would you like to go?</h3>
@@ -56,19 +56,14 @@ export default class Question6 extends React.Component {
                     <br />
                     <label htmlFor="end">End date:</label><br />
                     <input id="end" type="date" min={this.props.values.startDate} onChange={this.props.handleChange('endDate')} defaultValue={values.endDate} />
-                    {/* <p>or</p>
-                    <button value={newDate} type="button" onClick={() => {
-                        this.props.handleChange('startpoint')
-                        this.props.handleChange('endpoint')
-                    }}>You tell me!</button> */}
-                 </form>
-                 <div className="col-sm-12">
+                </form>
+                <div className="col-sm-12">
                     <div className="row">
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="back" style={{display : "block",margin : "auto"}} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="back" style={{ display: "block", margin: "auto" }} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
                         </div>
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="next" style={{display : "block",margin : "auto"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="next" style={{ display: "block", margin: "auto" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                         </div>
                     </div>
                 </div>
