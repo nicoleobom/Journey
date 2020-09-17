@@ -1,16 +1,11 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-import request from 'request';
-
-let infowindow;
-let map;
-let service;
 
 export default class Results extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             firstname: "",
         }
     }
@@ -56,7 +51,7 @@ export default class Results extends React.Component {
                 console.log('Success', obj);
                 const results = obj.results
 
-                for (let i=0; i < 5; i++) {
+                for (let i = 0; i < 5; i++) {
                     let placeName = results[i].name;
                     let placeRating = results[i].rating;
                     let placesUsersRating = results[i].user_ratings_total;
@@ -84,8 +79,9 @@ export default class Results extends React.Component {
     }
 
     render() {
-        let {values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
-        return(
+        let { values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night } } = this.props;
+
+        return (
             <div className="row home-pg-2 r-h">
                 <div className="col-sm-12 scroll">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
@@ -94,14 +90,13 @@ export default class Results extends React.Component {
                             {startDate}
                         </Moment>-
                         <Moment className="results" format="MMMM DD, YYYY">
-                             {endDate}
+                            {endDate}
                         </Moment>
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
                         <p><span className="results">Places to Visit: </span></p>
                         <div id="placesdiv">
-
 
                         </div>
                     </div>

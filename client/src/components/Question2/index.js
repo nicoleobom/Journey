@@ -13,16 +13,16 @@ export default class Question2 extends React.Component {
 
     initialState() {
         return {
-          city: '',
-          query: '',
+            city: '',
+            query: '',
         }
-      }
- 
+    }
+
     handleScriptLoad = () => {
         const options = {
             types: ['(cities)']
         }
- 
+
         /*global google*/
         const autocomplete = new google.maps.places.Autocomplete(
             document.getElementById('autocomplete'), options);
@@ -30,8 +30,8 @@ export default class Question2 extends React.Component {
         autocomplete.addListener('place_changed', () => {
             const place = autocomplete.getPlace();
             const address = place.address_components;
- 
-            if(address) {
+
+            if (address) {
                 this.setState({
                     city: address[0].long_name,
                     query: place.formatted_address,
@@ -40,7 +40,6 @@ export default class Question2 extends React.Component {
             const endpoint = this.state.query;
             this.props.setLocation('endpoint', endpoint);
         })
-        
     }
 
     back = (event) => {
@@ -68,7 +67,7 @@ export default class Question2 extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div className="row home-pg-2" id="q1">
                 <form className="col-sm-12 header bg-q">
                     <h3>Where are you going?</h3>
@@ -81,11 +80,11 @@ export default class Question2 extends React.Component {
                 </form>
                 <div className="col-sm-12">
                     <div className="row">
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="back" style={{display : "block",margin : "auto"}} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="back" style={{ display: "block", margin: "auto" }} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
                         </div>
-                        <div className="col" style={{paddingTop : "15px"}}>
-                            <button className="next" style={{display : "block",margin : "auto"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        <div className="col" style={{ paddingTop: "15px" }}>
+                            <button className="next" style={{ display: "block", margin: "auto" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                         </div>
                     </div>
                 </div>

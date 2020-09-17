@@ -29,8 +29,8 @@ export default class AddTrip extends React.Component {
 
     nextStep = () => {
         const { step } = this.state;
-        this.setState({ 
-            step: step + 1 
+        this.setState({
+            step: step + 1
         })
     }
 
@@ -40,13 +40,11 @@ export default class AddTrip extends React.Component {
     }
 
     handleChange = input => event => {
-        this.setState({ [input] : event.target.value })
-        // console.log(this.state);
+        this.setState({ [input]: event.target.value })
     }
 
     setLocation = (key, value) => {
-        this.setState({ [key] : value })
-        // console.log(this.state);
+        this.setState({ [key]: value })
     }
 
     stopsArray = (stopsArray) => {
@@ -54,79 +52,79 @@ export default class AddTrip extends React.Component {
     }
 
     render() {
-        const {step} = this.state;
+        const { step } = this.state;
         const { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night } = this.state;
         const values = { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night };
-        switch(step) {
+        switch (step) {
             default:
-                return <Question1 
-                        nextStep={this.nextStep}
-                        handleChange={this.handleChange}
-                        setLocation={this.setLocation}
-                        values={values}
-                        />
+                return <Question1
+                    nextStep={this.nextStep}
+                    handleChange={this.handleChange}
+                    setLocation={this.setLocation}
+                    values={values}
+                />
             case 1:
-                return <Question1 
-                        nextStep={this.nextStep}
-                        handleChange={this.handleChange}
-                        setLocation={this.setLocation}
-                        values={values}
-                        />
+                return <Question1
+                    nextStep={this.nextStep}
+                    handleChange={this.handleChange}
+                    setLocation={this.setLocation}
+                    values={values}
+                />
             case 2:
                 return <Question2
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        setLocation={this.setLocation}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    setLocation={this.setLocation}
+                    values={values}
+                />
             case 3:
                 return <Question3
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
             case 4:
                 return <Question4
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
             case 5:
                 return <Question5
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
             case 6:
                 return <Question6
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                        />
-            case 7: 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
+            case 7:
                 return <Question7
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        stopsArray={this.stopsArray}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    stopsArray={this.stopsArray}
+                    values={values}
+                />
             case 8:
                 return <Question8
-                        nextStep={this.nextStep}
-                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}
-                        />
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange={this.handleChange}
+                    values={values}
+                />
             case 9:
-                return <Results 
-                        values={values}
-                        />
+                return <Results
+                    values={values}
+                />
         }
     }
 }

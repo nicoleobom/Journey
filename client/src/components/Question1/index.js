@@ -64,9 +64,8 @@ export default class Question1 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                 </form>
-                {/* <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x i-btn-style"></i></button> */}
-                <div className="col-sm-12">  
-                    <button className="next" style={{float : "right"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                <div className="col-sm-12">
+                    <button className="next" style={{ float: "right" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                 </div>
             </div>
         )

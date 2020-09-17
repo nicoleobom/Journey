@@ -7,7 +7,7 @@ import API from '../utils/API';
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             firstname: "",
         }
     }
@@ -24,18 +24,18 @@ export default class Home extends React.Component {
     }
 
     render(user) {
-        return(
+        return (
             <div className="row home-pg">
                 <div className="col-sm-12 col-xs-12 header">
                     <h3>Welcome, {this.state.firstname}</h3>
                     <div className="row jc-c">
                         <div className="col-xs-6">
-                            <Link to="/new-trip"><Circles icon={faPlus}/></Link>
-                            <Link to="/past-trips"><Circles icon={faCar}/></Link>
+                            <Link to="/new-trip"><Circles icon={faPlus} /></Link>
+                            <Link to="/past-trips"><Circles icon={faCar} /></Link>
                         </div>
                         <div className="col-xs-6">
-                            <Link to="/settings"><Circles icon={faCog}/></Link>
-                            <Link to="/logout"><Circles icon={faSignOutAlt}/></Link>
+                            <Link to="/settings"><Circles icon={faCog} /></Link>
+                            <Link to="/logout"><Circles icon={faSignOutAlt} /></Link>
                         </div>
                     </div>
                 </div>

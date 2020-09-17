@@ -29,11 +29,11 @@ class Signup extends Component {
     }
 
     render() {
-        return(
+        return (
             <div className="row home-pg-2">
                 <div className="col-sm-12 header-2">
                     <h1>Journey</h1>
-                    {!this.state.accountCreated ? <SignUpForm handleSuccess={this.handleSuccess} /> : this.signUpComplete()} 
+                    {!this.state.accountCreated ? <SignUpForm handleSuccess={this.handleSuccess} /> : this.signUpComplete()}
                 </div>
             </div>
         );

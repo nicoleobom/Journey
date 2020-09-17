@@ -3,7 +3,6 @@ import '../index.css';
 import API from '../utils/API';
 import swal from 'sweetalert';
 
-
 export default class Settings extends React.Component {
     updateUserSettings = async () => {
         debugger;
@@ -31,26 +30,23 @@ export default class Settings extends React.Component {
             API.updateUserSettings(userUsername);
         } else {
             if (!Object.keys(settings).length) return;
-        }        
+        }
     }
 
     render() {
-        return(
+        return (
             <div className="row home-pg">
                 <div className="col-sm-12 header">
                     <h3>Settings</h3>
-
                     <div className="section">
                         <label className="label">Change your username:</label><br />
                         <input id="newusername" placeholder="new username" className="settingsinput" /><br />
                     </div>
-
                     <div className="section">
                         <label className="label">Change your password:</label><br />
                         <input type="password" id="newpassword1" placeholder="new password" className="settingsinput" /><br />
                         <input type="password" id="newpassword2" placeholder="new password" className="settingsinput" /><br />
                     </div>
-
                     <button className="loginbtn" onClick={this.updateUserSettings}>save</button>
                 </div>
             </div>

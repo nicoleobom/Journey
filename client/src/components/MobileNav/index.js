@@ -5,7 +5,6 @@ import './index.css';
 import Logo from '../Logo/index';
 
 export default class MobileNav extends React.Component {    
-   
     openMobileNav() {
         var links = document.getElementById('myLinks');
         if (links.style.visibility === 'visible') {
@@ -37,7 +36,7 @@ export default class MobileNav extends React.Component {
                         </div>
                     </Col>
                 </Row>
-            )
+            );
         }
     }
 }

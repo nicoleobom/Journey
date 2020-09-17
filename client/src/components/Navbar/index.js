@@ -5,11 +5,11 @@ import Logo from '../Logo/index';
 
 function Nav(props) {
     const { location } = props;
-    if (location.pathname.match(/login/) || location.pathname.match(/logout/) || location.pathname.match(/signup/)){
+    if (location.pathname.match(/login/) || location.pathname.match(/logout/) || location.pathname.match(/signup/)) {
         return null && location.reload();
     }
-    
-    return(
+
+    return (
         <div id="nav">
             <nav className="navbar navstyle float-left">
                 <Link to="/"><Logo /></Link>
@@ -22,7 +22,7 @@ function Nav(props) {
                 <Link to="/logout" className="navbar-brand"><i className="fas fa-sign-out-alt"></i></Link>
             </nav>
         </div>
-    )
+    );
 }
 
 export default withRouter(Nav);

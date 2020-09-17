@@ -1,12 +1,11 @@
 import React from 'react';
 import API from '../utils/API';
-// import Moment from 'react-moment';
 import PastTrip from '../components/PastTrip'
 
 export default class PastTrips extends React.Component {
     constructor() {
         super();
-        this.state={
+        this.state = {
             firstname: "",
             trips: []
         }
@@ -25,16 +24,15 @@ export default class PastTrips extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div className="row home-pg-2 r-h">
                 <div className="col-sm-12">
                     <h3>{this.state.firstname}'s Trips</h3>
                 </div>
                 <div style={{ width: "100vw" }}>
-                    {/* {trip} */}
-                    <PastTrip 
-                    getUserData={this.getUserData}
-                    trips={this.state.trips} 
+                    <PastTrip
+                        getUserData={this.getUserData}
+                        trips={this.state.trips}
                     />
                 </div>
             </div>
