@@ -57,5 +57,3 @@ export default class Settings extends React.Component {
         );
     }
 }
-
-//onClick={<Redirect to="/home" />} 

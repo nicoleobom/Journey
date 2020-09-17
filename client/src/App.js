@@ -11,7 +11,8 @@ import Signup from './pages/Signup';
 import Settings from './pages/Settings';
 import Home from './pages/Home';
 import Results from './pages/Results';
-import PastTrips from './pages/PastTrips'
+import PastTrips from './pages/PastTrips';
+import MobileNav from './components/MobileNav/index';
 
 // import components
 import Nav from './components/Navbar/index';
@@ -46,6 +47,7 @@ class App extends React.Component {
     return (
         <div className="container">
           <Nav />
+          <MobileNav />
             <Route path="/" exact component={Home} />
             <Route path="/home" exact component={Home} />
             <Route path="/login" exact component={Login} />

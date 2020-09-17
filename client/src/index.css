@@ -98,15 +98,13 @@ a {
 }
 
 .next {
-  background-color: #566048 !important;
-  color: white !important;
+  background-color:white !important;
+  color:  #566048 !important;
   transition: ease-in-out .25s;
   border-radius: 25px !important;
-  position: absolute;
+  position: relative;
   text-align:center !important;
-  top: 60%;
-  right: 20%;
-  border: 2px solid rgba(86,96,72,.8);
+
 }
 
 .next i {
@@ -119,18 +117,17 @@ a {
 }
 
 .next:hover {
-  background-color: rgba(86,96,72,.8) !important;
+  background-color:  #566048 !important;
 }
 
 .back {
-  background-color: #566048 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #566048 !important;
   transition: ease-in-out .25s;
   border-radius: 25px !important;
   position: fixed;
   left: 20%;
   top: 60%;
-  border: 2px solid rgba(86,96,72,.8);
 }
 
 .back i {
@@ -143,7 +140,7 @@ a {
 }
 
 .back:hover {
-  background-color: rgba(86,96,72,.8) !important;
+  background-color:#566048 !important;
 }
 
 .navstyle {
@@ -225,21 +222,45 @@ h6 {
   color:  #29301e;
 }
 
-@media only screen and (max-width: 600px) {
+.jc-c {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 768px) {
   .home-pg {
     width: 100vw;
     height: 75%;
     text-align: center;
+    margin-top: 10%
   }
-  .home-pg .header {
-    margin-top: 0!important;
+  .home-pg-2 {
+    width: 100%;
+    height: 75%;
+    text-align: center;
   }
   h1 {
     font-size: 60px !important;
   }
   .r-h {
-    width: auto!important;
+    width: 100%!important;
     position: relative!important;
   }
+  #m-nav {
+    display: block!important;
+  }
+  #nav {
+    display: none;
+  }
+  .jc-c {
+    justify-content: center;
+  }
+}
 
+@media only screen and (max-width: 1024px) {
+  .home-pg-2 {
+    width: 100%;
+  }
+  .r-h {
+    width: 75%;
+  }
 }

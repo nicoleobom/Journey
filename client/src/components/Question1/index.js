@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 import swal from 'sweetalert';
 
+
 export default class Question1 extends React.Component {
     constructor(props) {
         super(props);
@@ -64,6 +65,7 @@ export default class Question1 extends React.Component {
                     />
                 </form>
                 <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x i-btn-style"></i></button>
+
             </div>
         )
     }
