@@ -10,7 +10,7 @@ function Nav(props) {
     }
     
     return(
-        <div>
+        <div id="nav">
             <nav className="navbar navstyle float-left">
                 <Link to="/"><Logo /></Link>
             </nav>

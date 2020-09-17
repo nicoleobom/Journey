@@ -48,7 +48,7 @@ export default class Question6 extends React.Component {
         let dateString = year + '-' + month + '-' + date;
 
         return(
-            <div className="row" id="q6">
+            <div className="row home-pg-2" id="q6">
                 <form className="col-sm-12 header bg-q">
                     <h3>When would you like to go?</h3>
                     <label htmlFor="start">Start date:</label><br />
@@ -62,8 +62,17 @@ export default class Question6 extends React.Component {
                         this.props.handleChange('endpoint')
                     }}>You tell me!</button> */}
                  </form>
-                 <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
-                <button className="back" onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>            </div>
+                 <div className="col-sm-12">
+                    <div className="row">
+                        <div className="col" style={{paddingTop : "15px"}}>
+                            <button className="back" style={{display : "block",margin : "auto"}} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                        </div>
+                        <div className="col" style={{paddingTop : "15px"}}>
+                            <button className="next" style={{display : "block",margin : "auto"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         );
     }
 }

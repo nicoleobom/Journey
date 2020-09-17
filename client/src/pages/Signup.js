@@ -30,7 +30,7 @@ class Signup extends Component {
 
     render() {
         return(
-            <div className="row">
+            <div className="row home-pg-2">
                 <div className="col-sm-12 header-2">
                     <h1>Journey</h1>
                     {!this.state.accountCreated ? <SignUpForm handleSuccess={this.handleSuccess} /> : this.signUpComplete()} 

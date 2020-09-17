@@ -13,9 +13,8 @@ export default class Question8 extends React.Component {
     }
     
     render() {
-        // const { values } = this.props;
         return(
-            <div className="row" id="q8">
+            <div className="row home-pg-2" id="q8">
                 <form className="col-sm-12 header bg-q">
                     <h3>How do you prefer to stay the night?</h3>
                     <select id="night" name="night" defaultValue="hotel" onChange={this.props.handleChange('night')}>
@@ -25,8 +24,16 @@ export default class Question8 extends React.Component {
                         <option className="option" value="friends">Friend's House</option>
                     </select>
                  </form>
-                 <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
-                <button className="back" onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                 <div className="col-sm-12">
+                    <div className="row">
+                        <div className="col" style={{paddingTop : "15px"}}>
+                            <button className="back" style={{display : "block",margin : "auto"}} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
+                        </div>
+                        <div className="col" style={{paddingTop : "15px"}}>
+                            <button className="next" style={{display : "block",margin : "auto"}} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }  

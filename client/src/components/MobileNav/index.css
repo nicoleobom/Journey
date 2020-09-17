@@ -1,0 +1,15 @@
+#m-nav {
+    display: none;
+}
+
+#myLinks {
+    z-index: 5;
+    visibility: hidden;
+    float: left;
+}
+
+.topnav {
+    float: right;
+    color: white!important;
+    margin-top: 10px;
+}

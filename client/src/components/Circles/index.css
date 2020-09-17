@@ -17,3 +17,10 @@
 .circle:focus {
     background-color: #98a685;
 }
+
+@media only screen and (max-width: 600px) {
+    .circle {
+        padding: 20px;
+        margin: 5px;
+    }
+}

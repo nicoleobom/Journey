@@ -31,41 +31,22 @@ export default class Settings extends React.Component {
             API.updateUserSettings(userUsername);
         } else {
             if (!Object.keys(settings).length) return;
-        }
-
-        // if (document.getElementById('newpassword1').value === document.getElementById('newpassword2').value) {
-        //     let settings = {};
-        //     if (document.getElementById('newusername').value) settings.username = (document.getElementById('newusername').value);
-        //     if (document.getElementById('newpassword2').value) settings.password = (document.getElementById('newpassword2').value);
-        //     console.log(settings);
-        //     const userData = {
-        //         id: user._id,
-        //         username: this.values.username,
-        //         password: this.props.values.password
-        //     }
-        //     API.updateUserSettings(userData);
-        //     console.log(userData);
-        // } else {
-        //     swal('Passwords do not match.')
-        // }
-
-
-        
+        }        
     }
 
     render() {
         return(
-            <div className="row">
+            <div className="row home-pg">
                 <div className="col-sm-12 header">
                     <h3>Settings</h3>
 
                     <div className="section">
-                        <label>Change your username:</label><br />
+                        <label className="label">Change your username:</label><br />
                         <input id="newusername" placeholder="new username" className="settingsinput" /><br />
                     </div>
 
                     <div className="section">
-                        <label>Change your password:</label><br />
+                        <label className="label">Change your password:</label><br />
                         <input type="password" id="newpassword1" placeholder="new password" className="settingsinput" /><br />
                         <input type="password" id="newpassword2" placeholder="new password" className="settingsinput" /><br />
                     </div>
@@ -76,5 +57,3 @@ export default class Settings extends React.Component {
         );
     }
 }
-
-//onClick={<Redirect to="/home" />} 
