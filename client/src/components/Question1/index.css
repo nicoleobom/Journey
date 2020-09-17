@@ -3,3 +3,11 @@
     color: #566048;
     text-align: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .home-pg-2 {
+      width: 100vw !important;
+      height: 75% !important;
+      text-align: center;
+    }
+}

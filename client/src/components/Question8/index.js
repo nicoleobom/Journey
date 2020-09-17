@@ -15,7 +15,7 @@ export default class Question8 extends React.Component {
     render() {
         // const { values } = this.props;
         return(
-            <div className="row" id="q8">
+            <div className="row home-pg-2" id="q8">
                 <form className="col-sm-12 header bg-q">
                     <h3>How do you prefer to stay the night?</h3>
                     <select id="night" name="night" defaultValue="hotel" onChange={this.props.handleChange('night')}>

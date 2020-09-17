@@ -25,22 +25,12 @@ export default class PastTrips extends React.Component {
     }
 
     render() {
-        // const userTrips = this.state.trips;
-        // console.log(userTrips)
-        // const trip = userTrips.map((trip) => 
-        //     <div key={trip._id}>
-        //         <h4><Moment className="results" format="MMMM DD, YYYY">
-        //         {trip.endDate}
-        //         </Moment> Trip to {trip.endpoint}</h4>
-        //     </div>
-        // );
-
         return(
-            <div className="row">
-                <div className="col-sm-12 header">
+            <div className="row home-pg-2 r-h">
+                <div className="col-sm-12">
                     <h3>{this.state.firstname}'s Trips</h3>
                 </div>
-                <div>
+                <div style={{ width: "100vw" }}>
                     {/* {trip} */}
                     <PastTrip 
                     getUserData={this.getUserData}

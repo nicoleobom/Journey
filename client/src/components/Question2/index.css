@@ -16,20 +16,23 @@ p {
 }
 
 #idk {
-    background-color: #566048;
+    background-color: white;
     border: none;
     border-radius: 15px;
-    color: white;
+    color: #566048;
     padding: 10px;
     transition: ease-in-out .25s;
+    font-weight: bold;
     outline: none!important;
 }
 
 #idk:hover {
-    background-color: rgba(86,96,72,.8);
+    background-color:#566048;
+    color: white;
 }
 
 #idk:active, #idk:focus {
-    background-color:  rgba(86,96,72,.8);
+    background-color: #566048;
     outline: none!important;
+    color: white;
 }

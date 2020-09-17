@@ -26,9 +26,9 @@ export default class Home extends React.Component {
 
     render(user) {
         return(
-            <div className="row width">
+            <div className="row home-pg">
                 <div className="col-sm-12 col-xs-12 header">
-                    <h2>Welcome, {this.state.firstname}</h2>
+                    <h3>Welcome, {this.state.firstname}</h3>
                     <Link to="/new-trip"><Circles icon={faPlus}/></Link>
                     <Link to="/past-trips"><Circles icon={faCar}/></Link>
                     <Link to="/settings"><Circles icon={faCog}/></Link>

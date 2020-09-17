@@ -11,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  background-attachment: fixed;
   font-family: 'Varela Round', sans-serif;
   color: #566048 !important;;
 }
@@ -30,7 +31,6 @@ h2 {
 h3 {
   font-family: 'Varela Round', sans-serif;
   color: white;
-  font-size: 30px !important;
 }
 
 .header {
@@ -83,6 +83,11 @@ input {
 
 a {
   color: white !important;
+}
+
+
+.label {
+  color: white;
 }
 
 .questionheader {
@@ -165,6 +170,7 @@ a {
 .results {
   text-transform: uppercase;
   font-weight: bold;
+  font-size: 12px;
   color: #29301e;
 }
 
@@ -199,25 +205,41 @@ a {
   background-color: rgba(86,96,72,.8) !important;
 }
 
-@media only screen and (max-width: 600px) {
-  .header {
-    width: 100vw;
-    text-align: center;
-  }
-}
-
-h5 {
+h6 {
   color: white;
 }
 
 .r-h {
-  position: fixed !important;
-  width: 50% !important;
-  height: 75% !important;
+  position: fixed;
+  width: 50%;
+  height: 75%;
   overflow-y: scroll;
   margin-top: 10% !important;
   background-color: rgba(255,255,255, 0.2);
   padding: 40px;
   border: none;
   border-radius: 50px;
+}
+
+#placesdiv p {
+  color:  #29301e;
+}
+
+@media only screen and (max-width: 600px) {
+  .home-pg {
+    width: 100vw;
+    height: 75%;
+    text-align: center;
+  }
+  .home-pg .header {
+    margin-top: 0!important;
+  }
+  h1 {
+    font-size: 60px !important;
+  }
+  .r-h {
+    width: auto!important;
+    position: relative!important;
+  }
+
 }

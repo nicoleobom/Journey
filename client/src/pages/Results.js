@@ -39,7 +39,8 @@ export default class Results extends React.Component {
     }
 
     handleSomething = (callback) => {
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + this.props.values.stops[0] + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        const stopsInCity = this.props.values.stops.toString()
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
         var xhr = new XMLHttpRequest();
@@ -61,7 +62,7 @@ export default class Results extends React.Component {
                     let address = results[i].formatted_address;
 
                     let node = document.createElement('div');
-                    let placeDiv = `<h5>${placeName}</h5>
+                    let placeDiv = `<h6>${placeName}</h6>
                                     <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                     <p>${address}</p>
                                     `;
@@ -84,8 +85,8 @@ export default class Results extends React.Component {
     render() {
         let {values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night }} = this.props;
         return(
-            <div className="row">
-                <div className="col-sm-12 r-h">
+            <div className="row home-pg-2 r-h">
+                <div className="col-sm-12 scroll">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
                         <Moment className="results" format="MMMM DD, YYYY">
@@ -97,7 +98,7 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
-                        <p><span className="results">Check out these places: </span></p>
+                        <p><span className="results">Places to Visit: </span></p>
                         <div id="placesdiv">
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
 import cities from '../../assets/geo/cities'
+import swal from 'sweetalert';
 
 export default class Question2 extends React.Component {
     constructor(props) {
@@ -28,7 +29,6 @@ export default class Question2 extends React.Component {
         autocomplete.setFields(['address_components', 'formatted_address']);
         autocomplete.addListener('place_changed', () => {
             const place = autocomplete.getPlace();
-            console.log(place);
             const address = place.address_components;
  
             if(address) {
@@ -36,9 +36,7 @@ export default class Question2 extends React.Component {
                     city: address[0].long_name,
                     query: place.formatted_address,
                 })
-                console.log(this.state);
             }
-
             const endpoint = this.state.query;
             this.props.setLocation('endpoint', endpoint);
         })
@@ -52,27 +50,26 @@ export default class Question2 extends React.Component {
 
     nextQuestion = (event) => {
         event.preventDefault();
-        this.props.nextStep();
+        if (this.state.city === "" && document.getElementById('idk').clicked === undefined) {
+            swal('Please enter a value or select "Take me anywhere!".')
+        } else {
+            this.props.nextStep();
+        }
     }
 
     chooseCity = () => {
         const randomLocation = cities[Math.floor(Math.random() * Math.floor(201))];
         const randomCity = randomLocation.city + ', ' + randomLocation.state + ', USA';
-        console.log(randomCity);
-
         this.setState({
             city: randomLocation.city,
             query: randomCity,
         });
-        console.log(this.state);
         this.props.setLocation('endpoint', randomCity);
     }
 
     render() {
-        // const { values } = this.props;
-
         return(
-            <div className="row" id="q1">
+            <div className="row home-pg-2" id="q1">
                 <form className="col-sm-12 header bg-q">
                     <h3>Where are you going?</h3>
                     <input id="autocomplete"
@@ -80,7 +77,7 @@ export default class Question2 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                     <p>or</p>
-                    <button id="idk" value="I don't know" type="button" onClick={this.chooseCity}>I don't know!</button>
+                    <button id="idk" value="I don't know" type="button" onClick={this.chooseCity}>Take me anywhere!</button>
                 </form>
                 <button className="next" onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                 <button className="back" onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
