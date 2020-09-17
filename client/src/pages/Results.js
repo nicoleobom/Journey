@@ -39,6 +39,7 @@ export default class Results extends React.Component {
     }
 
     handleSomething = (callback) => {
+        debugger;
         const stopsInCity = this.props.values.stops.toString()
         const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
         const proxyurl = "https://cors-anywhere.herokuapp.com/";

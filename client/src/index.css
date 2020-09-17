@@ -125,9 +125,6 @@ a {
   color: #566048 !important;
   transition: ease-in-out .25s;
   border-radius: 25px !important;
-  position: fixed;
-  left: 20%;
-  top: 60%;
 }
 
 .back i {
