@@ -1,6 +1,8 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
+require('dotenv').config();
+
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -30,13 +32,13 @@ export default class Results extends React.Component {
             trips: this.props.values
         }
         API.updateUserTrip(userData);
-        console.log(userData);
     }
 
-    handleSomething = (callback) => {
+    handleSomething = () => {
         debugger;
+        const apiKey = process.env.API_KEY;
         const stopsInCity = this.props.values.stops.toString()
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
 
         var xhr = new XMLHttpRequest();
