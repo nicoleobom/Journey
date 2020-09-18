@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},()=> console.log(`Connected to Atlas Database`));
+mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }, () => console.log(`Connected to Atlas Database`));
 
 app.use(session({ secret: 'adventure', resave: true, saveUninitialized: true }));
 
@@ -23,19 +23,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use((req, res, next) => {
-console.log('req.session', req.session);
-return next();
+    console.log('req.session', req.session);
+    return next();
 });
 
 app.use(routes);
 
-//Serve Static Assets in production 
-//set static folder
 app.use(express.static("client/build"));
 app.get("*", (req, res) => {
-res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 });
 
-app.listen(PORT, function() {
-    console.log('Server is running on port: ' + PORT);
+app.listen(PORT, function () {
+    console.log('Server is running on port: ' + PORT);
 });
