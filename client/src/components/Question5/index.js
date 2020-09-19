@@ -15,7 +15,7 @@ export default class Question5 extends React.Component {
     render() {
         return (
             <div className="row home-pg-2" id="q5">
-                <form className="col-sm-12 header bg-q">
+                <form className="col-sm-12 header bg-q" onSubmit="return false;">
                     <h3>How do you want to get there?</h3>
                     <select id="vehicle" name="vehicle" defaultValue="car" onChange={this.props.handleChange('vehicle')}>
                         <option className="option" value="Car">Car</option>

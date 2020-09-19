@@ -34,7 +34,7 @@ module.exports = {
 
 	updateUser: (req, res) => {
 		db.User
-			.updateOne({ _id: req.body.id }, { $push: { username: req.body.username, password: req.body.password } }, { upsert: true })
+			.updateOne({ _id: req.body.id }, { upsert: true })
 			.then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
 	},

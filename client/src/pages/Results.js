@@ -1,8 +1,6 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-require('dotenv').config();
-
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -35,8 +33,7 @@ export default class Results extends React.Component {
     }
 
     handleSomething = () => {
-        debugger;
-        const apiKey = process.env.API_KEY;
+        const apiKey = process.env.REACT_APP_API_KEY;
         const stopsInCity = this.props.values.stops.toString()
         const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -50,7 +47,6 @@ export default class Results extends React.Component {
 
             if (xhr.status === 200) {
                 const obj = JSON.parse(xhr.responseText);
-                console.log('Success', obj);
                 const results = obj.results
 
                 for (let i = 0; i < 5; i++) {

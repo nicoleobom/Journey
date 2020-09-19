@@ -16,7 +16,7 @@ export default class Question4 extends React.Component {
         const { values } = this.props;
         return (
             <div className="row home-pg-2" id="q4">
-                <form className="col-sm-12 header bg-q">
+                <form className="col-sm-12 header bg-q" onSubmit="return false;">
                     <h3>How many people are going?</h3>
                     <input id="people" type="number" onChange={this.props.handleChange('people')} defaultValue={values.people} ></input>
                 </form>
