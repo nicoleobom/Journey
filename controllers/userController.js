@@ -1,4 +1,5 @@
 const db = require("../models");
+const bcrypt = require('bcrypt');
 
 module.exports = {
 	// find all
@@ -32,9 +33,21 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 
-	updateUser: (req, res) => {
+	updateUserName: (req, res) => {
+		console.log(req.body);
 		db.User
-			.updateOne({ _id: req.body.id }, { $push: { username: req.body.username, password: req.body.password } }, { upsert: true })
+			.updateOne({ _id: req.body.id }, { $set: { username: req.body.username } }, { upsert: true })
+			.then(data => res.json(data))
+			.catch(err => res.status(422).json(err));
+	},
+
+	updateUserPassword: (req, res) => {
+		console.log(req.body);
+		const newPassword = req.body.password
+		hashedPassword = bcrypt.hashSync(newPassword, bcrypt.genSaltSync(10), null);
+		
+		db.User
+			.updateOne({ _id: req.body.id }, { $set: { password: hashedPassword } }, { upsert: true })
 			.then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
 	},

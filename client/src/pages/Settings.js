@@ -4,8 +4,8 @@ import API from '../utils/API';
 import swal from 'sweetalert';
 
 export default class Settings extends React.Component {
+
     updateUserSettings = async () => {
-        debugger;
         const user = (await API.getUserData()).data;
         const newusername = document.getElementById('newusername').value;
         const newpassword1 = document.getElementById('newpassword1').value;
@@ -15,19 +15,23 @@ export default class Settings extends React.Component {
         if (newpassword1 !== newpassword2) {
             swal('Passwords do not match.')
         } else if (!newusername && (newpassword1 === newpassword2)) {
-            if (newpassword2) settings.password = newpassword2;
-            const userPassword = {
-                id: user._id,
-                password: newpassword2
+            if (newpassword2) {
+                settings.password = newpassword2;
+                const userPassword = {
+                    id: user._id,
+                    password: newpassword2
+                }
+                API.updateUserPassword(userPassword);
+                swal('Password successfully updated!')
             }
-            API.updateUserSettings(userPassword);
         } else if (newusername && !newpassword1 && !newpassword2) {
             if (newusername) settings.username = newusername;
             const userUsername = {
                 id: user._id,
                 username: newusername
             }
-            API.updateUserSettings(userUsername);
+            API.updateUserName(userUsername);
+            swal('Username successfully updated!')
         } else {
             if (!Object.keys(settings).length) return;
         }

@@ -41,8 +41,12 @@ export default {
 	updateUserTrip: (userData) => {
 		return axios.put("/api/user/addTrip", userData);
 	},
-	// Update user's settings
-	updateUserSettings: (userData) => {
-		return axios.put("/api/user/", userData);
+	// Update user's userName
+	updateUserName: (userData) => {
+		return axios.put("/api/user/settings/userName", userData);
+	},
+	// Update user's password
+	updateUserPassword: (userData) => {
+		return axios.put("/api/user/settings/userPassword", userData);
 	}
 };
