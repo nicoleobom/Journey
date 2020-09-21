@@ -3,7 +3,6 @@ import Circles from '../components/Circles/index';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import SignUpForm from '../components/Signup/index';
-import swal from 'sweetalert';
 
 class Signup extends Component {
     constructor(props) {

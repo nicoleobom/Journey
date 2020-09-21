@@ -16,7 +16,7 @@ export default class Question3 extends React.Component {
         const { values } = this.props;
         return (
             <div className="row home-pg-2" id="q3">
-                <form className="col-sm-12 header bg-q" onSubmit="preventDefault()">
+                <form className="col-sm-12 header bg-q">
                     <h3>What's your budget?</h3>
                     <span className="d-s">$</span><input id="budgetinput" type="number" min="100" step="100" onChange={this.props.handleChange('budget')} defaultValue={values.budget} placeholder="1000?"></input>
                 </form>

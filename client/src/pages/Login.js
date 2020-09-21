@@ -22,7 +22,7 @@ export default class Login extends React.Component {
         const { username, password } = this.state;
         if (!username.length || !password.length) swal('Please enter both a username and password');
         const response = await API.loginUser({ username, password });
-        if (response == undefined ) swal('Invalid username or password.');
+        if (response === undefined ) swal('Invalid username or password.');
 
         if (response.status === 200) {
             this.props.history.push('/home');

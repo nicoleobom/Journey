@@ -1,6 +1,10 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
+import Test from './Test';
+
+let btntext;
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -14,6 +18,24 @@ export default class Results extends React.Component {
         this.userFirstName();
         this.updateUserTrip();
         this.handleSomething();
+        this.btnText();
+    }
+
+    btnText() {
+        switch (this.props.values.night) {
+            case "airbnb":
+                btntext = "Find an AirBnB"
+                break;
+            case "Hotel":
+                btntext = "Find a Hotel"
+                break;
+            case "campground":
+                btntext = "Find campgrounds"
+                break;
+            default:
+                btntext="Home"
+                break;
+        }
     }
 
     userFirstName = async () => {
@@ -34,50 +56,36 @@ export default class Results extends React.Component {
 
     handleSomething = () => {
         const apiKey = process.env.REACT_APP_API_KEY;
-        const stopsInCity = this.props.values.stops.toString()
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+        const stopsInCity = this.props.values.stops.toString();
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-
-        var xhr = new XMLHttpRequest();
-
-        xhr.onreadystatechange = (e) => {
-            if (xhr.readyState !== 4) {
-                return;
-            }
-
-            if (xhr.status === 200) {
-                const obj = JSON.parse(xhr.responseText);
-                const results = obj.results
-
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+        
+        fetch(proxyurl + queryURL)
+            .then(res => res.json())
+            .then((result) => {
+                console.log(result);
                 for (let i = 0; i < 5; i++) {
-                    let placeName = results[i].name;
-                    let placeRating = results[i].rating;
-                    let placesUsersRating = results[i].user_ratings_total;
-                    let address = results[i].formatted_address;
-
+                    let placeName = result.results[i].name;
+                    let placeRating = result.results[i].rating;
+                    let placesUsersRating = result.results[i].user_ratings_total;
+                    let address = result.results[i].formatted_address;
+                    let photoReference = result.results[i].photos[0].photo_reference;
                     let node = document.createElement('div');
                     let placeDiv = `<h6>${placeName}</h6>
+                                    <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${apiKey}" />
                                     <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                     <p>${address}</p>
                                     `;
                     node.innerHTML = placeDiv;
 
-                    document.getElementById('placesdiv').appendChild(node)
-
+                    document.getElementById('placesdiv').appendChild(node);
                 }
-
-            } else {
-                console.warn('request_error');
-            }
-        };
-
-        xhr.open('GET', proxyurl + queryURL, false);
-        xhr.send(null);
-
+            })
     }
 
     render() {
-        let { values: { endpoint, budget, people, vehicle, startDate, endDate, stops, night } } = this.props;
+        // this.handleSomething();
+        let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
 
         return (
             <div className="row home-pg-2 r-h">
@@ -97,6 +105,7 @@ export default class Results extends React.Component {
                         <div id="placesdiv">
 
                         </div>
+                        <Link to='/test' className="overnight">{btntext}</Link>
                     </div>
                 </div>
             </div>

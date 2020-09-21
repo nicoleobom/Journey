@@ -1,7 +1,6 @@
 import React from 'react';
 import '../index.css';
 import API from '../utils/API';
-import swal from 'sweetalert';
 import axios from 'axios';
 
 export default class Settings extends React.Component {

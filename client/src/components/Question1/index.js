@@ -57,7 +57,7 @@ export default class Question1 extends React.Component {
     render() {
         return (
             <div className="row home-pg-2" id="q1">
-                <form className="col-sm-12 header bg-q" onSubmit="return false;"> 
+                <form className="col-sm-12 header bg-q"> 
                     <h3>Where are you starting from?</h3>
                     <input id="autocomplete"
                         placeholder="Search cities"
