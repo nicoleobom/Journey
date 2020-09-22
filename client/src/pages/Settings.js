@@ -24,6 +24,8 @@ export default class Settings extends React.Component {
                 }
                 API.updateUserPassword(userPassword);
                 swal('Password successfully updated!')
+                document.getElementById('newpassword1').value = "";
+                document.getElementById('newpassword2').value = "";
             }
         } else if (newusername && !newpassword1 && !newpassword2) {
             if (newusername) settings.username = newusername;
@@ -33,6 +35,7 @@ export default class Settings extends React.Component {
             }
             API.updateUserName(userUsername);
             swal('Username successfully updated!')
+            document.getElementById('newusername').value = "";
         } else {
             if (!Object.keys(settings).length) return;
         }
