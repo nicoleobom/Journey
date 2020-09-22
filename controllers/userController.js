@@ -36,9 +36,6 @@ module.exports = {
 	updateUserName: (req, res) => {
 		console.log(req.body);
 		db.User
-<<<<<<< HEAD
-			.updateOne({ _id: req.body.id }, { upsert: true })
-=======
 			.updateOne({ _id: req.body.id }, { $set: { username: req.body.username } }, { upsert: true })
 			.then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
@@ -51,7 +48,6 @@ module.exports = {
 		
 		db.User
 			.updateOne({ _id: req.body.id }, { $set: { password: hashedPassword } }, { upsert: true })
->>>>>>> 9fe68774c0f858e5566c8829f0f505bf03f62ec6
 			.then(data => res.json(data))
 			.catch(err => res.status(422).json(err));
 	},

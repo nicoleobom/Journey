@@ -32,28 +32,6 @@ router.put('/addTrip', userController.updateTrips);
 
 router.put('/settings/userName', userController.updateUserName);
 
-<<<<<<< HEAD
-router.route('/update/:id').post(function(req, res) {
-    User.findById(req.params.id, function(err, user) {
-        if(!user)
-            res.status(404).send('data is not found.');
-        else
-            user.firstname = req.body.firstname;
-            user.lastname = req.body.lastname;
-            user.username = req.body.username;
-            user.password = req.body.username;
-            user.trips = req.body.trips;
-
-            user.save().then(todo => {
-                res.json('User updated!');
-            })
-            .catch(err => {
-                res.status(400).send('Update not possible.');
-            });
-    });
-});
-=======
 router.put('/settings/userPassword', userController.updateUserPassword);
->>>>>>> 9fe68774c0f858e5566c8829f0f505bf03f62ec6
 
 module.exports = router;
