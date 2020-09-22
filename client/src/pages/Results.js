@@ -55,10 +55,10 @@ export default class Results extends React.Component {
     }
 
     handleSomething = () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
+        // const apiKey = process.env.REACT_APP_API_KEY;
         const stopsInCity = this.props.values.stops.toString();
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
         
         fetch(proxyurl + queryURL)
             .then(res => res.json())
@@ -72,7 +72,7 @@ export default class Results extends React.Component {
                     let photoReference = result.results[i].photos[0].photo_reference;
                     let node = document.createElement('div');
                     let placeDiv = `<h6>${placeName}</h6>
-                                    <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${apiKey}" />
+                                    <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" />
                                     <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                     <p>${address}</p>
                                     `;
@@ -84,7 +84,6 @@ export default class Results extends React.Component {
     }
 
     render() {
-        // this.handleSomething();
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
 
         return (
