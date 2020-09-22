@@ -1,12 +1,13 @@
 import React from 'react';
 import '../index.css';
 import API from '../utils/API';
-import axios from 'axios';
+// import axios from 'axios';
 import swal from 'sweetalert';
 
 export default class Settings extends React.Component {
 
-    updateUserSettings = async () => {
+    updateUserSettings = async (event) => {
+        event.preventDefault();
         const user = (await API.getUserData()).data;
         const newusername = document.getElementById('newusername').value;
         const newpassword1 = document.getElementById('newpassword1').value;
@@ -35,56 +36,56 @@ export default class Settings extends React.Component {
             }
             API.updateUserName(userUsername);
             swal('Username successfully updated!')
-            document.getElementById('newusername').value = "";
+            // document.getElementById('newusername').value = "";
         } else {
             if (!Object.keys(settings).length) return;
         }
     }
 
-    componentDidMount() {
-        axios.get('/api/user/data')
-            .then(res => {
-                this.setState({
-                    id: res.data._id,
-                    username: res.data.username,
-                    password: res.data.password
-                });
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-    }
+    // componentDidMount() {
+    //     axios.get('/api/user/data')
+    //         .then(res => {
+    //             this.setState({
+    //                 id: res.data._id,
+    //                 username: res.data.username,
+    //                 password: res.data.password
+    //             });
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
+    // }
 
-    onChangeUsername(e) {
-        this.setState({ username: e.target.value });
-    }
+    // onChangeUsername(e) {
+    //     this.setState({ username: e.target.value });
+    // }
 
-    onChangePassword(e) {
-        this.setState({ password: e.target.value });
-    }
+    // onChangePassword(e) {
+    //     this.setState({ password: e.target.value });
+    // }
 
-    onSubmit(e) {
-        e.preventDefault();
-        const userObject = {
-            username: this.state.username,
-            password: this.state.password
-        }
-        API.updateUserSettings(userObject)
-            .then((res) => {
-                console.log(res.data)
-                console.log('User updated successfully!')
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+    // onSubmit(e) {
+    //     e.preventDefault();
+    //     const userObject = {
+    //         username: this.state.username,
+    //         password: this.state.password
+    //     }
+    //     API.updateUserSettings(userObject)
+    //         .then((res) => {
+    //             console.log(res.data)
+    //             console.log('User updated successfully!')
+    //         })
+    //         .catch((err) => {
+    //             console.log(err);
+    //         })
 
-            this.props.history.push('/home')
-    }
+    //         this.props.history.push('/home')
+    // }
 
     render() {
         return (
             <div className="row home-pg">
-                <form className="col-sm-12 header" onSubmit={this.onSubmit}>
+                <form className="col-sm-12 header" onSubmit={this.updateUserSettings}>
                     <h3>Settings</h3>
                     <div className="section">
                         <label className="label">Change your username:</label><br />
