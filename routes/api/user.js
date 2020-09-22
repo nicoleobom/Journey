@@ -30,8 +30,9 @@ router.get('/:id', userController.findById);
 
 router.put('/addTrip', userController.updateTrips);
 
-router.put('/', userController.updateUser);
+router.put('/settings/userName', userController.updateUserName);
 
+<<<<<<< HEAD
 router.route('/update/:id').post(function(req, res) {
     User.findById(req.params.id, function(err, user) {
         if(!user)
@@ -51,5 +52,8 @@ router.route('/update/:id').post(function(req, res) {
             });
     });
 });
+=======
+router.put('/settings/userPassword', userController.updateUserPassword);
+>>>>>>> 9fe68774c0f858e5566c8829f0f505bf03f62ec6
 
 module.exports = router;

@@ -4,6 +4,7 @@ import API from '../utils/API';
 import axios from 'axios';
 
 export default class Settings extends React.Component {
+<<<<<<< HEAD
     constructor(props) {
         super(props)
         this.onChangeUsername = this.onChangeUsername.bind(this);
@@ -13,6 +14,38 @@ export default class Settings extends React.Component {
             id: '',
             username: '',
             password: '',
+=======
+
+    updateUserSettings = async () => {
+        const user = (await API.getUserData()).data;
+        const newusername = document.getElementById('newusername').value;
+        const newpassword1 = document.getElementById('newpassword1').value;
+        const newpassword2 = document.getElementById('newpassword2').value;
+        let settings = {}
+
+        if (newpassword1 !== newpassword2) {
+            swal('Passwords do not match.')
+        } else if (!newusername && (newpassword1 === newpassword2)) {
+            if (newpassword2) {
+                settings.password = newpassword2;
+                const userPassword = {
+                    id: user._id,
+                    password: newpassword2
+                }
+                API.updateUserPassword(userPassword);
+                swal('Password successfully updated!')
+            }
+        } else if (newusername && !newpassword1 && !newpassword2) {
+            if (newusername) settings.username = newusername;
+            const userUsername = {
+                id: user._id,
+                username: newusername
+            }
+            API.updateUserName(userUsername);
+            swal('Username successfully updated!')
+        } else {
+            if (!Object.keys(settings).length) return;
+>>>>>>> 9fe68774c0f858e5566c8829f0f505bf03f62ec6
         }
     }
 
