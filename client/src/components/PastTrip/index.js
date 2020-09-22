@@ -1,6 +1,6 @@
 import React from 'react'
 import Moment from 'react-moment'
-
+import { Link } from 'react-router-dom';
 
 export default class PastTrip extends React.Component {
     render() {
@@ -11,7 +11,7 @@ export default class PastTrip extends React.Component {
                     <div key={trip._id}>
                         <h4><Moment className="results" format="MMMM DD, YYYY">
                             {trip.endDate}
-                        </Moment></h4> <br /><p>Trip to {trip.endpoint}</p>
+                        </Moment></h4> <br /><p>Trip to {trip.endpoint}</p> 
                     </div>
                 )
             }</div>

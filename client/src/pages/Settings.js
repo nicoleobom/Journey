@@ -3,6 +3,7 @@ import '../index.css';
 import API from '../utils/API';
 // import axios from 'axios';
 import swal from 'sweetalert';
+import { Redirect } from 'react-router-dom';
 
 export default class Settings extends React.Component {
 
