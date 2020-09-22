@@ -22,7 +22,7 @@ export default class MobileNav extends React.Component {
                 <Row id="m-nav" className="mobile-container">
                     <Col>
                         <Link to="/"><Logo /></Link>
-                        <div class="topnav">
+                        <div className="topnav">
                             <div id="myLinks">
                                 <Link to="/" onClick={this.openMobileNav}><i className="fas fa-home"></i></Link>
                                 <Link to="/new-trip" onClick={this.openMobileNav}><i className="fas fa-plus"></i></Link>
@@ -30,9 +30,9 @@ export default class MobileNav extends React.Component {
                                 <Link to="/settings" onClick={this.openMobileNav}><i className="fas fa-cog"></i></Link>
                                 <Link to="/logout" onClick={this.openMobileNav}><i className="fas fa-sign-out-alt"></i></Link>
                             </div>
-                            <a class="icons" onClick={this.openMobileNav}>
-                                <i class="fa fa-bars"></i>
-                            </a>
+                            <button className="icons" onClick={this.openMobileNav} >
+                                <i className="fa fa-bars"></i>
+                            </button>
                         </div>
                     </Col>
                 </Row>

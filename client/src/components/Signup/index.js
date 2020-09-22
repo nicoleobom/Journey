@@ -63,7 +63,6 @@ export default class SignUpForm extends React.Component {
                         placeholder="password"
                         className="settingsinput"
                         name="password"
-                        type="text"
                         value={this.state.password}
                         onChange={this.handleInputChange}
                     /><br />

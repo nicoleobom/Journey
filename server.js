@@ -10,6 +10,7 @@ const db = require('./config/key').mongoURI;
 
 const PORT = process.env.PORT || 4000;
 
+
 app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
@@ -24,15 +25,12 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
     console.log('req.session', req.session);
-    return next();
+    return next();  
 });
 
 app.use(routes);
 
 app.use(express.static("client/build"));
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 app.listen(PORT, function () {
     console.log('Server is running on port: ' + PORT);

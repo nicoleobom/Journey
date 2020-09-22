@@ -5,7 +5,6 @@ import Moment from 'react-moment'
 export default class PastTrip extends React.Component {
     render() {
         const userTrips = this.props.trips;
-        console.log(userTrips)
         const trip = (
             <div> {
                 userTrips.map((trip) =>

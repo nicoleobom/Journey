@@ -16,7 +16,6 @@ export default class Question7 extends React.Component {
 
     pushArray = (value) => {
         collectStops.push(value);
-        console.log(collectStops);
         this.props.stopsArray(collectStops);
     }
 
