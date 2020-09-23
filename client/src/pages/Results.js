@@ -3,6 +3,7 @@ import API from '../utils/API';
 import Moment from 'react-moment';
 import { Link } from 'react-router-dom';
 import Test from './Test';
+import imgSrc from '../assets/images/no-picture-available.jpg'
 
 let btntext;
 
@@ -54,33 +55,42 @@ export default class Results extends React.Component {
         API.updateUserTrip(userData);
     }
 
-    handleSomething = () => {
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const stopsInCity = this.props.values.stops.toString();
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
-        
-        fetch(proxyurl + queryURL)
-            .then(res => res.json())
-            .then((result) => {
-                console.log(result);
-                for (let i = 0; i < 5; i++) {
-                    let placeName = result.results[i].name;
-                    let placeRating = result.results[i].rating;
-                    let placesUsersRating = result.results[i].user_ratings_total;
-                    let address = result.results[i].formatted_address;
-                    let photoReference = result.results[i].photos[0].photo_reference;
-                    let node = document.createElement('div');
-                    let placeDiv = `<h6>${placeName}</h6>
-                                    <img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" />
-                                    <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
-                                    <p>${address}</p>
-                                    `;
-                    node.innerHTML = placeDiv;
+    addDefaultSrc(ev) {
+        ev.target.src = imgSrc;
+        ev.target.onerror = null;
+    }
 
-                    document.getElementById('placesdiv').appendChild(node);
-                }
-            })
+    handleSomething = async () => {
+        try {
+            const apiKey = process.env.REACT_APP_API_KEY;
+            const stopsInCity = this.props.values.stops.toString();
+            const proxyurl = "https://cors-anywhere.herokuapp.com/";
+            const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+            
+            await fetch(proxyurl + queryURL)
+                .then(res => res.json())
+                .then((result) => {
+                    console.log(result);
+                    for (let i = 0; i < 5; i++) {
+                        let placeName = result.results[i].name;
+                        let placeRating = result.results[i].rating;
+                        let placesUsersRating = result.results[i].user_ratings_total;
+                        let address = result.results[i].formatted_address;
+                        let photoReference = result.results[i].photos[0].photo_reference;
+                        let node = document.createElement('div');
+                        let placeDiv = `<h6>${placeName}</h6>
+                                        <img onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" />
+                                        <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                        <p>${address}</p>
+                                        `;
+                        node.innerHTML = placeDiv;
+
+                        document.getElementById('placesdiv').appendChild(node);
+                    }
+                })
+            } catch (err) {
+                console.log(err)
+            }
     }
 
     render() {
