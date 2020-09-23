@@ -1,11 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-import { Link } from 'react-router-dom';
-import Test from './Test';
 import imgSrc from '../assets/images/no-picture-available.jpg'
-
-let btntext;
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -47,8 +43,16 @@ export default class Results extends React.Component {
         try {
             const apiKey = process.env.REACT_APP_API_KEY;
             const stopsInCity = this.props.values.stops.toString();
+            const budget = this.props.values.budget;
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
-            const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+            let queryURL;
+
+            if (budget <= 500) {
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&maxprice=2&sensor=false&key=" + apiKey;
+
+            } else {
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+            }
             
             await fetch(proxyurl + queryURL)
                 .then(res => res.json())
@@ -86,9 +90,17 @@ export default class Results extends React.Component {
         const endpoint = this.props.values.endpoint;
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
+        const budget = this.props.values.budget;
+        let queryURL;
 
-        if (night === "airbnb" || night === "Hotel" || night === "campground") {
+
+        if (budget <= 500) {
+            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&maxprice=2&sensor=false&key=" + apiKey;
+        } else {
+            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
+        }
+
+        if (night === "Hotel" || night === "campground") {
             try {
                 await fetch(proxyurl + queryURL)
                 .then(res => res.json())
