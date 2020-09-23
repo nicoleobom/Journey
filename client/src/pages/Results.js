@@ -106,26 +106,31 @@ export default class Results extends React.Component {
                 .then(res => res.json())
                 .then((result) => {
                     console.log(result);
-                    for (let i = 0; i < 6; i++) {
-                        let placeName = result.results[i].name;
-                        let placeRating = result.results[i].rating;
-                        let placesUsersRating = result.results[i].user_ratings_total;
-                        let address = result.results[i].formatted_address;
-                        let photoReference = result.results[i].photos[0].photo_reference;
-                        let node = document.createElement('div');
-                        node.className = ('placesList col-sm-12');
-                        node.classList.add = ('col-sm-12');
-                        let placeDiv = `<h6>${placeName}</h6>
-                                        <ul>
-                                        <li><img class="circle-img" onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" /></li>
-                                        </ul>
-                                        <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
-                                        <p>${address}</p>
-                                        `;
+                    if (result.status === "ZERO_RESULTS") {
+                        document.getElementById('place-title').style.visibility = 'hidden';
+                        return null;
+                    } else {
+                        for (let i = 0; i < 6; i++) {
+                            let placeName = result.results[i].name;
+                            let placeRating = result.results[i].rating;
+                            let placesUsersRating = result.results[i].user_ratings_total;
+                            let address = result.results[i].formatted_address;
+                            let photoReference = result.results[i].photos[0].photo_reference;
+                            let node = document.createElement('div');
+                            node.className = ('placesList col-sm-12');
+                            node.classList.add = ('col-sm-12');
+                            let placeDiv = `<h6>${placeName}</h6>
+                                            <ul>
+                                            <li><img class="circle-img" onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" /></li>
+                                            </ul>
+                                            <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                            <p>${address}</p>
+                                            `;
 
-                        node.innerHTML = placeDiv;
+                            node.innerHTML = placeDiv;
 
-                        document.getElementById('stay').appendChild(node);
+                            document.getElementById('stay').appendChild(node);
+                        }
                     }
                 })
             } catch (err) {
