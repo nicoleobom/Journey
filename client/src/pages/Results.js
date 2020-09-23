@@ -19,24 +19,7 @@ export default class Results extends React.Component {
         this.userFirstName();
         this.updateUserTrip();
         this.handleSomething();
-        this.btnText();
-    }
-
-    btnText() {
-        switch (this.props.values.night) {
-            case "airbnb":
-                btntext = "Find an AirBnB"
-                break;
-            case "Hotel":
-                btntext = "Find a Hotel"
-                break;
-            case "campground":
-                btntext = "Find campgrounds"
-                break;
-            default:
-                btntext="Home"
-                break;
-        }
+        this.handlePlacesToStay();
     }
 
     userFirstName = async () => {
@@ -71,18 +54,23 @@ export default class Results extends React.Component {
                 .then(res => res.json())
                 .then((result) => {
                     console.log(result);
-                    for (let i = 0; i < 5; i++) {
+                    for (let i = 0; i < 6; i++) {
                         let placeName = result.results[i].name;
                         let placeRating = result.results[i].rating;
                         let placesUsersRating = result.results[i].user_ratings_total;
                         let address = result.results[i].formatted_address;
                         let photoReference = result.results[i].photos[0].photo_reference;
                         let node = document.createElement('div');
+                        node.className = ('placesList col-sm-12');
+                        node.classList.add = ('col-sm-12');
                         let placeDiv = `<h6>${placeName}</h6>
-                                        <img onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" />
+                                        <ul>
+                                        <li><img class="circle-img" onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" /></li>
+                                        </ul>
                                         <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                         <p>${address}</p>
                                         `;
+
                         node.innerHTML = placeDiv;
 
                         document.getElementById('placesdiv').appendChild(node);
@@ -91,6 +79,52 @@ export default class Results extends React.Component {
             } catch (err) {
                 console.log(err)
             }
+    }
+
+    handlePlacesToStay = async () => {
+        const night = this.props.values.night;
+        const endpoint = this.props.values.endpoint;
+        const apiKey = process.env.REACT_APP_API_KEY;
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
+
+        if (night === "airbnb" || night === "Hotel" || night === "campground") {
+            try {
+                await fetch(proxyurl + queryURL)
+                .then(res => res.json())
+                .then((result) => {
+                    console.log(result);
+                    for (let i = 0; i < 6; i++) {
+                        let placeName = result.results[i].name;
+                        let placeRating = result.results[i].rating;
+                        let placesUsersRating = result.results[i].user_ratings_total;
+                        let address = result.results[i].formatted_address;
+                        let photoReference = result.results[i].photos[0].photo_reference;
+                        let node = document.createElement('div');
+                        node.className = ('placesList col-sm-12');
+                        node.classList.add = ('col-sm-12');
+                        let placeDiv = `<h6>${placeName}</h6>
+                                        <ul>
+                                        <li><img class="circle-img" onError={this.addDefaultSrc} src="https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs" /></li>
+                                        </ul>
+                                        <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                        <p>${address}</p>
+                                        `;
+
+                        node.innerHTML = placeDiv;
+
+                        document.getElementById('stay').appendChild(node);
+                    }
+                })
+            } catch (err) {
+                console.log(err)
+            
+            }
+        } else {
+            document.getElementById('place-title').style.visibility = 'hidden';
+            return null;
+        }
+            
     }
 
     render() {
@@ -110,11 +144,14 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: </span>${budget}</p>
                         <p><span className="results">Trippers:</span> {people}</p>
                         <p><span className="results">Traveling by:</span> {vehicle}</p>
-                        <p><span className="results">Places to Visit: </span></p>
-                        <div id="placesdiv">
+                        <h3>Places to Visit</h3>
+                        <div className="row" id="placesdiv">
 
                         </div>
-                        <Link to='/test' className="overnight">{btntext}</Link>
+                        <h3><span id="place-title">Places to Stay</span></h3>
+                        <div className="row" id="stay">
+
+                        </div>
                     </div>
                 </div>
             </div>
