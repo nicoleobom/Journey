@@ -1,7 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-import imgSrc from '../assets/images/no-picture-available.jpg'
+import imgSrc from '../assets/images/no-picture-available.jpg';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -141,7 +141,6 @@ export default class Results extends React.Component {
 
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
-
         return (
             <div className="row home-pg-2 r-h">
                 <div className="col-sm-12 scroll">

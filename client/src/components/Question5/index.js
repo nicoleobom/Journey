@@ -21,7 +21,7 @@ export default class Question5 extends React.Component {
                         <option className="option" id="car" value="Car">Car</option>
                         <option className="option" id="bus" value="Bus">Bus</option>
                         <option className="option" id="train" value="Train">Train</option>
-                        
+                        <option className="option" id="plane" value="Plane">Plane</option>
                     </select>
                 </form>
                 <div className="col-sm-12">
