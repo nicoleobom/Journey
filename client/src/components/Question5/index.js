@@ -18,10 +18,10 @@ export default class Question5 extends React.Component {
                 <form className="col-sm-12 header bg-q">
                     <h3>How do you want to get there?</h3>
                     <select id="vehicle" name="vehicle" defaultValue="car" onChange={this.props.handleChange('vehicle')}>
-                        <option className="option" value="Car">Car</option>
-                        <option className="option" value="Bus">Bus</option>
-                        <option className="option" value="Train">Train</option>
-                        <option className="option" value="Plane">Plane</option>
+                        <option className="option" id="car" value="Car">Car</option>
+                        <option className="option" id="bus" value="Bus">Bus</option>
+                        <option className="option" id="train" value="Train">Train</option>
+                        
                     </select>
                 </form>
                 <div className="col-sm-12">
