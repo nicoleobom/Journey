@@ -43,7 +43,7 @@ h3 {
 
 .header {
   text-align: center;
-  margin-top: 30%;
+  margin-top: 30% !important;
 }
 
 .header-2 {
@@ -98,12 +98,12 @@ a {
   color: white;
 }
 
-.questionheader {
+/* .questionheader {
   text-align: center;
   margin-top: 15%;
   color: white;
   font-family: 'Arial', 'sans-serif';
-}
+} */
 
 .next {
   background-color:white !important;
@@ -179,7 +179,6 @@ a {
 }
 
 .results-content {
-  text-align: left;
   color: #29301e;
 }
 
@@ -219,18 +218,59 @@ h6 {
   height: 75%;
   overflow-y: scroll;
   margin-top: 10% !important;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255,255,255, 0.6);
   padding: 40px;
   border: none;
   border-radius: 50px;
+  text-align:center;
 }
 
-#placesdiv p {
-  color:  #29301e;
+.r-h h3,
+.r-h h6 {
+  color: #29301e;
+}
+
+.r-h h3 {
+  font-weight: bold;
+  text-align: center;
 }
 
 .jc-c {
   justify-content: center;
+}
+
+/* RESULTS */
+.placesList {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+
+li {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border: 1px solid white;
+  margin: 5px;
+}
+
+.circle-img {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+#placesdiv p {
+  color:   #29301e;
+}
+
+#placesdiv {
+  text-align: center;
 }
 
 @media only screen and (max-width: 768px) {

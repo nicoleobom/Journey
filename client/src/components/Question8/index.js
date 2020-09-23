@@ -20,7 +20,6 @@ export default class Question8 extends React.Component {
                     <select id="night" name="night" defaultValue="hotel" onChange={this.props.handleChange('night')}>
                         <option className="option" value="hotel">Hotel</option>
                         <option className="option" value="campground">Campground</option>
-                        <option className="option" value="airbnb">AirBnB</option>
                         <option className="option" value="friends">Friend's House</option>
                     </select>
                 </form>

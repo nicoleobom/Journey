@@ -43,57 +43,17 @@ export default class Settings extends React.Component {
         }
     }
 
-    // componentDidMount() {
-    //     axios.get('/api/user/data')
-    //         .then(res => {
-    //             this.setState({
-    //                 id: res.data._id,
-    //                 username: res.data.username,
-    //                 password: res.data.password
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-    // }
-
-    // onChangeUsername(e) {
-    //     this.setState({ username: e.target.value });
-    // }
-
-    // onChangePassword(e) {
-    //     this.setState({ password: e.target.value });
-    // }
-
-    // onSubmit(e) {
-    //     e.preventDefault();
-    //     const userObject = {
-    //         username: this.state.username,
-    //         password: this.state.password
-    //     }
-    //     API.updateUserSettings(userObject)
-    //         .then((res) => {
-    //             console.log(res.data)
-    //             console.log('User updated successfully!')
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         })
-
-    //         this.props.history.push('/home')
-    // }
-
     render() {
         return (
             <div className="row home-pg">
                 <form className="col-sm-12 header" onSubmit={this.updateUserSettings}>
                     <h3>Settings</h3>
                     <div className="section">
-                        <label className="label">Change your username:</label><br />
+                        <label className="label-1">Change your username:</label><br />
                         <input id="newusername" placeholder="new username" className="settingsinput" onChange={this.onChangeUsername} /><br />
                     </div>
                     <div className="section">
-                        <label className="label">Change your password:</label><br />
+                        <label className="label-1">Change your password:</label><br />
                         <input type="password" id="newpassword1" placeholder="new password" className="settingsinput" /><br />
                         <input type="password" id="newpassword2" placeholder="new password" className="settingsinput" onChange={this.onChangePassword}/><br />
                     </div>
