@@ -55,10 +55,10 @@ export default class Results extends React.Component {
     }
 
     handleSomething = () => {
-        // const apiKey = process.env.REACT_APP_API_KEY;
+        const apiKey = process.env.REACT_APP_API_KEY;
         const stopsInCity = this.props.values.stops.toString();
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=AIzaSyBigYllp4tNO7aH6-CXGdx03AWDUHvgaBs";
+        const queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
         
         fetch(proxyurl + queryURL)
             .then(res => res.json())
