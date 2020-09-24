@@ -21,7 +21,11 @@ body {
   background-position: center center;
   background-attachment: fixed;
   font-family: 'Varela Round', sans-serif;
-  color: #566048 !important;;
+  color: #566048 !important;
+}
+
+::-webkit-scrollbar {
+  display: none !important;
 }
 
 h1 {
