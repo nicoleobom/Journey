@@ -38,6 +38,7 @@
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-moment": "^0.9.7",
+    "react-to-pdf": "0.0.13",
     "sweetalert": "^2.1.2",
     "use-sound": "^1.0.2"
   }
