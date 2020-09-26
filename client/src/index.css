@@ -153,11 +153,6 @@ a {
   color: white !important;
 }
 
-
-/* .label {
-  color: white;
-} */
-
 /* QUESTION BUTTONS */
 
 .next {
@@ -319,10 +314,12 @@ li {
 
 @media only screen and (max-width: 768px) {
   .home-pg {
-    width: 100vw;
-    height: 75%;
-    text-align: center;
-    margin-top: 10%
+    width: 100%;
+    margin: 0!important;
+  }
+  .first {
+    width: 100%;
+    height: auto!important;
   }
   .home-pg-2 {
     width: 100%;
@@ -345,13 +342,11 @@ li {
   .jc-c {
     justify-content: center;
   }
-}
-
-@media only screen and (max-width: 1024px) {
-  .home-pg-2 {
-    width: 100%;
+  .settings-div {
+    width:100%;
+    height: auto!important;
   }
-  .r-h {
-    width: 75%;
+  .eachTrip {
+    width: 100% !important;
   }
 }

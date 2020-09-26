@@ -1,5 +1,8 @@
 #m-nav {
     display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
 }
 
 #myLinks {
@@ -18,4 +21,28 @@
     font-size: 20px !important;
     padding-right: 10px;
     padding-top: 5px;
+}
+
+.icons {
+    background-color: #29301e;
+    z-index: 5;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    outline: none !important;
+    transition: ease-in-out .25s;
+}
+
+.icons:hover {
+    background-color: #758264;
+    color: white;
+}
+
+.fa-bars {
+    padding-left: 10px;
+}
+
+.fa-bars:hover {
+    color: white!important;
 }

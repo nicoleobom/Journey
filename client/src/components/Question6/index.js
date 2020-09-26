@@ -49,7 +49,7 @@ export default class Question6 extends React.Component {
 
         return (
             <div className="row home-pg-2" id="q6">
-                <form className="col-sm-12 header bg-q">
+                <form className="col-sm-12 q-header bg-q">
                     <h3>When would you like to go?</h3>
                     <label htmlFor="start">Start date:</label><br />
                     <input id="start" type="date" min={dateString} onChange={this.props.handleChange('startDate')} defaultValue={values.startDate} />
