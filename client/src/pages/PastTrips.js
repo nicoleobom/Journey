@@ -21,21 +21,28 @@ export default class PastTrips extends React.Component {
             firstname: user.firstname,
             trips: user.trips
         })
+
     }
 
     render() {
         return (
-            <div className="row home-pg-2 r-h">
-                <div className="col-sm-12">
-                    <h3>{this.state.firstname}'s Trips</h3>
+            <div>
+                <div className="row home-pg">
+                    <div className="col-sm-12 header r-h">
+                        <h3>{this.state.firstname}'s Trips</h3>
+                        <PastTrip
+                            getUserData={this.getUserData}
+                            trips={this.state.trips}
+                        />
+                    </div>
                 </div>
-                <div style={{ width: "100vw" }}>
-                    <PastTrip
-                        getUserData={this.getUserData}
-                        trips={this.state.trips}
-                    />
+                <div className="row textCenter">
+                    <div className="col-sm-12">
+                        
+                    </div>
                 </div>
             </div>
+
         );
     }
 }

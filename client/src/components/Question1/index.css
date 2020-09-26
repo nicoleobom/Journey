@@ -1,7 +1,8 @@
 #autocomplete {
     font-weight: bold;
-    color: #566048;
+    color: #29301e;
     text-align: center;
+    background-color: rgb(255,255,255);
 }
 
 @media only screen and (max-width: 600px) {

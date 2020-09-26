@@ -147,7 +147,7 @@ export default class Results extends React.Component {
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
         return (
-            <div className="row home-pg-2 r-h">
+            <div className="row home-pg-2 r-h2">
                 <div className="col-sm-12 scroll">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
@@ -157,9 +157,9 @@ export default class Results extends React.Component {
                         <Moment className="results" format="MMMM DD, YYYY">
                             {endDate}
                         </Moment>
-                        <p><span className="results">Budget: </span>${budget}</p>
-                        <p><span className="results">Trippers:</span> {people}</p>
-                        <p><span className="results">Traveling by:</span> {vehicle}</p>
+                        <p><span className="results">Budget: ${budget} </span></p>
+                        <p><span className="results">Trippers: {people}</span></p>
+                        <p><span className="results">Traveling by: {vehicle}</span></p>
                         <h3>Places to Visit</h3>
                         <div className="row" id="placesdiv">
 

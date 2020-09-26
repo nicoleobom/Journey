@@ -10,11 +10,11 @@ function Nav(props) {
     }
 
     return (
-        <div id="nav">
-            <nav className="navbar navstyle float-left">
+        <div className="row" id="nav">
+            <nav className="col-sm-6 cols">
                 <Link to="/"><Logo /></Link>
             </nav>
-            <nav className="navbar navstyle float-right">
+            <nav className="col-sm-6 cols">
                 <Link to="/" className="navbar-brand"><i className="fas fa-home"></i></Link>
                 <Link to="/new-trip" className="navbar-brand"><i className="fas fa-plus"></i></Link>
                 <Link to="/past-trips" className="navbar-brand"><i className="fas fa-car"></i></Link>

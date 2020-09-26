@@ -44,8 +44,8 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div className="row home-pg">
-                <div className="col-sm-12 col-xs-12 header">
+            <div className="row home-pg first">
+                <div className="col-sm-12 col-xs-12 home-page-bg">
                     <h3>Welcome, {this.state.firstname}</h3>
                     <div className="row jc-c">
                         <div className="col-xs-6">

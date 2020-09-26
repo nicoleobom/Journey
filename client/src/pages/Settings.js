@@ -45,8 +45,8 @@ export default class Settings extends React.Component {
 
     render() {
         return (
-            <div className="row home-pg">
-                <form className="col-sm-12 header" onSubmit={this.updateUserSettings}>
+            <div className="row settings-div">
+                <form className="col-sm-12 settings-header" onSubmit={this.updateUserSettings}>
                     <h3>Settings</h3>
                     <div className="section">
                         <label className="label-1">Change your username:</label><br />

@@ -3,14 +3,17 @@
   src: url('./assets/fonts/LadyNature.otf');
 }
 
+/* HIDING SCROLLBARS, ENABLING SCROLL */
 html {
   overflow:   scroll;
 }
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
+    display: none !important;
 }
 
+/* BACKGROUND & BODY */
 body {
   margin: 0;
   width: 100vw;
@@ -21,13 +24,14 @@ body {
   background-position: center center;
   background-attachment: fixed;
   font-family: 'Varela Round', sans-serif;
-  color: #566048 !important;
+  color: #29301e !important;
 }
 
-::-webkit-scrollbar {
-  display: none !important;
+.container {
+  height: 100vh;
 }
 
+/* HEADERS */
 h1 {
   font-family: 'LadyNature', 'sans-serif';
   color: white;
@@ -42,12 +46,64 @@ h2 {
 
 h3 {
   font-family: 'Varela Round', sans-serif;
-  color: white;
+}
+
+/* HOME */
+.home-page-bg {
+  background-color: rgba(255,255,255, 0.6);
+  padding: 40px;
+  border-radius: 30px;
+  text-align:center;
+  margin-top: 30%;
+}
+
+.first {
+  width: 50%;
+  margin: auto!important;
+}
+
+/* ALIGNMENT & GENERAL CSS */
+.jc-c {
+  justify-content: center;
+}
+
+.bg-q {
+  margin-top: 50px;
+  background-color: rgba(255,255,255, 0.6);
+  padding: 40px;
+  border: none;
+  border-radius: 50px;
+  color: #29301e;
+}
+
+.test {
+  position: absolute;
+  background-color: rgba(255,255,255, 0.6);
+  border: none;
+  border-radius: 12px;
+  margin-top: 15%;
+  text-align: center;
+}
+
+.textCenter {
+  text-align:center;
+  margin-top: 20%;
+}
+
+p {
+  color: #29301e;
+}
+
+.header-3 {
+  text-align: center;
+  margin-top: 10% !important;
+  position: fixed !important;
+  left: 0;
 }
 
 .header {
   text-align: center;
-  margin-top: 30% !important;
+  margin-top: 20% !important;
 }
 
 .header-2 {
@@ -98,16 +154,11 @@ a {
 }
 
 
-.label {
+/* .label {
   color: white;
-}
-
-/* .questionheader {
-  text-align: center;
-  margin-top: 15%;
-  color: white;
-  font-family: 'Arial', 'sans-serif';
 } */
+
+/* QUESTION BUTTONS */
 
 .next {
   background-color:white !important;
@@ -153,44 +204,27 @@ a {
   background-color:#566048 !important;
 }
 
-.navstyle {
-  text-align: center;
-  max-width: 50%;
-  margin: auto;
+/* SETTINGS PAGE */
+
+.settings-div {
+  width: 50%;
+  margin: auto !important;
 }
 
 .settingsinput {
   margin-bottom: 15px;
+  background-color: white;
 }
 
-.section {
-  margin-top: 20px;
-}
-
-.bg-q {
-  margin-top: 50px;
-  background-color: rgba(255,255,255, 0.2);
+.settings-header {
+  background-color: rgba(255,255,255, 0.6);
+  text-align:center;
+  margin-top: 30%;
   padding: 40px;
-  border: none;
-  border-radius: 50px;
+  border-radius: 30px;
 }
 
-.results {
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 12px;
-  color: #29301e;
-}
-
-.results-content {
-  color: #29301e;
-}
-
-.results-content p {
-  font-weight: normal;
-  color: #29301e;
-}
-
+/* ALERTS */
 .swal-modal {
   background: white;
   border: none;
@@ -212,41 +246,18 @@ a {
   background-color: rgba(86,96,72,.8) !important;
 }
 
-h6 {
-  color: white;
-}
-
-.r-h {
-  position: fixed;
-  width: 50%;
-  height: 75%;
-  overflow-y: scroll;
-  margin-top: 10% !important;
-  background-color: rgba(255,255,255, 0.6);
-  padding: 40px;
-  border: none;
-  border-radius: 50px;
-  text-align:center;
-}
-
-.r-h h3,
-.r-h h6 {
-  color: #29301e;
-}
-
-.r-h h3 {
-  font-weight: bold;
-  text-align: center;
-}
-
-.jc-c {
-  justify-content: center;
-}
-
 /* RESULTS */
+
+.results-content {
+  margin-top: 5%;
+}
+
 .placesList {
   text-align: center;
-  margin-bottom: 50px;
+  margin: 50px auto!important;
+  background-color: rgba(255,255,255, 0.6);
+  padding: 40px;
+  border-radius: 30px;
 }
 
 ul {
@@ -269,13 +280,33 @@ li {
   min-height: 100%;
 }
 
-#placesdiv p {
-  color:   #29301e;
+#placesdiv p,
+.results {
+  color:   #29301e !important;
 }
 
 #placesdiv {
   text-align: center;
 }
+
+.r-h2 {
+  width: 50%;
+  margin: auto !important;
+  text-align:center;
+}
+
+.scroll {
+  margin-top: 20%;
+}
+
+.results-content h3 {
+  margin-top: 10%;
+  background-color: rgba(255,255,255, 0.6);
+  border-radius: 30px;
+  padding: 40px;
+}
+
+/* MEDIA QUERIES */
 
 @media only screen and (max-width: 768px) {
   .home-pg {

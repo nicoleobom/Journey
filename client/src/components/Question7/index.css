@@ -1,10 +1,6 @@
-.leftalign {
-    text-align: left;
-}
-
 .leftalign label {
     padding-left: 15px !important;
-    color: white;
+    color: #29301e;
     font-weight: normal;
 }
 
