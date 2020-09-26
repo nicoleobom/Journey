@@ -29,7 +29,6 @@ Journey is a simple resource to help you plan your next trip whether you know wh
 * Bcrypt
 
 ## Install Instructions:
-cd journey <br>
 npm start <br>
 
 ## License:

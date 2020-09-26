@@ -9,6 +9,7 @@ import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
 import Results from '../pages/Results';
 import '../index.css';
+import swal from 'sweetalert';
 
 export default class AddTrip extends React.Component {
     constructor(props) {
@@ -41,6 +42,7 @@ export default class AddTrip extends React.Component {
 
     handleChange = input => event => {
         this.setState({ [input]: event.target.value })
+
     }
 
     setLocation = (key, value) => {

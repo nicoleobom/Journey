@@ -76,7 +76,7 @@ export default class Question2 extends React.Component {
                         onChange={this.handleScriptLoad}
                     />
                     <p>or</p>
-                    <button id="idk" value="I don't know" type="button" onClick={this.chooseCity}>Take me anywhere!</button>
+                    <button id="idk" value="I don't know" type="button" className="target" onClick={this.chooseCity}>Take me anywhere!</button>
                 </form>
                 <div className="col-sm-12">
                     <div className="row">
