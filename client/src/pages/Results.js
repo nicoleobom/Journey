@@ -2,9 +2,8 @@ import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
 import imgSrc from '../assets/images/no-picture-available.jpg';
-import Pdf from 'react-to-pdf';
-
-const ref = React.createRef();
+import jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -12,6 +11,8 @@ export default class Results extends React.Component {
         this.state = {
             firstname: "",
         }
+
+        this.handlePDF = this.handlePDF.bind(this);
     }
 
     componentDidMount() {
@@ -160,6 +161,21 @@ export default class Results extends React.Component {
             
     }
 
+    handlePDF() {
+    //    var doc = new jsPDF();
+    //    var data = document.getElementById('forPDF');
+    //    var downloadTripBtn = document.getElementById('download');
+
+    //    downloadTripBtn.click(function() {
+    //        doc.fromHTML(data).html(), 15, 15, {
+    //            'width': 170,
+    //    }
+    //    doc.save('example.pdf');
+    // })
+
+       
+    }
+
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
         return (
@@ -181,17 +197,14 @@ export default class Results extends React.Component {
                         <div className="row" id="placesdiv">
 
                         </div>
-                        <h3><span id="place-title">Places to Stay</span></h3>
+                        <span id="place-title"><h3>Places to Stay</h3></span>
                         <div className="row" id="stay">
 
                         </div>
                     </div>
-                
+                    <button id="download" onClick={this.handlePDF}>Download Trip</button>
                 </div>
-                <Pdf id="pdfbutton" targetRef={ref} filename={`trip-to-${endpoint}.pdf`}>
-                    {({ toPdf }) => <button onClick={toPdf}>Download Trip</button>}
-                </Pdf>
-                <div id="forPDF" ref={ref}>
+                <div id="forPDF">
                     <h4>{this.state.firstname}'s Trip to {endpoint}</h4>
                     <ul>
                         <li>Budget: {budget}</li>
