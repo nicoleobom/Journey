@@ -19,6 +19,7 @@ export default class PastTrip extends React.Component {
                         <p><strong>Budget: </strong>${trip.budget}</p>
                         <p><strong>Vehicle: </strong>{trip.vehicle}</p>
                         <p><strong>Stayed overnight at a </strong>{trip.night}</p>
+                        <button id="viewPDF">View PDF</button>
                     </div>
                 )
             }</div>
