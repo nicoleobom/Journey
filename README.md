@@ -25,7 +25,7 @@ Journey is a simple resource to help you plan your next trip whether you know wh
 ### Technologies Used:
 * MongoDB Atlas
 * MongoDB
-* Trip Advisor API (tbd)
+* Google Places Autocomplete API
 * Bcrypt
 
 ## Install Instructions:
