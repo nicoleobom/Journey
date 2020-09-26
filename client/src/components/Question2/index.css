@@ -30,3 +30,7 @@
     outline: none!important;
     color: white;
 }
+
+:target {
+    background-color: #566048 !important;
+}
