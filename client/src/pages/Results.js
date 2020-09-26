@@ -2,6 +2,8 @@ import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
 import imgSrc from '../assets/images/no-picture-available.jpg';
+import jsPDF from 'jspdf';
+import * as html2canvas from 'html2canvas';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -9,6 +11,8 @@ export default class Results extends React.Component {
         this.state = {
             firstname: "",
         }
+
+        this.handlePDF = this.handlePDF.bind(this);
     }
 
     componentDidMount() {
@@ -75,9 +79,16 @@ export default class Results extends React.Component {
                                         <p>${address}</p>
                                         `;
 
+                        let pdfNode = document.createElement('div');
+                        let placePdfDiv = `<strong>${placeName}</strong>
+                                            <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                            <p>${address}</p>`
+
                         node.innerHTML = placeDiv;
+                        pdfNode.innerHTML = placePdfDiv;
 
                         document.getElementById('placesdiv').appendChild(node);
+                        document.getElementById('pdf-PlacesDiv').appendChild(pdfNode);
                     }
                 })
             } catch (err) {
@@ -126,10 +137,16 @@ export default class Results extends React.Component {
                                             <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                             <p>${address}</p>
                                             `;
+                            let pdfNode = document.createElement('div');
+                            let placePdfDiv = `<strong>${placeName}</strong>
+                                                <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
+                                                <p>${address}</p>`
 
                             node.innerHTML = placeDiv;
+                            pdfNode.innerHTML = placePdfDiv;
 
                             document.getElementById('stay').appendChild(node);
+                            document.getElementById('pdf-HotelsDiv').appendChild(pdfNode);
                         }
                     }
                 })
@@ -144,10 +161,26 @@ export default class Results extends React.Component {
             
     }
 
+    handlePDF() {
+    //    var doc = new jsPDF();
+    //    var data = document.getElementById('forPDF');
+    //    var downloadTripBtn = document.getElementById('download');
+
+    //    downloadTripBtn.click(function() {
+    //        doc.fromHTML(data).html(), 15, 15, {
+    //            'width': 170,
+    //    }
+    //    doc.save('example.pdf');
+    // })
+
+       
+    }
+
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
         return (
-            <div className="row home-pg-2 r-h">
+            <div className="row home-pg-2 r-h2">
+
                 <div className="col-sm-12 scroll">
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
@@ -157,17 +190,36 @@ export default class Results extends React.Component {
                         <Moment className="results" format="MMMM DD, YYYY">
                             {endDate}
                         </Moment>
-                        <p><span className="results">Budget: </span>${budget}</p>
-                        <p><span className="results">Trippers:</span> {people}</p>
-                        <p><span className="results">Traveling by:</span> {vehicle}</p>
+                        <p><span className="results">Budget: ${budget} </span></p>
+                        <p><span className="results">Trippers: {people}</span></p>
+                        <p><span className="results">Traveling by: {vehicle}</span></p>
                         <h3>Places to Visit</h3>
                         <div className="row" id="placesdiv">
 
                         </div>
-                        <h3><span id="place-title">Places to Stay</span></h3>
+                        <span id="place-title"><h3>Places to Stay</h3></span>
                         <div className="row" id="stay">
 
                         </div>
+                    </div>
+                    <button id="download" onClick={this.handlePDF}>Download Trip</button>
+                </div>
+                <div id="forPDF">
+                    <h4>{this.state.firstname}'s Trip to {endpoint}</h4>
+                    <ul>
+                        <li>Budget: {budget}</li>
+                        <li>Trippers: {people}</li>
+                        <li>Traveling by: {vehicle}</li>
+                        <li>Start date: {startDate}</li>
+                        <li>End date: {endDate}</li>
+                    </ul>
+                    <h4>Places to Visit</h4>
+                    <div id="pdf-PlacesDiv">
+
+                    </div>
+                    <h4><span id="place-title">Places to Stay</span></h4>
+                    <div id="pdf-HotelsDiv">
+
                     </div>
                 </div>
             </div>

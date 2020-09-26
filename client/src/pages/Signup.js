@@ -19,7 +19,7 @@ class Signup extends Component {
     signUpComplete = () => {
         return (
             <div className="row">
-                <div className="col-sm-12 header bg-q">
+                <div className="col-sm-12 bg-q">
                     <h3>Your account has been created!</h3>
                     <Link to="/home"><Circles icon={faHome} /></Link>
                 </div>

@@ -22,7 +22,7 @@ export default class Question7 extends React.Component {
     render() {
         return (
             <div className="row home-pg-2" id="q7">
-                <form className="col-sm-12 header bg-q">
+                <form className="col-sm-12 q-header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
                     <div className="leftalign">
                         <input id="shopping_mall" name="shopping_mall" value="shopping_mall" type="checkbox" onChange={() => this.pushArray('National Parks')} />

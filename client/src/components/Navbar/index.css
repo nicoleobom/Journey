@@ -3,10 +3,22 @@ i {
     transition: ease-in-out .25s;
   }
   
-  i:hover {
-    color: #29301e
-  }
-  
-  .navstyles {
-    padding-top: 25px;
-  }
+i:hover {
+  color: #29301e
+}
+
+.navstyles {
+  padding-top: 25px;
+}
+
+#nav {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navstyle {
+  text-align: center;
+  max-width: 50%;
+  margin: auto;
+}

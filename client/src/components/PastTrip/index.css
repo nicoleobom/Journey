@@ -1,0 +1,39 @@
+.eachTrip {
+    /* margin-bottom: 50px; */
+    background-color: rgba(255,255,255, 0.6);
+    border: none;
+    border-radius: 30px;
+    width: 50%;
+    margin: 40px auto!important;
+    padding: 40px;
+}
+
+.eachTrip p {
+    color: #29301e;
+    font-weight: normal;
+}
+
+.eachTrip h4 {
+    margin-bottom: 0;
+    font-weight: bolder;
+}
+
+.r-h {
+    overflow-y: scroll;
+    margin-top: 10% !important;
+    padding: 40px;
+    text-align:center;
+  }
+
+#viewPDF {
+    border: none;
+    border-radius: 4px;
+    background-color: #29301e;
+    color: white;
+    transition: ease-in-out .25s;
+    padding: 5px;
+}
+
+#viewPDF:hover {
+    background-color: #758264;
+}
