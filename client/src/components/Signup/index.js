@@ -10,6 +10,7 @@ export default class SignUpForm extends React.Component {
             firstname: "",
             lastname: "",
             username: "",
+            emailAddress: "",
             password: "",
         }
     }
@@ -21,8 +22,8 @@ export default class SignUpForm extends React.Component {
 
     handleFormSubmit = async event => {
         event.preventDefault();
-        const { firstname, lastname, username, password } = this.state;
-        if (!firstname.length || !lastname.length || !username.length || !password.length) {
+        const { firstname, lastname, emailAddress, username, password } = this.state;
+        if (!firstname.length || !lastname.length || !emailAddress.length || !username.length || !password.length) {
             swal('Please enter information into all fields.');
         }
         const response = await API.createUser(this.state)
@@ -48,6 +49,14 @@ export default class SignUpForm extends React.Component {
                         name="lastname"
                         type="text"
                         value={this.state.lastname}
+                        onChange={this.handleInputChange}
+                    /><br />
+                    <input
+                        placeholder="email address"
+                        className="settingsinput"
+                        name="emailAddress"
+                        type="text"
+                        value={this.state.emailAddress}
                         onChange={this.handleInputChange}
                     /><br />
                     <input

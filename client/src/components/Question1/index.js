@@ -54,18 +54,25 @@ export default class Question1 extends React.Component {
         this.props.nextStep();
     }
 
+    onKeyPress(e) {
+        if (e.which === 13) {
+            e.preventDefault();
+        }
+    }
+
     render() {
         return (
             <div className="row home-pg-2" id="q1">
-                <form className="col-sm-12 q-header bg-q"> 
+                <form className="col-sm-12 q-header bg-q" onKeyPress={this.onKeyPress}> 
                     <h3>Where are you starting from?</h3>
                     <input id="autocomplete"
                         placeholder="Search cities"
                         onChange={this.handleScriptLoad}
                     />
+                    
                 </form>
                 <div className="col-sm-12">
-                    <button className="next" style={{ float: "right" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                        <button type="submit" className="next" style={{ float: "right" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                 </div>
             </div>
         )

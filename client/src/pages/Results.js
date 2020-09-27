@@ -6,6 +6,8 @@ import jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import FadeIn from 'react-fade-in';
+import { duration } from 'moment';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -84,7 +86,6 @@ export default class Results extends React.Component {
 
                         let pdfNode = document.createElement('div');
                         let placePdfDiv = `<strong>${placeName}</strong>
-                                            <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                             <p>${address}</p>`
 
                         node.innerHTML = placeDiv;
@@ -105,14 +106,7 @@ export default class Results extends React.Component {
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const budget = this.props.values.budget;
-        let queryURL;
-
-
-        if (budget <= 500) {
-            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&maxprice=2&sensor=false&key=" + apiKey;
-        } else {
-            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
-        }
+        let queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
 
         if (night === "Hotel" || night === "campground") {
             try {
@@ -121,7 +115,8 @@ export default class Results extends React.Component {
                 .then((result) => {
                     console.log(result);
                     if (result.status === "ZERO_RESULTS") {
-                        document.getElementById('place-title').style.visibility = 'hidden';
+                        document.getElementById('place-title').style.display = 'none';
+                        document.getElementById('hotel-title').style.display = 'none';
                         return null;
                     } else {
                         for (let i = 0; i < 6; i++) {
@@ -142,7 +137,6 @@ export default class Results extends React.Component {
                                             `;
                             let pdfNode = document.createElement('div');
                             let placePdfDiv = `<strong>${placeName}</strong>
-                                                <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                                 <p>${address}</p>`
 
                             node.innerHTML = placeDiv;
@@ -165,48 +159,21 @@ export default class Results extends React.Component {
     }
 
     handlePDF() {
-        var pdf = new jsPDF();
-        pdf.fromHTML = (document.getElementById('forPDF').html, 1, 1, 6, 9);
-        pdf.save('*.pdf');
-
-        //TEST 2
-        // html2canvas(document.querySelector('#forPDF'))
-        //     .then(canvas => {
-        //         document.body.appendChild(canvas)
-        //     })
-
-        // const input = document.getElementById('forPDF');
-
-        // html2canvas(input)
-        //     .then((canvas) => {
-        //         const imgData = canvas.toDataURL('image/png');
-
-        //         const pdf = new jsPDF();
-        //         pdf .onload = function() {
-        //             pdf.addImage(imgData, 'PNG', 1, 1, 6.5, 9);
-        //         }
-        //         pdf.save('test.pdf')
-
-        //     })
-
-    // test 1
-    //    var doc = new jsPDF();
-    //    var data = document.getElementById('forPDF');
-    //    var downloadTripBtn = document.getElementById('download');
-
-    //    downloadTripBtn.click(function() {
-    //        doc.fromHTML(data).html(), 15, 15, {
-    //            'width': 170,
-    //    }
-    //    doc.save('example.pdf');
-    // })
-
-       
+        this.updateUserTrip();
+        var data = document.getElementById('forPDF');
+        var pdf = new jsPDF('p','pt','a4');
+        pdf.setFontSize(12);
+        data.style.display = 'block';
+        pdf.text(100,100, data.innerText);
+        pdf.save(`my-trip.pdf`);
+        data.style.display = 'none';
     }
 
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
+        
         return (
+            <FadeIn transitionDuration="600">
             <div className="row home-pg-2 r-h2">
 
                 <div className="col-sm-12 scroll">
@@ -243,16 +210,17 @@ export default class Results extends React.Component {
                         <li>Start date: {startDate}</li>
                         <li>End date: {endDate}</li>
                     </ul>
-                    <h4>Places to Visit</h4>
+                    <h4>Places to Visit:</h4>
                     <div id="pdf-PlacesDiv">
 
                     </div>
-                    <h4><span id="place-title">Places to Stay</span></h4>
+                    <h4><span id="hotel-title">Places to Stay</span></h4>
                     <div id="pdf-HotelsDiv">
 
                     </div>
                 </div>
             </div>
+            </FadeIn>
         )
     }
 }

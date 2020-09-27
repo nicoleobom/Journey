@@ -2,6 +2,8 @@ import React from 'react';
 import './index.css';
 import swal from 'sweetalert';
 
+let budget;
+
 export default class Question6 extends React.Component {
     back = (event) => {
         event.preventDefault();
@@ -34,6 +36,46 @@ export default class Question6 extends React.Component {
         this.props.nextStep();
     }
 
+    onKeyPress(e) {
+        if (e.which >= 8 && e.which <= 222) {
+            e.preventDefault();
+        }
+    }
+
+    getBudget() {
+        budget = this.props.values.budget;
+
+    }
+
+    componentDidMount() {
+        this.getBudget();
+    }
+
+    checkBudget() {
+        let startDate = document.getElementById('start').value;
+        let secondDateInput = document.getElementById('end');
+        let endDate = new Date(startDate);
+
+        let numOfDays = 5;
+
+        if (budget < 500) {
+            endDate.setDate(endDate.getDate() + numOfDays)
+
+            var dd = endDate.getDate();
+            var y = endDate.getFullYear();
+            var mm = endDate.getMonth() + 1;
+
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
+
+            var formattedDate = y + '-' + mm + '-' + dd;
+
+            secondDateInput.min = formattedDate;
+        }
+    }
+
     render() {
         const { values } = this.props;
         const today = new Date();
@@ -49,13 +91,13 @@ export default class Question6 extends React.Component {
 
         return (
             <div className="row home-pg-2" id="q6">
-                <form className="col-sm-12 q-header bg-q">
+                <form className="col-sm-12 q-header bg-q" onKeyPress={this.onKeyPress}>
                     <h3>When would you like to go?</h3>
                     <label htmlFor="start">Start date:</label><br />
                     <input id="start" type="date" min={dateString} onChange={this.props.handleChange('startDate')} defaultValue={values.startDate} />
                     <br />
                     <label htmlFor="end">End date:</label><br />
-                    <input id="end" type="date" min={this.props.values.startDate} onChange={this.props.handleChange('endDate')} defaultValue={values.endDate} />
+                    <input id="end" type="date" onChange={this.props.handleChange('endDate')} onSelect={this.checkBudget} defaultValue={values.endDate} />
                 </form>
                 <div className="col-sm-12">
                     <div className="row">

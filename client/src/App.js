@@ -12,10 +12,13 @@ import Settings from './pages/Settings';
 import Home from './pages/Home';
 import Results from './pages/Results';
 import PastTrips from './pages/PastTrips';
+import ForgotPW from './pages/ForgotPW';
 
 // import components
 import Nav from './components/Navbar/index';
 import MobileNav from './components/MobileNav/index';
+import Loader from './components/Loader/index';
+import ResetPassword from './components/Reset Password/index';
 
 // setting up app
 import api from './utils/API';
@@ -24,8 +27,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: false
+      signedIn: false,
+      loading: true
     }
+
+  }
+
+  sleep = milliseconds => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+  }
+
+  wait = async (milliseconds = 2000) => {
+    await this.sleep(milliseconds);
+    this.setState({
+      loading: false
+    })
   }
 
   componentDidMount = () => {
@@ -44,6 +60,8 @@ class App extends React.Component {
   }
 
   render() {
+    this.wait();
+    if (this.state.loading) return <Loader />;
     return (
       <div className="container">
         <Nav />
@@ -57,6 +75,8 @@ class App extends React.Component {
         <Route path="/settings" exact component={Settings} />
         <Route path="/results" exact component={Results} />
         <Route path="/past-trips" exact component={PastTrips} />
+        <Route path="/forgot-password" exact component={ForgotPW} />
+        <Route path="/reset-password" exact component={ResetPassword} />
       </div>
     );
   }

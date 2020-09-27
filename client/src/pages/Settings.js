@@ -3,7 +3,7 @@ import '../index.css';
 import API from '../utils/API';
 // import axios from 'axios';
 import swal from 'sweetalert';
-import { Redirect } from 'react-router-dom';
+import FadeIn from 'react-fade-in';
 
 export default class Settings extends React.Component {
 
@@ -45,6 +45,7 @@ export default class Settings extends React.Component {
 
     render() {
         return (
+            <FadeIn transitionDuration="600">
             <div className="row settings-div">
                 <form className="col-sm-12 settings-header" onSubmit={this.updateUserSettings}>
                     <h3>Settings</h3>
@@ -60,6 +61,7 @@ export default class Settings extends React.Component {
                     <button className="loginbtn" type="submit">save</button>
                 </form>
             </div>
+            </FadeIn>
         );
     }
 }

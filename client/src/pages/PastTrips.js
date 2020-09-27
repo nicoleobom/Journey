@@ -1,6 +1,7 @@
 import React from 'react';
 import API from '../utils/API';
 import PastTrip from '../components/PastTrip'
+import FadeIn from 'react-fade-in';
 
 export default class PastTrips extends React.Component {
     constructor() {
@@ -26,7 +27,7 @@ export default class PastTrips extends React.Component {
 
     render() {
         return (
-            <div>
+            <FadeIn transitionDuration="600">
                 <div className="row home-pg">
                     <div className="col-sm-12 header r-h">
                         <h3>{this.state.firstname}'s Trips</h3>
@@ -41,7 +42,7 @@ export default class PastTrips extends React.Component {
                         
                     </div>
                 </div>
-            </div>
+            </FadeIn>
 
         );
     }
