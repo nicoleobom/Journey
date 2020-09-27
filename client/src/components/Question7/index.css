@@ -4,11 +4,11 @@
     font-weight: normal;
 }
 
-input[type="checkbox"] {
+/* .input-style[type="checkbox"] {
     visibility: hidden;
-}
+} */
   
-input[type="checkbox"] + label:before {
+.input-style[type="checkbox"] + .input-style:before {
     border: 2px solid #566048;
     content: "\00a0";
     display: inline-block;
@@ -20,7 +20,7 @@ input[type="checkbox"] + label:before {
     width: 16px;;
 }
 
-input[type="checkbox"]:checked + label:before {
+.input-style[type="checkbox"]:checked + .input-style:before {
     background: #fff;
     color: #566048;
     font-weight: bolder;
@@ -28,10 +28,10 @@ input[type="checkbox"]:checked + label:before {
     text-align: center;
 }
 
-input[type="checkbox"]:checked + label:after {
+.input-style[type="checkbox"]:checked + .input-style:after {
     font-weight: bold;
 }
   
-input[type="checkbox"]:focus + label::before {
+.input-style[type="checkbox"]:focus + .input-style::before {
     outline: orange auto 5px;
 }
