@@ -10,10 +10,6 @@ function Nav(props) {
         return null && location.reload();
     }
 
-    function checkRefresh(e) {
-        window.location.reload();
-    }
-
     
 
     return (
@@ -23,7 +19,7 @@ function Nav(props) {
             </nav>
             <nav className="col-sm-6 cols">
                 <Link to="/" className="navbar-brand"><i className="fas fa-home"></i></Link>
-                <Link to="/new-trip" id="newtrip" onClick={checkRefresh} className="navbar-brand"><i className="fas fa-plus"></i></Link>
+                <Link to="/new-trip" id="newtrip" className="navbar-brand"><i className="fas fa-plus"></i></Link>
                 <Link to="/past-trips" className="navbar-brand"><i className="fas fa-car"></i></Link>
                 <Link to="/settings" className="navbar-brand"><i className="fas fa-cog"></i></Link>
                 <Link to="/logout" className="navbar-brand"><i className="fas fa-sign-out-alt"></i></Link>
