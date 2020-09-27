@@ -304,14 +304,36 @@ li {
   padding: 40px;
 }
 
-#saveTrip {
-  position: fixed !important;
+#saveTrip,
+#download,
+#homeBtn {
   top: 0;
+  margin: 20px;
   left: 0;
+  background-color: white;
+  color: #29301e;
+  font-weight: bold;
+  transition: ease-in-out .25s;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+#saveTrip:hover,
+#download:hover,
+#homeBtn:hover {
+  background-color: rgba(86,96,72,.8);
+  color: white;
 }
 
 #forPDF {
   display: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 
 /* MEDIA QUERIES */

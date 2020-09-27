@@ -3,11 +3,10 @@ import API from '../utils/API';
 import Moment from 'react-moment';
 import imgSrc from '../assets/images/no-picture-available.jpg';
 import jsPDF from 'jspdf';
-import * as html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import { duration } from 'moment';
+import StickyHeader from 'react-sticky-header';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -57,7 +56,7 @@ export default class Results extends React.Component {
             let queryURL;
 
             if (budget <= 500) {
-                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&maxprice=2&sensor=false&key=" + apiKey;
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
 
             } else {
                 queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
@@ -177,6 +176,11 @@ export default class Results extends React.Component {
             <div className="row home-pg-2 r-h2">
 
                 <div className="col-sm-12 scroll">
+                    <div id="stickyheader">
+                        <button id="saveTrip" onClick={this.updateUserTrip}>Save Trip</button>
+                        <button id="download" onClick={this.handlePDF}>Download Trip</button>
+                        <Link to="/home"><button id="homeBtn">Home</button></Link>
+                    </div>
                     <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
                         <Moment className="results" format="MMMM DD, YYYY">
@@ -217,9 +221,6 @@ export default class Results extends React.Component {
 
                     </div>
                 </div>
-                <button id="saveTrip" onClick={this.updateUserTrip}>Save Trip</button>
-                <button id="download" onClick={this.handlePDF}>Download Trip</button>
-                <Link to="/home"><button id="homeBtn">Home</button></Link>
             </div>
             </FadeIn>
         )

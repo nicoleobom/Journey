@@ -52,6 +52,7 @@ export default class Question6 extends React.Component {
     }
 
     checkBudget() {
+        debugger;
         let startDate = document.getElementById('start').value;
         let secondDateInput = document.getElementById('end');
         let endDate = new Date(startDate);
