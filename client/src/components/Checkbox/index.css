@@ -1,0 +1,37 @@
+.leftalign label {
+    padding-left: 15px !important;
+    color: #29301e;
+    font-weight: normal;
+}
+
+/* .input-style[type="checkbox"] {
+    visibility: hidden;
+} */
+  
+.input-style[type="checkbox"] + .input-style:before {
+    border: 2px solid #566048;
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 1em 0 0;
+    padding: 0;
+    vertical-align: top;
+    width: 16px;;
+}
+
+.input-style[type="checkbox"]:checked + .input-style:before {
+    background: #fff;
+    color: #566048;
+    font-weight: bolder;
+    content: "\2713";
+    text-align: center;
+}
+
+.input-style[type="checkbox"]:checked + .input-style:after {
+    font-weight: bold;
+}
+  
+.input-style[type="checkbox"]:focus + .input-style::before {
+    outline: orange auto 5px;
+}

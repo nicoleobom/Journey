@@ -22,7 +22,9 @@ export default class Question3 extends React.Component {
     }
 
     onKeyPress(e) {
-        if (e.which >= 8 && e.which <= 222) {
+        if (e.which >= 8 && e.which <= 46) {
+            e.preventDefault();
+        } else if (e.which >= 65 && e.which <= 222) {
             e.preventDefault();
         }
     }
@@ -32,7 +34,7 @@ export default class Question3 extends React.Component {
 
         return (
             <div className="row home-pg-2" id="q3">
-                <form className="col-sm-12 q-header bg-q" onSubmit={this.checkBudget} onKeyPress={this.onKeyPress}>
+                <form className="col-sm-12 q-header bg-q" onKeyPress={this.onKeyPress}>
                     <h3>What's your budget?</h3>
                     <span className="d-s">$</span><input id="budgetinput" type="number" min="100" step="100" onChange={this.props.handleChange('budget')} defaultValue={values.budget}></input>
                 </form>
@@ -42,7 +44,7 @@ export default class Question3 extends React.Component {
                             <button className="back" style={{ display: "block", margin: "auto" }} onClick={this.back}><i className="fas fa-angle-left fa-2x"></i></button>
                         </div>
                         <div className="col" style={{ paddingTop: "15px" }}>
-                            <button id="next" type="submit" className="next" style={{ display: "block", margin: "auto" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                            <button id="next" type="submit" className="next" style={{ display: "block", margin: "auto" }} onClick={this.checkBudget,this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
                         </div>
                     </div>
                 </div>
