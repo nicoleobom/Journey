@@ -20,7 +20,7 @@ module.exports = {
 
 	findbyEmail: (req, res) => {
 		db.User
-			.find({'emailAddress': emailAddress})
+			.findOne({ emailAddress: req.body.emailAddress})
 			.then(dbUser => res.json(dbUser))
 			.catch(err => res.status(422).json(err));
 	},
