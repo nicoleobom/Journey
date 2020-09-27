@@ -37,7 +37,7 @@ class App extends React.Component {
     return new Promise(resolve => setTimeout(resolve, milliseconds));
   }
 
-  wait = async (milliseconds = 5000) => {
+  wait = async (milliseconds = 2000) => {
     await this.sleep(milliseconds);
     this.setState({
       loading: false

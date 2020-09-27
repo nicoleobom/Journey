@@ -37,15 +37,6 @@ export default class Login extends React.Component {
 		catch (err) {
             swal('Invalid username or password.')
 		}
-        // const response = await API.loginUser({ username, password });
-        // // if (response.status === 401) {
-        // //     swal('Invalid username or password.')
-        // // };
-
-        // if (response.status === 200) {
-        //     this.props.history.push('/home');
-        //     this.setState({ isSignedIn: true });
-        // } 
     };
 
     render() {
@@ -74,7 +65,7 @@ export default class Login extends React.Component {
                         onChange={this.handleInputChange}
                     /><br />
                     <button type="submit" className="loginbtn">login</button>
-                    <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link><br /><Link to="/forgot-password">Forgot Password?</Link></p>
+                    <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link></p>
                 </form>
             </div>
             </FadeIn>

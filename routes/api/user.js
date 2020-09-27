@@ -28,6 +28,8 @@ router.get('/data', (req, res) => {
 
 router.get('/:id', userController.findById);
 
+router.get('/forgot', userController.findbyEmail);
+
 router.put('/addTrip', userController.updateTrips);
 
 router.put('/settings/userName', userController.updateUserName);

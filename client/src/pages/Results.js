@@ -106,14 +106,7 @@ export default class Results extends React.Component {
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         const budget = this.props.values.budget;
-        let queryURL;
-
-
-        if (budget <= 500) {
-            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&maxprice=2&sensor=false&key=" + apiKey;
-        } else {
-            queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
-        }
+        let queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
 
         if (night === "Hotel" || night === "campground") {
             try {
@@ -170,10 +163,10 @@ export default class Results extends React.Component {
         var data = document.getElementById('forPDF');
         var pdf = new jsPDF('p','pt','a4');
         pdf.setFontSize(12);
+        data.style.display = 'block';
         pdf.text(100,100, data.innerText);
-        setTimeout(function() {
-            pdf.save(`my-trip.pdf`);
-        }, 2000)
+        pdf.save(`my-trip.pdf`);
+        data.style.display = 'none';
     }
 
     render() {

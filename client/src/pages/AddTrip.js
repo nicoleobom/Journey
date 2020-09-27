@@ -29,6 +29,19 @@ export default class AddTrip extends React.Component {
         }
     }
 
+    componentDidMount() {
+        window.addEventListener('beforeunload', this.onUnload);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('beforeunload', this.onUnload);
+    }
+
+    onUnload = e => {
+        e.preventDefault();
+        e.returnValue= "";
+    }
+
     nextStep = () => {
         const { step } = this.state;
         this.setState({

@@ -25,7 +25,7 @@ export default class Question7 extends React.Component {
                 <form className="col-sm-12 q-header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
                     <div className="leftalign">
-                        <input id="shopping_mall" name="shopping_mall" value="shopping_mall" type="checkbox" onChange={() => this.pushArray('National Parks')} />
+                        <input id="shopping_mall" name="shopping_mall" value="shopping_mall" type="checkbox" onChange={() => this.pushArray('Malls')} />
                         <label htmlFor="shopping_mall">Malls</label>
                         <br />
                         <input id="restaurant" name="restaurant" value="restaurant" type="checkbox" onChange={() => this.pushArray('Restaurants')} />

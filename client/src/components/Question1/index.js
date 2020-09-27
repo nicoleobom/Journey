@@ -69,11 +69,11 @@ export default class Question1 extends React.Component {
                         placeholder="Search cities"
                         onChange={this.handleScriptLoad}
                     />
-                    <div className="col-sm-12">
-                        <button type="submit" className="next" style={{ float: "right" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
-                    </div>
+                    
                 </form>
-
+                <div className="col-sm-12">
+                        <button type="submit" className="next" style={{ float: "right" }} onClick={this.nextQuestion}><i className="fas fa-angle-right fa-2x"></i></button>
+                </div>
             </div>
         )
     }

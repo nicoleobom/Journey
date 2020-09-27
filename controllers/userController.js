@@ -20,7 +20,9 @@ module.exports = {
 
 	findbyEmail: (req, res) => {
 		db.User
-			.findOne()
+			.find({'emailAddress': emailAddress})
+			.then(dbUser => res.json(dbUser))
+			.catch(err => res.status(422).json(err));
 	},
 
 	// creating new users/posting to json

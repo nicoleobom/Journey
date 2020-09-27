@@ -22,12 +22,20 @@ export default class ForgotPW extends React.Component {
         event.preventDefault();
         const { emailAddress } = this.state;
         if (!emailAddress.length) swal('Please enter an email address.');
-        const response = await API.getEmail(emailAddress);
-        if (response === undefined ) swal('User does not exist.');
+        let response;
+        try {
+            response = (await API.getUserData()).data;
+            console.log(response);
 
-        if (response.status === 200) {
-            this.props.history.push('/reset-password');
-        } 
+        }
+        catch (err) {
+            swal('errrrrrrrr')
+        }
+        // if (response.emailAddress === undefined ) swal('User does not exist.');
+        // if (response.emailAddress === emailAddress) swal('user exists, fool!');
+        // if (response.status === 200) {
+        //     this.props.history.push('/reset-password');
+        // } 
     };
 
     render() {
@@ -38,7 +46,7 @@ export default class ForgotPW extends React.Component {
             <div className="row home-pg-2">
                 <form onSubmit={this.handleFormSubmit} className="col-sm-12 header-2">
                     <h1>Journey</h1>
-                    <h3>Enter your email to reset your password.</h3>
+                    <h4>Enter your email to reset your password.</h4>
                     <input
                         id="emailAddress"
                         type="text"
