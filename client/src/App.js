@@ -16,6 +16,7 @@ import PastTrips from './pages/PastTrips';
 // import components
 import Nav from './components/Navbar/index';
 import MobileNav from './components/MobileNav/index';
+import Loader from './components/Loader/index';
 
 // setting up app
 import api from './utils/API';
@@ -24,8 +25,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signedIn: false
+      signedIn: false,
+      loading: true
     }
+
+  }
+
+  sleep = milliseconds => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+  }
+
+  wait = async (milliseconds = 5000) => {
+    await this.sleep(milliseconds);
+    this.setState({
+      loading: false
+    })
   }
 
   componentDidMount = () => {
@@ -44,6 +58,8 @@ class App extends React.Component {
   }
 
   render() {
+    this.wait();
+    if (this.state.loading) return <Loader />;
     return (
       <div className="container">
         <Nav />

@@ -1,0 +1,40 @@
+.loader {
+    width: 100%;
+    text-align: center;
+}
+
+.height {
+    height: 100vh;
+}
+
+.center {
+    display: inline-block;
+    left: 0%;
+    /* top: 50%; */
+    font-size: 20px;
+    offset-path: path('M 0 300 Q 100 150 450 350 C 700 500 650 300 900 300 L 1800 300 ');
+    animation: move 6s alternate ease-in-out;
+}
+
+div.loader {
+    font-size: 100px;
+}
+
+.loaded {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#car {
+    margin-top: 20%;
+}
+
+@keyframes move {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}

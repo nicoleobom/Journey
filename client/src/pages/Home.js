@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Bubble from '../assets/sounds/zapsplat_cartoon_bubble_pop_007_40279.mp3';
 import useSound from 'use-sound';
+import { Fade } from 'react-bootstrap';
+import FadeIn from 'react-fade-in';
+
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -44,6 +47,9 @@ export default class Home extends React.Component {
 
     render() {
         return (
+            <FadeIn
+                transitionDuration="600"
+                >
             <div className="row home-pg first">
                 <div className="col-sm-12 col-xs-12 home-page-bg">
                     <h3>Welcome, {this.state.firstname}</h3>
@@ -67,6 +73,7 @@ export default class Home extends React.Component {
                     </div>
                 </div>
             </div>
+            </FadeIn>
         );
     }
 }

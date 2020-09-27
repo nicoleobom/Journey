@@ -6,6 +6,7 @@ import jsPDF from 'jspdf';
 import * as html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import FadeIn from 'react-fade-in';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -168,45 +169,13 @@ export default class Results extends React.Component {
         var pdf = new jsPDF();
         pdf.fromHTML = (document.getElementById('forPDF').html, 1, 1, 6, 9);
         pdf.save('*.pdf');
-
-        //TEST 2
-        // html2canvas(document.querySelector('#forPDF'))
-        //     .then(canvas => {
-        //         document.body.appendChild(canvas)
-        //     })
-
-        // const input = document.getElementById('forPDF');
-
-        // html2canvas(input)
-        //     .then((canvas) => {
-        //         const imgData = canvas.toDataURL('image/png');
-
-        //         const pdf = new jsPDF();
-        //         pdf .onload = function() {
-        //             pdf.addImage(imgData, 'PNG', 1, 1, 6.5, 9);
-        //         }
-        //         pdf.save('test.pdf')
-
-        //     })
-
-    // test 1
-    //    var doc = new jsPDF();
-    //    var data = document.getElementById('forPDF');
-    //    var downloadTripBtn = document.getElementById('download');
-
-    //    downloadTripBtn.click(function() {
-    //        doc.fromHTML(data).html(), 15, 15, {
-    //            'width': 170,
-    //    }
-    //    doc.save('example.pdf');
-    // })
-
-       
+      
     }
 
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
         return (
+            <FadeIn transitionDuration="600">
             <div className="row home-pg-2 r-h2">
 
                 <div className="col-sm-12 scroll">
@@ -253,6 +222,7 @@ export default class Results extends React.Component {
                     </div>
                 </div>
             </div>
+            </FadeIn>
         )
     }
 }

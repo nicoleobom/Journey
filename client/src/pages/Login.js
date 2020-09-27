@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
+import FadeIn from 'react-fade-in';
+import { Fade } from 'react-bootstrap';
+
 
 export default class Login extends React.Component {
     state = {
@@ -32,6 +35,9 @@ export default class Login extends React.Component {
 
     render() {
         return (
+            <FadeIn
+                transitionDuration="600"
+                >
             <div className="row home-pg-2">
                 <form onSubmit={this.handleFormSubmit} className="col-sm-12 header-2">
                     <h1>Journey</h1>
@@ -56,6 +62,7 @@ export default class Login extends React.Component {
                     <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link></p>
                 </form>
             </div>
+            </FadeIn>
         );
     }
 }
