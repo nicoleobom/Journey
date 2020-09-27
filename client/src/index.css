@@ -304,9 +304,10 @@ li {
   padding: 40px;
 }
 
-#pdfbutton {
-  position: fixed;
-  right: 0 !important;
+#saveTrip {
+  position: fixed !important;
+  top: 0;
+  left: 0;
 }
 
 #forPDF {
