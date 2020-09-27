@@ -18,6 +18,11 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 
+	findbyEmail: (req, res) => {
+		db.User
+			.findOne()
+	},
+
 	// creating new users/posting to json
 	create: (req, res) => {
 		db.User

@@ -15,7 +15,7 @@ export default class MobileNav extends React.Component {
     }
     
     render() {
-        if (window.location.pathname.match(/login/) || window.location.pathname.match(/logout/) || window.location.pathname.match(/signup/)){
+        if (window.location.pathname.match(/login/) || window.location.pathname.match(/logout/) || window.location.pathname.match(/signup/) || window.location.pathname.match(/forgot-password/)){
             return null;
         } else {
             return(

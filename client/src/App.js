@@ -18,6 +18,7 @@ import ForgotPW from './pages/ForgotPW';
 import Nav from './components/Navbar/index';
 import MobileNav from './components/MobileNav/index';
 import Loader from './components/Loader/index';
+import ResetPassword from './components/Reset Password/index';
 
 // setting up app
 import api from './utils/API';
@@ -75,6 +76,7 @@ class App extends React.Component {
         <Route path="/results" exact component={Results} />
         <Route path="/past-trips" exact component={PastTrips} />
         <Route path="/forgot-password" exact component={ForgotPW} />
+        <Route path="/reset-password" exact component={ResetPassword} />
       </div>
     );
   }

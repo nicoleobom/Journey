@@ -57,6 +57,7 @@ export default class Question2 extends React.Component {
     }
 
     chooseCity = () => {
+        document.getElementById('idk').className = 'target'
         const randomLocation = cities[Math.floor(Math.random() * Math.floor(201))];
         const randomCity = randomLocation.city + ', ' + randomLocation.state + ', USA';
         this.setState({
@@ -66,17 +67,23 @@ export default class Question2 extends React.Component {
         this.props.setLocation('endpoint', randomCity);
     }
 
+    onKeyPress(e) {
+        if (e.which === 13) {
+            e.preventDefault();
+        }
+    }
+
     render() {
         return (
             <div className="row home-pg-2" id="q1">
-                <form className="col-sm-12 q-header bg-q">
+                <form className="col-sm-12 q-header bg-q" onKeyPress={this.onKeyPress}>
                     <h3>Where are you going?</h3>
                     <input id="autocomplete"
                         placeholder="Search cities"
                         onChange={this.handleScriptLoad}
                     />
                     <p>or</p>
-                    <button id="idk" value="I don't know" type="button" className="target" onClick={this.chooseCity}>Take me anywhere!</button>
+                    <button id="idk" value="I don't know" type="button" onClick={this.chooseCity}>Take me anywhere!</button>
                 </form>
                 <div className="col-sm-12">
                     <div className="row">

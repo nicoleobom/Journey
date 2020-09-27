@@ -3,32 +3,31 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
+import ResetPassword from '../components/Reset Password/index';
 
 export default class ForgotPW extends React.Component {
     state = {
         emailAddress: "",
-        password: "",
         isSignedIn: false
     }
 
     handleInputChange = event => {
         let value = event.target.value;
         const name = event.target.name;
-
         this.setState({ [name]: value });
     }
 
     handleFormSubmit = async event => {
+        debugger;
         event.preventDefault();
         const { emailAddress } = this.state;
         if (!emailAddress.length) swal('Please enter an email address.');
-        // const response = await API.loginUser({ username, password });
-        // if (response === undefined ) swal('Invalid username or password.');
+        const response = await API.getEmail(emailAddress);
+        if (response === undefined ) swal('User does not exist.');
 
-        // if (response.status === 200) {
-        //     this.props.history.push('/home');
-        //     this.setState({ isSignedIn: true });
-        // } 
+        if (response.status === 200) {
+            this.props.history.push('/reset-password');
+        } 
     };
 
     render() {
@@ -43,10 +42,10 @@ export default class ForgotPW extends React.Component {
                     <input
                         id="emailAddress"
                         type="text"
-                        value={this.state.emailAddress}
-                        placeholder="email"
-                        name="email"
+                        placeholder="email address"
+                        name="emailAddress"
                         autoComplete="emailAddress"
+                        value={this.state.emailAddress}
                         onChange={this.handleInputChange}
                     /><br />
                     <button type="submit" className="loginbtn">continue</button>
