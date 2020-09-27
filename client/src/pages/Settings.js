@@ -36,8 +36,8 @@ export default class Settings extends React.Component {
                 username: newusername
             }
             API.updateUserName(userUsername);
-            swal('Username successfully updated!')
-            // document.getElementById('newusername').value = "";
+            swal('Username successfully updated!');
+            document.getElementById('newusername').value = "";
         } else {
             if (!Object.keys(settings).length) return;
         }
