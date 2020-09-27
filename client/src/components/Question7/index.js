@@ -1,9 +1,47 @@
 import React from 'react';
 import './index.css';
+import Checkbox from '../Checkbox';
 
-const collectStops = [];
+const OPTIONS = ["National Parks", "Restaurants", "Museums", "Coffee", "Beaches and parks"];
+let collectStops = [];
 
 export default class Question7 extends React.Component {
+    state = {
+        checkboxes: OPTIONS.reduce(
+          (options, option) => ({
+            ...options,
+            [option]: false
+          }),
+          {}
+        )
+      };
+
+    // selectAll = () => this.selectAllCheckboxes(true);
+
+    // deselectAll = () => this.selectAllCheckboxes(false);
+    
+    handleCheckboxChange = changeEvent => {
+        const { name } = changeEvent.target;
+    
+        this.setState(prevState => ({
+          checkboxes: {
+            ...prevState.checkboxes,
+            [name]: !prevState.checkboxes[name]
+          }
+        }));
+      };
+
+    createCheckbox = option => (
+        <Checkbox
+          label={option}
+          isSelected={this.state.checkboxes[option]}
+          onCheckboxChange={this.handleCheckboxChange}
+          key={option}
+        />
+      );
+    
+    createCheckboxes = () => OPTIONS.map(this.createCheckbox);
+
     back = (event) => {
         event.preventDefault();
         this.props.prevStep();
@@ -11,12 +49,14 @@ export default class Question7 extends React.Component {
 
     nextQuestion = (event) => {
         event.preventDefault();
-        this.props.nextStep();
-    }
-
-    pushArray = (value) => {
-        collectStops.push(value);
+        Object.keys(this.state.checkboxes)
+            .filter(checkbox => this.state.checkboxes[checkbox])
+            .forEach(checkbox => {
+            console.log(checkbox, "is selected.");
+            collectStops.push(checkbox);
+        });
         this.props.stopsArray(collectStops);
+        this.props.nextStep();
     }
 
     render() {
@@ -24,23 +64,7 @@ export default class Question7 extends React.Component {
             <div className="row home-pg-2" id="q7">
                 <form className="col-sm-12 q-header bg-q">
                     <h3>What types of places do you want to stop at?</h3>
-                    <div className="leftalign">
-                        <input id="shopping_mall" name="shopping_mall" value="shopping_mall" type="checkbox" onChange={() => this.pushArray('Malls')} />
-                        <label htmlFor="shopping_mall">Malls</label>
-                        <br />
-                        <input id="restaurant" name="restaurant" value="restaurant" type="checkbox" onChange={() => this.pushArray('Restaurants')} />
-                        <label htmlFor="restaurant">Restaurants and bars</label>
-                        <br />
-                        <input id="museum" name="museum" value="museum" type="checkbox" onChange={() => this.pushArray('Museums')} />
-                        <label htmlFor="museum">Museums and art exhibits</label>
-                        <br />
-                        <input id="cafe" name="cafe" value="cafe" type="checkbox" onChange={() => this.pushArray('Coffee')} />
-                        <label htmlFor="cafe">Best coffee</label>
-                        <br />
-                        <input id="park" name="park" value="park" type="checkbox" onChange={() => this.pushArray('Beaches and parks')} />
-                        <label htmlFor="park">Beaches and parks</label>
-                        <br />
-                    </div>
+                    {this.createCheckboxes()}
                 </form>
                 <div className="col-sm-12">
                     <div className="row">
