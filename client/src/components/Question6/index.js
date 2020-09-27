@@ -52,10 +52,9 @@ export default class Question6 extends React.Component {
     }
 
     checkBudget() {
-        debugger;
         let startDate = document.getElementById('start').value;
         let secondDateInput = document.getElementById('end');
-        let endDate = new Date();
+        let endDate = new Date(startDate);
 
         let numOfDays = 5;
 
@@ -65,6 +64,11 @@ export default class Question6 extends React.Component {
             var dd = endDate.getDate();
             var y = endDate.getFullYear();
             var mm = endDate.getMonth() + 1;
+
+
+            if (dd < 10) {
+                dd = '0' + dd;
+            }
 
             var formattedDate = y + '-' + mm + '-' + dd;
 

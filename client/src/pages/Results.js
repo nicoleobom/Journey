@@ -7,6 +7,7 @@ import * as html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
+import { duration } from 'moment';
 
 export default class Results extends React.Component {
     constructor(props) {
@@ -85,7 +86,6 @@ export default class Results extends React.Component {
 
                         let pdfNode = document.createElement('div');
                         let placePdfDiv = `<strong>${placeName}</strong>
-                                            <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                             <p>${address}</p>`
 
                         node.innerHTML = placeDiv;
@@ -122,7 +122,8 @@ export default class Results extends React.Component {
                 .then((result) => {
                     console.log(result);
                     if (result.status === "ZERO_RESULTS") {
-                        document.getElementById('place-title').style.visibility = 'hidden';
+                        document.getElementById('place-title').style.display = 'none';
+                        document.getElementById('hotel-title').style.display = 'none';
                         return null;
                     } else {
                         for (let i = 0; i < 6; i++) {
@@ -143,7 +144,6 @@ export default class Results extends React.Component {
                                             `;
                             let pdfNode = document.createElement('div');
                             let placePdfDiv = `<strong>${placeName}</strong>
-                                                <p>${placeRating}/5 with ${placesUsersRating} reviews</p>
                                                 <p>${address}</p>`
 
                             node.innerHTML = placeDiv;
@@ -166,10 +166,14 @@ export default class Results extends React.Component {
     }
 
     handlePDF() {
-        var pdf = new jsPDF();
-        pdf.fromHTML = (document.getElementById('forPDF').html, 1, 1, 6, 9);
-        pdf.save('*.pdf');
-      
+        this.updateUserTrip();
+        var data = document.getElementById('forPDF');
+        var pdf = new jsPDF('p','pt','a4');
+        pdf.setFontSize(12);
+        pdf.text(100,100, data.innerText);
+        setTimeout(function() {
+            pdf.save(`my-trip.pdf`);
+        }, 2000)
     }
 
     render() {
@@ -213,11 +217,11 @@ export default class Results extends React.Component {
                         <li>Start date: {startDate}</li>
                         <li>End date: {endDate}</li>
                     </ul>
-                    <h4>Places to Visit</h4>
+                    <h4>Places to Visit:</h4>
                     <div id="pdf-PlacesDiv">
 
                     </div>
-                    <h4><span id="place-title">Places to Stay</span></h4>
+                    <h4><span id="hotel-title">Places to Stay</span></h4>
                     <div id="pdf-HotelsDiv">
 
                     </div>
