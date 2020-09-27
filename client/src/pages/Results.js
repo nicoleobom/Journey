@@ -174,6 +174,7 @@ export default class Results extends React.Component {
 
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
+        
         return (
             <FadeIn transitionDuration="600">
             <div className="row home-pg-2 r-h2">

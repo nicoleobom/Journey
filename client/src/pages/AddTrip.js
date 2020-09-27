@@ -10,6 +10,7 @@ import Question8 from '../components/Question8/index';
 import Results from '../pages/Results';
 import '../index.css';
 import swal from 'sweetalert';
+import FadeIn from 'react-fade-in';
 
 export default class AddTrip extends React.Component {
     constructor(props) {
@@ -59,12 +60,16 @@ export default class AddTrip extends React.Component {
         const values = { startpoint, endpoint, budget, people, vehicle, startDate, endDate, stops, night };
         switch (step) {
             default:
-                return <Question1
-                    nextStep={this.nextStep}
-                    handleChange={this.handleChange}
-                    setLocation={this.setLocation}
-                    values={values}
-                />
+                return (
+                    <FadeIn transitionDuration="600">
+                        <Question1
+                            nextStep={this.nextStep}
+                            handleChange={this.handleChange}
+                            setLocation={this.setLocation}
+                            values={values}
+                        />
+                    </FadeIn>
+                );
             case 1:
                 return <Question1
                     nextStep={this.nextStep}

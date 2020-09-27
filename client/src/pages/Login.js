@@ -4,6 +4,7 @@ import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
 import { Fade } from 'react-bootstrap';
+import ForgotPW from './ForgotPW';
 
 
 export default class Login extends React.Component {
@@ -59,7 +60,7 @@ export default class Login extends React.Component {
                         onChange={this.handleInputChange}
                     /><br />
                     <button type="submit" className="loginbtn">login</button>
-                    <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link></p>
+                    <p id="signupText">New user? <Link to="/signup">Click here to sign up!</Link><br /><Link to="/forgot-password">Forgot Password?</Link></p>
                 </form>
             </div>
             </FadeIn>

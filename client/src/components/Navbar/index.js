@@ -5,7 +5,7 @@ import Logo from '../Logo/index';
 
 function Nav(props) {
     const { location } = props;
-    if (location.pathname.match(/login/) || location.pathname.match(/logout/) || location.pathname.match(/signup/)) {
+    if (location.pathname.match(/login/) || location.pathname.match(/logout/) || location.pathname.match(/signup/) || location.pathname.match(/forgot-password/)) {
         return null && location.reload();
     }
 
