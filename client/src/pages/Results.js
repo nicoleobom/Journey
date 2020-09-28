@@ -6,7 +6,6 @@ import jsPDF from 'jspdf';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import StickyHeader from 'react-sticky-header';
 
 export default class Results extends React.Component {
     constructor(props) {
