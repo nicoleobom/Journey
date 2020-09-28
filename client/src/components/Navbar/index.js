@@ -38,7 +38,7 @@ function Nav(props) {
             <nav className="col-sm-6 cols">
                 <button name="/" className="navbar-brand" onClick={confirmRedirect}><Logo /></button>
             </nav>
-            <nav className="col-sm-6 cols">
+            <nav className="col-sm-6 cols-2">
                 <button name="/" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-home" ></i></button>
                 <button name="/new-trip" id="newtrip" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-plus"></i></button>
                 <button name="/past-trips" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-car"></i></button>
