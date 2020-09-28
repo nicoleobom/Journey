@@ -2,9 +2,16 @@ import jsPDF from 'jspdf';
 import React from 'react'
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom';
+import API from '../../utils/API';
 import './index.css';
 
 export default class PastTrip extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            trips: []
+        }
+    }
     handlePDF() {
         var data = document.getElementById('pastPDF');
         var pdf = new jsPDF('p', 'pt', 'a4');
@@ -14,6 +21,7 @@ export default class PastTrip extends React.Component {
     }
 
     render() {
+
         const userTrips = this.props.trips;
         const trip = (
             <div> {
