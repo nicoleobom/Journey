@@ -36,7 +36,7 @@ function Nav(props) {
     return (
         <div className="row" id="nav">
             <nav className="col-sm-6 cols">
-                <button name="/" onClick={confirmRedirect}><Logo /></button>
+                <button name="/" className="navbar-brand" onClick={confirmRedirect}><Logo /></button>
             </nav>
             <nav className="col-sm-6 cols">
                 <button name="/" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-home" ></i></button>

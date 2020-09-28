@@ -23,3 +23,8 @@ i:hover {
   max-width: 50%;
   margin: auto;
 }
+
+.navbar-brand {
+  border: none;
+  background-color: transparent;
+}
