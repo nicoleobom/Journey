@@ -13,7 +13,6 @@ export default class PastTrips extends React.Component {
     }
 
     componentDidMount() {
-        debugger;
         this.getUserData();
     }
 
@@ -25,34 +24,6 @@ export default class PastTrips extends React.Component {
             firstname: user.firstname,
             trips: reversedTrips
         })
-
-        // debugger;
-        // const trips = API.getUserData(this.state.trips)
-        //     .then(res => {
-        //         console.log(res.data);
-
-        //         if (res.data.length === 0) {
-        //             throw new Error ('no data found');
-        //         }
-        //         if (res.data.status === 'error') {
-        //             throw new Error (res.data.message);
-        //         }
-
-        //         let tripArray = []
-
-        //         for (var i =0; i< res.data.length; i++) {
-        //             if (res.data[i].trips.length !== 0) {
-        //                 tripArray.push(res.data[i]);
-        //             }
-        //         }
-
-        //         console.log(tripArray);
-
-        //         this.setState({
-        //             trips: tripArray
-        //         })
-        //     })
-
     }
 
     render() {
