@@ -20,7 +20,6 @@ export default class Home extends React.Component {
 
     componentDidMount() {
         this.userFirstName();
-
         this.audio = new Audio(Bubble);
         this.audio.load();
     }

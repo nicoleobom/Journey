@@ -2,6 +2,7 @@ const db = require("../models");
 const bcrypt = require('bcrypt');
 
 module.exports = {
+	
 	// find all
 	findAll: (req, res) => {
 		db.User
@@ -10,7 +11,7 @@ module.exports = {
 			.catch(err => res.status(422).json(err));
 	},
 
-	// find all by id
+	// find by id
 	findById: (req, res) => {
 		db.User
 			.findById(req.params.id)

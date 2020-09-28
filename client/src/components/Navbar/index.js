@@ -13,7 +13,6 @@ function Nav(props) {
 
     function confirmRedirect(e) {
         const name = e.currentTarget.name;
-        console.log(name);
         if (location.pathname.match(/new-trip/)) {
             swal({
                 title: "Are you sure?",

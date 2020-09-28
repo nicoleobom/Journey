@@ -23,7 +23,13 @@ router.get("/logout", (req, res) => {
 });
 
 router.get('/data', (req, res) => {
-    res.json(req.session.passport.user);
+	// res.json(req.session.passport.user);
+	if(req.session.passport.user) {
+		const id = req.session.passport.user._id;
+		userController.findById({params:{id}}, res)
+	} else {
+		res.redirect('/')
+	}
 })
 
 router.get('/:id', userController.findById);

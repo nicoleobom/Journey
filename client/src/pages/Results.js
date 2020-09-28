@@ -37,7 +37,6 @@ export default class Results extends React.Component {
             trips: this.props.values
         }
         API.updateUserTrip(userData);
-
         swal('Trip saved!');
     }
 
