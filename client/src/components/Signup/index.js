@@ -17,7 +17,12 @@ export default class SignUpForm extends React.Component {
 
     handleInputChange = (event) => {
         const { name, value } = event.target;
-        this.setState({ [name]: value });
+        if (event.target.name === "username") {
+            this.setState({ [name]: value.toLowerCase() });
+        } else {
+            this.setState({ [name]: value });
+        }
+        
     }
 
     handleFormSubmit = async event => {
@@ -38,6 +43,8 @@ export default class SignUpForm extends React.Component {
                     <input
                         placeholder="first name"
                         className="settingsinput"
+                        minLength='2'
+                        maxLength='16'
                         name="firstname"
                         type="text"
                         value={this.state.firstname}
@@ -47,6 +54,8 @@ export default class SignUpForm extends React.Component {
                         placeholder="last name"
                         className="settingsinput"
                         name="lastname"
+                        minLength='2'
+                        maxLength='24'
                         type="text"
                         value={this.state.lastname}
                         onChange={this.handleInputChange}
@@ -62,15 +71,19 @@ export default class SignUpForm extends React.Component {
                     <input
                         placeholder="username"
                         className="settingsinput"
+                        id="usernameInput"
                         name="username"
                         type="text"
-                        minLength='16'
+                        minLength='5'
+                        maxLength='16'
                         value={this.state.username}
                         onChange={this.handleInputChange}
                     /><br />
                     <input
                         type="password"
                         placeholder="password"
+                        minLength="5"
+                        maxLength="16"
                         className="settingsinput"
                         name="password"
                         value={this.state.password}

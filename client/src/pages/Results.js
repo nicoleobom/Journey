@@ -53,8 +53,10 @@ export default class Results extends React.Component {
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
             let queryURL;
 
-            if (budget <= 500) {
-                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+            debugger;
+
+            if (budget <= 1000) {
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&price_level=0,1,2&sensor=false&key=" + apiKey;
 
             } else {
                 queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
@@ -63,7 +65,6 @@ export default class Results extends React.Component {
             await fetch(proxyurl + queryURL)
                 .then(res => res.json())
                 .then((result) => {
-                    console.log(result);
                     for (let i = 0; i < 6; i++) {
                         let placeName = result.results[i].name;
                         let placeRating = result.results[i].rating;
@@ -102,7 +103,6 @@ export default class Results extends React.Component {
         const endpoint = this.props.values.endpoint;
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const budget = this.props.values.budget;
         let queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
 
         if (night === "Hotel" || night === "campground") {
@@ -110,7 +110,6 @@ export default class Results extends React.Component {
                 await fetch(proxyurl + queryURL)
                 .then(res => res.json())
                 .then((result) => {
-                    console.log(result);
                     if (result.status === "ZERO_RESULTS") {
                         document.getElementById('place-title').style.display = 'none';
                         document.getElementById('hotel-title').style.display = 'none';

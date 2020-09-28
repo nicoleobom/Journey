@@ -1,11 +1,10 @@
 import React from 'react';
 import Circles from '../components/Circles/index';
-import { faCar, faCog, faPlus, faSignOutAlt, faTicketAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCar, faCog, faPlus, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import Bubble from '../assets/sounds/zapsplat_cartoon_bubble_pop_007_40279.mp3';
 import useSound from 'use-sound';
-import { Fade } from 'react-bootstrap';
 import FadeIn from 'react-fade-in';
 
 

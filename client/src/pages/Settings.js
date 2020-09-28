@@ -5,7 +5,6 @@ import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
 import { useHistory } from 'react-router-dom';
-import { useEffect } from 'react';
 import { useState } from 'react';
 
 const Settings = () => {

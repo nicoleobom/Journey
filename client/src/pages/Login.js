@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import { Fade } from 'react-bootstrap';
 import ForgotPW from './ForgotPW';
 
 
@@ -17,8 +16,11 @@ export default class Login extends React.Component {
     handleInputChange = event => {
         let value = event.target.value;
         const name = event.target.name;
-
-        this.setState({ [name]: value });
+        if (event.target.name === "username") {
+            this.setState({ [name]: value.toLowerCase() });
+        } else {
+            this.setState({ [name]: value });
+        }
     }
 
     handleFormSubmit = async event => {
