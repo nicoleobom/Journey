@@ -4,10 +4,25 @@ import API from '../utils/API';
 // import axios from 'axios';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
+import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
-export default class Settings extends React.Component {
+const Settings = () => {
 
-    updateUserSettings = async (event) => {
+    const [username, onChangeUsername] = useState('');
+    const [password, onChangePassword] = useState('');
+    const history = useHistory();
+    function onInputChange(event) {
+        const {id, value} = event.target
+            if(id === 'newusername') {
+                onChangeUsername(value)
+            } else {
+                onChangePassword(value)
+            }
+    }
+
+    async function updateUserSettings(event) {
         event.preventDefault();
         const user = (await API.getUserData()).data;
         const newusername = document.getElementById('newusername').value;
@@ -26,8 +41,11 @@ export default class Settings extends React.Component {
                 }
                 API.updateUserPassword(userPassword);
                 swal('Password successfully updated!')
-                document.getElementById('newpassword1').value = "";
-                document.getElementById('newpassword2').value = "";
+                .then((confirm) => {
+                    if(confirm) {
+                        history.push('/');
+                    };
+                })
             }
         } else if (newusername && !newpassword1 && !newpassword2) {
             if (newusername) settings.username = newusername;
@@ -36,32 +54,36 @@ export default class Settings extends React.Component {
                 username: newusername
             }
             API.updateUserName(userUsername);
-            swal('Username successfully updated!');
-            document.getElementById('newusername').value = "";
+            swal('Username successfully updated!')
+            .then((confirm) => {
+                if(confirm) {
+                    history.push('/');
+                };
+            })
         } else {
             if (!Object.keys(settings).length) return;
         }
     }
 
-    render() {
         return (
             <FadeIn transitionDuration="600">
             <div className="row settings-div">
-                <form className="col-sm-12 settings-header" onSubmit={this.updateUserSettings}>
+                <form className="col-sm-12 settings-header" onSubmit={updateUserSettings}>
                     <h3>Settings</h3>
                     <div className="section">
                         <label className="label-1">Change your username:</label><br />
-                        <input id="newusername" placeholder="new username" className="settingsinput" onChange={this.onChangeUsername} /><br />
+                        <input id="newusername" value={username} placeholder="new username" className="settingsinput" onChange={onInputChange} /><br />
                     </div>
                     <div className="section">
                         <label className="label-1">Change your password:</label><br />
                         <input type="password" id="newpassword1" placeholder="new password" className="settingsinput" /><br />
-                        <input type="password" id="newpassword2" placeholder="new password" className="settingsinput" onChange={this.onChangePassword}/><br />
+                        <input type="password" value={password} id="newpassword2" placeholder="new password" className="settingsinput" onChange={onInputChange}/><br />
                     </div>
                     <button className="loginbtn" type="submit">save</button>
                 </form>
             </div>
             </FadeIn>
         );
-    }
 }
+
+export default Settings;
