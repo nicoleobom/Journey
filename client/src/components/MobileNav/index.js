@@ -22,7 +22,7 @@ export default class MobileNav extends React.Component {
                 <Row id="m-nav" className="mobile-container">
                     <Col>
                         <div className="mobile-nav-logo">
-                            <Link to="/" className="mobile-nav-logo"><Logo /></Link>
+                            <Link to="/"><Logo /></Link>
                         </div>
                         <div className="topnav">
                             <div id="myLinks">

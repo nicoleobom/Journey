@@ -17,8 +17,11 @@ export default class Login extends React.Component {
     handleInputChange = event => {
         let value = event.target.value;
         const name = event.target.name;
-
-        this.setState({ [name]: value });
+        if (event.target.name === "username") {
+            this.setState({ [name]: value.toLowerCase() });
+        } else {
+            this.setState({ [name]: value });
+        }
     }
 
     handleFormSubmit = async event => {
