@@ -52,14 +52,13 @@ export default class Question6 extends React.Component {
     }
 
     checkBudget() {
-        debugger;
         let startDate = document.getElementById('start').value;
         let secondDateInput = document.getElementById('end');
         let endDate = new Date(startDate);
 
         let numOfDays = 5;
 
-        if (budget < 500) {
+        if (budget < 1000) {
             endDate.setDate(endDate.getDate() + numOfDays)
 
             var dd = endDate.getDate();

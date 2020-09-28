@@ -9,7 +9,6 @@ import Question7 from '../components/Question7/index';
 import Question8 from '../components/Question8/index';
 import Results from '../pages/Results';
 import '../index.css';
-import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
 
 export default class AddTrip extends React.Component {

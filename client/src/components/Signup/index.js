@@ -75,7 +75,7 @@ export default class SignUpForm extends React.Component {
                         name="username"
                         type="text"
                         minLength='5'
-                        minLength='16'
+                        maxLength='16'
                         value={this.state.username}
                         onChange={this.handleInputChange}
                     /><br />

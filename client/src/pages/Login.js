@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import { Fade } from 'react-bootstrap';
 import ForgotPW from './ForgotPW';
 
 
