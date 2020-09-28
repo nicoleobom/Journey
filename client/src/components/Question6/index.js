@@ -74,6 +74,8 @@ export default class Question6 extends React.Component {
             var formattedDate = y + '-' + mm + '-' + dd;
 
             secondDateInput.min = formattedDate;
+        } else {
+            secondDateInput.min = startDate;
         }
     }
 

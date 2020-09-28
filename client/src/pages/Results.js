@@ -167,6 +167,23 @@ export default class Results extends React.Component {
         data.style.display = 'none';
     }
 
+    handleDirections() {
+        const startpoint = this.props.values.startpoint;
+        const endpoint = this.props.values.endpoint;
+        const apiKey = process.env.REACT_APP_API_KEY;
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        const vehicle = this.props.values.vehicle;
+
+
+        let queryURL = `https://maps.googleapis.com/maps/api/directions/json?
+        origin=${startpoint}&destination=${endpoint}
+        &avoid=highways
+        &mode=${vehicle}
+        &key=${apiKey}`
+
+
+    }
+
     render() {
         let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
         
@@ -191,6 +208,7 @@ export default class Results extends React.Component {
                         <p><span className="results">Budget: ${budget} </span></p>
                         <p><span className="results">Trippers: {people}</span></p>
                         <p><span className="results">Traveling by: {vehicle}</span></p>
+                        {/* <button id="directions" onClick={this.handleDirections}>Get Directions</button> */}
                         <h3>Places to Visit</h3>
                         <div className="row" id="placesdiv">
 

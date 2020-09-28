@@ -64,6 +64,7 @@ export default class SignUpForm extends React.Component {
                         className="settingsinput"
                         name="username"
                         type="text"
+                        minLength='16'
                         value={this.state.username}
                         onChange={this.handleInputChange}
                     /><br />
