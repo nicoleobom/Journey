@@ -63,7 +63,7 @@ class App extends React.Component {
     this.wait();
     if (this.state.loading) return <Loader />;
     return (
-      <div className="container">
+      <div className="container-fluid">
         <Nav />
         <MobileNav />
         <Route path="/" exact component={Home} />
