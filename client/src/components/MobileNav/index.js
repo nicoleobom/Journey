@@ -21,14 +21,16 @@ export default class MobileNav extends React.Component {
             return(
                 <Row id="m-nav" className="mobile-container">
                     <Col>
-                        <Link to="/"><Logo /></Link>
+                        <div className="mobile-nav-logo">
+                            <Link to="/" className="mobile-nav-logo"><Logo /></Link>
+                        </div>
                         <div className="topnav">
                             <div id="myLinks">
-                                <Link to="/" onClick={this.openMobileNav}><i className="fas fa-home"></i></Link>
-                                <Link to="/new-trip" onClick={this.openMobileNav}><i className="fas fa-plus"></i></Link>
-                                <Link to="/past-trips" onClick={this.openMobileNav}><i className="fas fa-car"></i></Link>
-                                <Link to="/settings" onClick={this.openMobileNav}><i className="fas fa-cog"></i></Link>
-                                <Link to="/logout" onClick={this.openMobileNav}><i className="fas fa-sign-out-alt"></i></Link>
+                                <Link to="/" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-home"></i></Link>
+                                <Link to="/new-trip" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-plus"></i></Link>
+                                <Link to="/past-trips" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-car"></i></Link>
+                                <Link to="/settings" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-cog"></i></Link>
+                                <Link to="/logout" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-sign-out-alt"></i></Link>
                             </div>
                             <button className="icons" onClick={this.openMobileNav} >
                                 <i className="fa fa-bars"></i>
