@@ -36,8 +36,6 @@ export default class Results extends React.Component {
             id: user._id,
             trips: this.props.values
         }
-        API.updateUserTrip(userData);
-        swal('Trip saved!');
     }
 
     addDefaultSrc(ev) {
@@ -52,9 +50,7 @@ export default class Results extends React.Component {
             const budget = this.props.values.budget;
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
             let queryURL;
-
-            debugger;
-
+            
             if (budget <= 1000) {
                 queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&price_level=0,1,2&sensor=false&key=" + apiKey;
 
@@ -155,7 +151,6 @@ export default class Results extends React.Component {
     }
 
     handlePDF() {
-        this.updateUserTrip();
         var data = document.getElementById('forPDF');
         var pdf = new jsPDF('p','pt','a4');
         pdf.setFontSize(12);

@@ -18,7 +18,6 @@ export default class ForgotPW extends React.Component {
     }
 
     handleFormSubmit = async event => {
-        debugger;
         event.preventDefault();
         const { emailAddress } = this.state;
         if (!emailAddress.length) swal('Please enter an email address.');

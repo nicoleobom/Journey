@@ -13,7 +13,6 @@ export default class Question3 extends React.Component {
     }
 
     checkBudget() {
-        debugger;
         const budget = this.props.values.budget;
         if (budget < 500) {
             swal('Budget must be at least $500.');
