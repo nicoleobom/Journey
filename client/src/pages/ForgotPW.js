@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import ResetPassword from '../components/Reset Password/index';
+// import ResetPassword from '../components/Reset Password/index';
 
 export default class ForgotPW extends React.Component {
     state = {

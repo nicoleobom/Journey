@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import API from '../utils/API';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import ForgotPW from './ForgotPW';
+// import ForgotPW from './ForgotPW';
 
 
 export default class Login extends React.Component {

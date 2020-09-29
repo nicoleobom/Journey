@@ -1,25 +1,24 @@
 import React from 'react';
 import API from '../utils/API';
 import Moment from 'react-moment';
-import imgSrc from '../assets/images/no-picture-available.jpg';
+// import imgSrc from '../assets/images/no-picture-available.jpg';
 import jsPDF from 'jspdf';
 import { Link, useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
-import { useState, useEffect, useLocation } from 'react';
+import { useState, useEffect } from 'react';
 
 function Results(props) {
 
     const [user, setUser] = useState({firstname: ''});
     const history = useHistory();
-    // const location = useLocation();
     // this.handlePDF = this.handlePDF.bind(this);
 
     useEffect(() => {
         userFirstName();
         handleSomething();
         handlePlacesToStay();
-    }, [])
+    })
 
     const userFirstName = async () => {
         const user = (await API.getUserData()).data;
@@ -45,10 +44,10 @@ function Results(props) {
         })
     }
 
-    function addDefaultSrc(ev) {
-        ev.target.src = imgSrc;
-        ev.target.onerror = null;
-    }
+    // function addDefaultSrc(ev) {
+    //     ev.target.src = imgSrc;
+    //     ev.target.onerror = null;
+    // }
 
     async function handleSomething() {
         try {
@@ -167,22 +166,19 @@ function Results(props) {
         data.style.display = 'none';
     }
 
-    const handleDirections = () => {
-        const startpoint = props.values.startpoint;
-        const endpoint = props.values.endpoint;
-        const apiKey = process.env.REACT_APP_API_KEY;
-        const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const vehicle = props.values.vehicle;
+    // const handleDirections = () => {
+    //     const startpoint = props.values.startpoint;
+    //     const endpoint = props.values.endpoint;
+    //     const apiKey = process.env.REACT_APP_API_KEY;
+    //     const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    //     const vehicle = props.values.vehicle;
 
-
-        let queryURL = `https://maps.googleapis.com/maps/api/directions/json?
-        origin=${startpoint}&destination=${endpoint}
-        &avoid=highways
-        &mode=${vehicle}
-        &key=${apiKey}`
-
-
-    }
+    //     let queryURL = `https://maps.googleapis.com/maps/api/directions/json?
+    //     origin=${startpoint}&destination=${endpoint}
+    //     &avoid=highways
+    //     &mode=${vehicle}
+    //     &key=${apiKey}`
+    // }
 
     let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = props;
         
