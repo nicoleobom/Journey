@@ -18,7 +18,7 @@ function Results(props) {
         userFirstName();
         handleSomething();
         handlePlacesToStay();
-    })
+    }, [])
 
     const userFirstName = async () => {
         const user = (await API.getUserData()).data;
@@ -49,7 +49,7 @@ function Results(props) {
     //     ev.target.onerror = null;
     // }
 
-    async function handleSomething() {
+    const handleSomething = async () => {
         try {
             const apiKey = process.env.REACT_APP_API_KEY;
             const stopsInCity = props.values.stops.toString();
@@ -100,7 +100,7 @@ function Results(props) {
             }
     }
 
-    async function handlePlacesToStay() {
+    const handlePlacesToStay = async () => {
         const night = props.values.night;
         const endpoint = props.values.endpoint;
         const apiKey = process.env.REACT_APP_API_KEY;

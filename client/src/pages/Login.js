@@ -31,9 +31,9 @@ export default class Login extends React.Component {
         try {
             response = await API.loginUser({ username, password });
             if (response.status === 200) {
-                    this.props.history.push('/home');
-                    this.setState({ isSignedIn: true });
-                } 
+                this.setState({ isSignedIn: true });
+                this.props.history.push('/home');
+            } 
 		} 
 
 		catch (err) {
