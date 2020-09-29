@@ -3,59 +3,66 @@ import API from '../utils/API';
 import Moment from 'react-moment';
 import imgSrc from '../assets/images/no-picture-available.jpg';
 import jsPDF from 'jspdf';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import FadeIn from 'react-fade-in';
+import { useState, useEffect, useLocation } from 'react';
 
-export default class Results extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            firstname: "",
-        }
+function Results(props) {
 
-        this.handlePDF = this.handlePDF.bind(this);
-    }
+    const [user, setUser] = useState({firstname: ''});
+    const history = useHistory();
+    // const location = useLocation();
+    // this.handlePDF = this.handlePDF.bind(this);
 
-    componentDidMount() {
-        this.userFirstName();
-        this.handleSomething();
-        this.handlePlacesToStay();
-    }
+    useEffect(() => {
+        userFirstName();
+        handleSomething();
+        handlePlacesToStay();
+    }, [])
 
-    userFirstName = async () => {
+    const userFirstName = async () => {
         const user = (await API.getUserData()).data;
-        this.setState({
+        setUser({
             firstname: user.firstname
         })
     }
 
-    updateUserTrip = async () => {
+    const updateUserTrip = async () => {
         const user = (await API.getUserData()).data;
         const userData = {
             id: user._id,
-            trips: this.props.values
+            trips: props.values
         }
+        API.updateUserTrip(userData);
+        swal('Trip saved!')
+        .then((confirm) => {
+            if (confirm) {
+                history.push('/past-trips');
+            } else {
+                return;
+            }
+        })
     }
 
-    addDefaultSrc(ev) {
+    function addDefaultSrc(ev) {
         ev.target.src = imgSrc;
         ev.target.onerror = null;
     }
 
-    handleSomething = async () => {
+    async function handleSomething() {
         try {
             const apiKey = process.env.REACT_APP_API_KEY;
-            const stopsInCity = this.props.values.stops.toString();
-            const budget = this.props.values.budget;
+            const stopsInCity = props.values.stops.toString();
+            const budget = props.values.budget;
             const proxyurl = "https://cors-anywhere.herokuapp.com/";
             let queryURL;
             
             if (budget <= 1000) {
-                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&price_level=0,1,2&sensor=false&key=" + apiKey;
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + props.values.endpoint + "&price_level=0,1,2&sensor=false&key=" + apiKey;
 
             } else {
-                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + this.props.values.endpoint + "&sensor=false&key=" + apiKey;
+                queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + stopsInCity + "+" + props.values.endpoint + "&sensor=false&key=" + apiKey;
             }
             
             await fetch(proxyurl + queryURL)
@@ -94,9 +101,9 @@ export default class Results extends React.Component {
             }
     }
 
-    handlePlacesToStay = async () => {
-        const night = this.props.values.night;
-        const endpoint = this.props.values.endpoint;
+    async function handlePlacesToStay() {
+        const night = props.values.night;
+        const endpoint = props.values.endpoint;
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
         let queryURL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + night + "+" + endpoint + "&sensor=false&key=" + apiKey;
@@ -150,7 +157,7 @@ export default class Results extends React.Component {
             
     }
 
-    handlePDF() {
+    const handlePDF = () => {
         var data = document.getElementById('forPDF');
         var pdf = new jsPDF('p','pt','a4');
         pdf.setFontSize(12);
@@ -160,12 +167,12 @@ export default class Results extends React.Component {
         data.style.display = 'none';
     }
 
-    handleDirections() {
-        const startpoint = this.props.values.startpoint;
-        const endpoint = this.props.values.endpoint;
+    const handleDirections = () => {
+        const startpoint = props.values.startpoint;
+        const endpoint = props.values.endpoint;
         const apiKey = process.env.REACT_APP_API_KEY;
         const proxyurl = "https://cors-anywhere.herokuapp.com/";
-        const vehicle = this.props.values.vehicle;
+        const vehicle = props.values.vehicle;
 
 
         let queryURL = `https://maps.googleapis.com/maps/api/directions/json?
@@ -177,8 +184,7 @@ export default class Results extends React.Component {
 
     }
 
-    render() {
-        let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = this.props;
+    let { values: { endpoint, budget, people, vehicle, startDate, endDate } } = props;
         
         return (
             <FadeIn transitionDuration="600">
@@ -186,11 +192,11 @@ export default class Results extends React.Component {
 
                 <div className="col-sm-12 scroll">
                     <div id="stickyheader">
-                        <button id="saveTrip" onClick={this.updateUserTrip}>Save Trip</button>
-                        <button id="download" onClick={this.handlePDF}>Download Trip</button>
+                        <button id="saveTrip" onClick={updateUserTrip}>Save Trip</button>
+                        <button id="download" onClick={handlePDF}>Download Trip</button>
                         <Link to="/home"><button id="homeBtn">Home</button></Link>
                     </div>
-                    <h3>{this.state.firstname}'s Trip to {endpoint}</h3>
+                    <h3>{user.firstname}'s Trip to {endpoint}</h3>
                     <div className="results-content">
                         <Moment className="results" format="MMMM DD, YYYY">
                             {startDate}
@@ -214,7 +220,7 @@ export default class Results extends React.Component {
                 </div>
 
                 <div id="forPDF">
-                    <h4>{this.state.firstname}'s Trip to {endpoint}</h4>
+                    <h4>{user.firstname}'s Trip to {endpoint}</h4>
                     <ul>
                         <li>Budget: {budget}</li>
                         <li>Trippers: {people}</li>
@@ -234,5 +240,6 @@ export default class Results extends React.Component {
             </div>
             </FadeIn>
         )
-    }
 }
+
+export default Results;

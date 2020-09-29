@@ -12,6 +12,7 @@ const Settings = () => {
     const [username, onChangeUsername] = useState('');
     const [password, onChangePassword] = useState('');
     const history = useHistory();
+    
     function onInputChange(event) {
         const {id, value} = event.target
             if(id === 'newusername') {
