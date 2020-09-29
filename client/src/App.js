@@ -21,7 +21,7 @@ import Loader from './components/Loader/index';
 import ResetPassword from './components/Reset Password/index';
 
 // setting up app
-import api from './utils/API';
+// import api from './utils/API';
 
 class App extends React.Component {
   constructor(props) {
@@ -45,19 +45,21 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    this.getUsers();
+    // this.getUsers();
+      this.props.history.push("/login");
+
   }
 
-  getUsers = async () => {
-    try {
-      const response = await api.authenticate();
-      if (response.status === 401) this.props.history.push("/login");
-      else this.setState({ signedIn: true });
-    } catch (err) {
-      console.log(err);
-      this.props.history.push("/login");
-    }
-  }
+  // getUsers = async () => {
+  //   try {
+  //     const response = await api.authenticate();
+  //     if (response.status === 401) this.props.history.push("/login");
+  //     else this.setState({ signedIn: true });
+  //   } catch (err) {
+  //     console.log(err);
+  //     this.props.history.push("/login");
+  //   }
+  // }
 
   render() {
     this.wait();
