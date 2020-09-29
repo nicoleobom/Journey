@@ -31,3 +31,9 @@
   float: left;
 
 }
+
+.customTheme {
+  background-color: #29301e !important;
+  color: white !important;
+  font-family: 'Varela Round', sans-serif;
+}

@@ -3,6 +3,7 @@ import { withRouter, useHistory, useLocation } from 'react-router-dom';
 import './index.css';
 import Logo from '../Logo/index';
 import swal from 'sweetalert';
+import ReactTooltip from "react-tooltip";
 
 function Nav(props) {
     const history = useHistory();
@@ -39,11 +40,26 @@ function Nav(props) {
                 <button name="/" className="navbar-brand" onClick={confirmRedirect}><Logo /></button>
             </nav>
             <nav className="col-sm-6 cols-2">
-                <button name="/" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-home" ></i></button>
-                <button name="/new-trip" id="newtrip" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-plus"></i></button>
-                <button name="/past-trips" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-car"></i></button>
-                <button name="/settings" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-cog"></i></button>
-                <button name="/logout" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-sign-out-alt"></i></button>
+                <button name="/" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-home" data-tip data-for="home"></i></button>
+                <ReactTooltip id="home" place="bottom" className="customTheme">
+                <span>Home</span>
+                </ReactTooltip>
+                <button name="/new-trip" id="newtrip" data-tip data-for="new-trip" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-plus"></i></button>
+                <ReactTooltip id="new-trip" place="bottom" className="customTheme">
+                <span>New Trip</span>
+                </ReactTooltip>
+                <button name="/past-trips" className="navbar-brand" data-tip data-for="past-trips" onClick={confirmRedirect}><i className="fas fa-car"></i></button>
+                <ReactTooltip id="past-trips" place="bottom" className="customTheme">
+                <span>Past Trips</span>
+                </ReactTooltip>
+                <button name="/settings" data-tip data-for="settings" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-cog"></i></button>
+                <ReactTooltip id="settings" place="bottom" className="customTheme">
+                <span>Settings</span>
+                </ReactTooltip>
+                <button name="/logout" data-tip data-for="logout" className="navbar-brand" onClick={confirmRedirect}><i className="fas fa-sign-out-alt"></i></button>
+                <ReactTooltip id="logout" place="bottom" className="customTheme">
+                <span>Logout</span>
+                </ReactTooltip>
             </nav>
         </div>
     );
