@@ -12,16 +12,30 @@
 
 Carve your path. Create your journey.
 
+<div align="center">
+    <img src="/readme/journey-login.PNG" alt="Journey" width="530"/>
+</div>
+
 Journey is a simple resource to help you plan your next trip whether you know where to go or not.
 
 ### How it works:
-
-* Sign up to create your account. Each user is stored securely in MongoDB Atlas with an encrypted password.
-* Create your first trip; it's okay if you don't know where to go.
-* Answer all questions - yes, "I don't know" is a valid answer for most of these!
-* Get your results
-* Export your results into a PDF to take with you on the go
-* Access your past trips through your home page after logging in
+<div align="center">
+    Sign up to create your account. Each user is stored securely in MongoDB Atlas with an encrypted password.<br />
+    <img src="/readme/journey-signup.PNG" alt="Journey Signup Page" width="530"/><br /><br />
+    Create your first trip; it's okay if you don't know where to go.<br />
+    <img src="/readme/journey-home.PNG" alt="Journey Home" width="530"/><br /><br />
+    Answer all questions - yes, "I don't know" is a valid answer for most of these!<br />
+    <img src="/readme/journey-idk.PNG" alt="Journey New Trip" width="530"/><br /><br />
+    Get your results<br />
+    <img src="/readme/journey-results1.PNG" alt="Journey Results" width="530"/><br />
+    <img src="/readme/journey-results2.PNG" alt="Journey Results" width="530"/><br />
+    <img src="/readme/journey-results3.PNG" alt="Journey Results" width="530"/><br /><br /><br />
+    Export your results into a PDF to take with you on the go<br />
+    Access your past trips after logging in<br />
+    <img src="/readme/journey-pasttrips.PNG" alt="Journey Past Trips Page" width="530"/><br /><br />
+    Edit your username and password through the settings tab<br />
+    <img src="/readme/journey-settings.PNG" alt="Journey Settings" width="530"/><br /><br />
+</div>
 
 ### Technologies Used:
 * MongoDB Atlas
