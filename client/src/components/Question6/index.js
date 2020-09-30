@@ -44,8 +44,6 @@ export default class Question6 extends React.Component {
 
     getVehicle() {
         vehicle = this.props.values.vehicle;
-        console.log(vehicle)
-
     }
 
     componentDidMount() {
