@@ -37,8 +37,6 @@ export default class Question2 extends React.Component {
                     query: place.formatted_address,
                 })
             }
-            const endpoint = this.state.query;
-            this.props.setLocation('endpoint', endpoint);
         })
     }
 
@@ -52,6 +50,8 @@ export default class Question2 extends React.Component {
         if (this.state.city === "" && document.getElementById('idk').clicked === undefined) {
             swal('Please enter a value or select "Take me anywhere!".')
         } else {
+            const endpoint = this.state.query;
+            this.props.setLocation('endpoint', endpoint);
             this.props.nextStep();
         }
     }
