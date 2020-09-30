@@ -40,9 +40,8 @@ export default class Menu extends React.Component {
                 <div ref = "root">
                     <div className="menubar">
                         <div className="hambclicker" onClick={ this._menuToggle }>
-                        <i className="fa fa-bars"></i>
                         </div>
-                        <div className="hambmenu" className={ menuStatus }>
+                        <div id="hambmenu" className={ menuStatus }>
                             <span></span>
                             <span></span>
                             <span></span>
