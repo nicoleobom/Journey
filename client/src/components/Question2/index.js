@@ -63,8 +63,12 @@ export default class Question2 extends React.Component {
         this.setState({
             city: randomLocation.city,
             query: randomCity,
-        });
-        this.props.setLocation('endpoint', randomCity);
+        })
+        swal({
+            title: "Yay!",
+            text: `You're going to ${randomLocation.city}, ${randomLocation.state}. Don't love this location? Click 'OK' and select 'Take me anywhere' again.`,
+            icon: "success",
+        })
     }
 
     onKeyPress(e) {

@@ -1,44 +1,42 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import './index.css';
-import Logo from '../Logo/index';
 
-export default class MobileNav extends React.Component {    
-    openMobileNav() {
-        var links = document.getElementById('myLinks');
-        if (links.style.visibility === 'visible') {
-            links.style.visibility = 'hidden';
-        } else {
-            links.style.visibility = 'visible';
+export default class MobileNav extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state ={ 
+            links: [{
+                text: 'Home',
+                link: '/home',
+                icon: 'fa-home'
+            }, {
+                text: 'Add Trip',
+                link: '/new-trip',
+                icon: 'fa-plus'
+            }, {
+                text: 'Past Trips',
+                link: '/past-trips',
+                icon: 'fa-car'
+            }, {
+                text: 'Settings',
+                link: '/settings',
+                icon: 'fa-cog'
+            }, {
+                text: 'Logout',
+                link: 'logout',
+                icon: 'fa-sign-out-alt'
+            }]
         }
-    }
-    
+    }    
+
     render() {
-        if (window.location.pathname.match(/login/) || window.location.pathname.match(/logout/) || window.location.pathname.match(/signup/) || window.location.pathname.match(/forgot-password/)){
-            return null;
-        } else {
+        let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${link.icon}`}></i><a href={link.link}>{link.text}</a></li>)
             return(
-                <Row id="m-nav" className="mobile-container">
-                    <Col>
-                        <div className="mobile-nav-logo">
-                            <Link to="/"><Logo /></Link>
-                        </div>
-                        <div className="topnav">
-                            <div id="myLinks">
-                                <Link to="/" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-home"></i></Link>
-                                <Link to="/new-trip" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-plus"></i></Link>
-                                <Link to="/past-trips" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-car"></i></Link>
-                                <Link to="/settings" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-cog"></i></Link>
-                                <Link to="/logout" onClick={this.openMobileNav} className="mobile-nav-link"><i className="fas fa-sign-out-alt"></i></Link>
-                            </div>
-                            <button className="icons" onClick={this.openMobileNav} >
-                                <i className="fa fa-bars"></i>
-                            </button>
-                        </div>
-                    </Col>
-                </Row>
+                <div className={this.props.menuStatus} id='menu'>
+                    <ul>
+                        { links }
+                    </ul>
+                </div>
             );
         }
-    }
 }
