@@ -4,6 +4,7 @@
 * [About](#about-journey)
 * [Usage](#how-it-works)
 * [Technology](#technologies-used)
+* [Upcoming](#plans-for-phase-2-dev)
 * [Installing](#install-instructions)
 * [License](#license)
 
@@ -27,6 +28,15 @@ Journey is a simple resource to help you plan your next trip whether you know wh
 * MongoDB
 * Google Places Autocomplete API
 * Bcrypt
+
+
+### Plans for Phase 2 Dev:
+* Implementing 'Forgot Password' function
+* Sound effects over hover of buttons
+* Linking out to each Google Place location
+* Checking flights and/or directions
+* Saving Google Place and Places to Stay to User in DB
+
 
 ## Install Instructions:
 npm start <br>
