@@ -18,6 +18,7 @@ function Results(props) {
         userFirstName();
         handleSomething();
         handlePlacesToStay();
+        // eslint-disable-next-line
     }, [])
 
     const userFirstName = async () => {

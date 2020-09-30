@@ -58,15 +58,19 @@ export default class Home extends React.Component {
                                     onMouseEnter={this.handleSoundToggle}
                                     icon={faPlus} />
                             </Link>
+                            <p>New Trip</p>
                             <Link to="/past-trips">
-                                <Circles 
-                                    icon={faCar}
-                                />
+                                <Circles icon={faCar} />
                             </Link>
+                            <p>Past Trips</p>
                         </div>
                         <div className="col-xs-6">
-                            <Link to="/settings"><Circles icon={faCog} /></Link>
+                            <Link to="/settings">
+                                <Circles icon={faCog} />
+                            </Link>
+                            <p>Settings</p>
                             <Link to="/logout"><Circles icon={faSignOutAlt} /></Link>
+                            <p>Logout</p>
                         </div>
                     </div>
                 </div>
