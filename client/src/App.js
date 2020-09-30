@@ -16,7 +16,7 @@ import ForgotPW from './pages/ForgotPW';
 
 // import components
 import Nav from './components/Navbar/index';
-import MobileNav from './components/MobileNav/index';
+import Menu from './components/MobileMenu/index';
 import Loader from './components/Loader/index';
 import ResetPassword from './components/Reset Password/index';
 
@@ -67,7 +67,7 @@ class App extends React.Component {
     return (
       <div className="container-fluid">
         <Nav />
-        <MobileNav />
+        <Menu />
         <Route path="/" exact component={Home} />
         <Route path="/home" exact component={Home} />
         <Route path="/login" exact component={Login} />
