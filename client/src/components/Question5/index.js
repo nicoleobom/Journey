@@ -18,7 +18,7 @@ export default class Question5 extends React.Component {
 
     checkBudget() {
         const budget = this.props.values.budget;
-        if (budget >= 500) {
+        if (budget >= 1001) {
             let node = document.createElement('option');
             node.className = ('option');
             node.id = ('plane');

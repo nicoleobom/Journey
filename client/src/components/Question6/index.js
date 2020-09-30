@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import swal from 'sweetalert';
 
-let budget;
+let vehicle;
 
 export default class Question6 extends React.Component {
     back = (event) => {
@@ -42,23 +42,24 @@ export default class Question6 extends React.Component {
         }
     }
 
-    getBudget() {
-        budget = this.props.values.budget;
+    getVehicle() {
+        vehicle = this.props.values.vehicle;
+        console.log(vehicle)
 
     }
 
     componentDidMount() {
-        this.getBudget();
+        this.getVehicle();
     }
 
-    checkBudget() {
+    checkVehicle() {
         let startDate = document.getElementById('start').value;
         let secondDateInput = document.getElementById('end');
         let endDate = new Date(startDate);
 
         let numOfDays = 5;
 
-        if (budget < 1000) {
+        if (vehicle === "Car" || vehicle === "Train" || vehicle === "Bus") {
             endDate.setDate(endDate.getDate() + numOfDays)
 
             var dd = endDate.getDate();
@@ -99,7 +100,7 @@ export default class Question6 extends React.Component {
                     <input id="start" type="date" min={dateString} onChange={this.props.handleChange('startDate')} defaultValue={values.startDate} />
                     <br />
                     <label htmlFor="end">End date:</label><br />
-                    <input id="end" type="date" onChange={this.props.handleChange('endDate')} onSelect={this.checkBudget} defaultValue={values.endDate} />
+                    <input id="end" type="date" onChange={this.props.handleChange('endDate')} onSelect={this.checkVehicle} defaultValue={values.endDate} />
                 </form>
                 <div className="col-sm-12">
                     <div className="row">
