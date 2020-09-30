@@ -28,7 +28,7 @@ export default class ForgotPW extends React.Component {
 
         }
         catch (err) {
-            swal('errrrrrrrr')
+            swal('error')
         }
         // if (response.emailAddress === undefined ) swal('User does not exist.');
         // if (response.emailAddress === emailAddress) swal('user exists, fool!');
