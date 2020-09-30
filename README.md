@@ -13,7 +13,7 @@
 Carve your path. Create your journey.
 
 <div align="center">
-    <img src="./readme/journey-login.png" alt="Journey" width="530"/>
+    <img src="/readme/journey-login.PNG" alt="Journey" width="530"/>
 </div>
 
 Journey is a simple resource to help you plan your next trip whether you know where to go or not.
@@ -34,9 +34,9 @@ Journey is a simple resource to help you plan your next trip whether you know wh
 </div>
 * Get your results
 <div align="center">
-    <img src="./readme/journey-results1.png" alt="Journey Results" width="530"/>
-    <img src="./readme/journey-results2.png" alt="Journey Results" width="530"/>
-    <img src="./readme/journey-results3.png" alt="Journey Results" width="530"/>
+    <img src="./readme/journey-results1.png" alt="Journey Results" width="530"/><br />
+    <img src="./readme/journey-results2.png" alt="Journey Results" width="530"/><br />
+    <img src="./readme/journey-results3.png" alt="Journey Results" width="530"/><br />
 </div>
 * Export your results into a PDF to take with you on the go
 * Access your past trips after logging in
