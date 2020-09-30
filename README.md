@@ -22,30 +22,30 @@ Journey is a simple resource to help you plan your next trip whether you know wh
 
 * Sign up to create your account. Each user is stored securely in MongoDB Atlas with an encrypted password.
 <div align="center">
-    <img src="./readme/journey-signup.png" alt="Journey Signup Page" width="530"/>
+    <img src="/readme/journey-signup.PNG" alt="Journey Signup Page" width="530"/>
 </div>
 * Create your first trip; it's okay if you don't know where to go.
 <div align="center">
-    <img src="./readme/journey-home.png" alt="Journey Home" width="530"/>
+    <img src="/readme/journey-home.PNG" alt="Journey Home" width="530"/>
 </div>
 * Answer all questions - yes, "I don't know" is a valid answer for most of these!
 <div align="center">
-    <img src="./readme/journey-idk.png" alt="Journey New Trip" width="530"/>
+    <img src="/readme/journey-idk.PNG" alt="Journey New Trip" width="530"/>
 </div>
 * Get your results
 <div align="center">
-    <img src="./readme/journey-results1.png" alt="Journey Results" width="530"/><br />
-    <img src="./readme/journey-results2.png" alt="Journey Results" width="530"/><br />
-    <img src="./readme/journey-results3.png" alt="Journey Results" width="530"/><br />
+    <img src="/readme/journey-results1.PNG" alt="Journey Results" width="530"/><br />
+    <img src="/readme/journey-results2.PNG" alt="Journey Results" width="530"/><br />
+    <img src="/readme/journey-results3.PNG" alt="Journey Results" width="530"/><br />
 </div>
 * Export your results into a PDF to take with you on the go
 * Access your past trips after logging in
 <div align="center">
-    <img src="./readme/journey-pasttrips.png" alt="Journey Past Trips Page" width="530"/>
+    <img src="/readme/journey-pasttrips.PNG" alt="Journey Past Trips Page" width="530"/>
 </div>
 * Edit your username and password through the settings tab
 <div align="center">
-    <img src="./readme/journey-settings.png" alt="Journey Settings" width="530"/>
+    <img src="/readme/journey-settings.PNG" alt="Journey Settings" width="530"/>
 </div>
 
 ### Technologies Used:
